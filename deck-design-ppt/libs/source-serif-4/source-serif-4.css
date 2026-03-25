@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "Source Serif 4";
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url("./SourceSerif4-Variable.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Source Serif 4";
+  font-style: italic;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url("./SourceSerif4-Italic-Variable.ttf") format("truetype");
+}

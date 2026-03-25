@@ -1,0 +1,28 @@
+/* McKinsey — Institutional Blue-Gray
+ *
+ * Verdict-first, evidence-over-ornament. Navy header bar at top of
+ * every content slide. One blue hue (HSL ~210) at different lightness.
+ */
+
+[data-palette="consulting-mckinsey"] {
+  /* Core */
+  --surface-dark:   #0A0E14;  /* Cover and divider backgrounds */
+  --accent:         #123A63;  /* Header bar, action titles, chart bars */
+  --accent-light:   #C7D5E5;  /* Panel borders, gridlines, evidence strokes */
+  --surface-muted:  #E4EDF7;  /* Evidence fills, card backgrounds */
+  --surface:        #F3F6FA;  /* Default slide background */
+
+  /* Text */
+  --text:           #101A27;  /* Body copy, headlines on light surfaces */
+  --text-muted:     #4E6176;  /* Secondary text, annotations, axis labels */
+  --text-fine:      #71859A;  /* Footnotes, source lines */
+  --text-on-dark:   #FFFFFF;
+
+  /* Chart */
+  --chart-primary:  #123A63;  /* Primary series */
+  --chart-secondary:#999999;  /* Comparator series */
+
+  /* Typography — Inter for institutional consistency */
+  --font-heading:   'Inter', system-ui, sans-serif;
+  --font-body:      'Inter', system-ui, sans-serif;
+}

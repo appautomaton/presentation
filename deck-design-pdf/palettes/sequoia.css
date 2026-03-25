@@ -1,0 +1,30 @@
+/* Sequoia — Dark + Red
+ *
+ * Dark, dramatic, high-stakes. Crisis messaging, downturn memos,
+ * strategic inflection points. Red accent on near-black canvas.
+ * Georgia serif for authority.
+ */
+
+[data-palette="sequoia"] {
+  /* Core */
+  --surface-dark:   #0D0B0A;  /* Default slide background (dark theme) */
+  --surface:        #0D0B0A;  /* Default is dark for this palette */
+  --surface-muted:  #1A1614;  /* Card backgrounds, elevated surfaces */
+  --accent:         #E8554D;  /* Headlines, accent bars, focal metrics */
+  --accent-light:   #2A2420;  /* Card borders, dividers */
+  --border:         #2A2420;
+
+  /* Text — light on dark */
+  --text:           #F5F0E5;  /* Primary body text, card labels */
+  --text-muted:     #B0B0B0;  /* Secondary text, context lines */
+  --text-fine:      #999999;  /* Captions, footnotes */
+  --text-on-dark:   #F5F0E5;
+
+  /* Chart */
+  --chart-primary:  #E8554D;  /* Red — primary emphasis */
+  --chart-secondary:#888888;  /* Muted — non-focus */
+
+  /* Typography — Georgia serif for display, Inter for body */
+  --font-heading:   'Georgia', 'Times New Roman', serif;
+  --font-body:      'Inter', system-ui, sans-serif;
+}

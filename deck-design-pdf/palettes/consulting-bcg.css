@@ -1,0 +1,34 @@
+/* BCG — Green-Anchored
+ *
+ * Process-transparent, framework-first. Green rule below every action
+ * title (signature). Panel mini-headers with local green underline.
+ */
+
+[data-palette="consulting-bcg"] {
+  /* Core */
+  --surface-dark:   #1A1A1A;  /* Section divider overlay background */
+  --accent:         #0F6B4F;  /* Section labels, structural accent, panel headers */
+  --accent-light:   #6AB648;  /* Header rule, panel mini-rules — BCG signature */
+  --surface-muted:  #F5F6F4;  /* Alternate row fills, low-salience zones */
+  --surface:        #FFFFFF;  /* Default slide canvas */
+  --border:         #D0D0D0;  /* Panel borders, table gridlines */
+
+  /* Text */
+  --text:           #111111;  /* Action titles, body text */
+  --text-muted:     #5F6368;  /* Subtitles, notes, axis labels */
+  --text-fine:      #5F6368;
+  --text-on-dark:   #FFFFFF;
+
+  /* Chart */
+  --chart-primary:  #1F7A5A;  /* Teal-green primary series */
+  --chart-secondary:#999999;
+
+  /* RAG washes for evaluation matrices */
+  --rag-positive:   rgba(62, 158, 90, 0.18);
+  --rag-caution:    rgba(231, 179, 61, 0.20);
+  --rag-negative:   rgba(200, 90, 84, 0.16);
+
+  /* Typography */
+  --font-heading:   'DM Sans', system-ui, sans-serif;
+  --font-body:      'DM Sans', system-ui, sans-serif;
+}

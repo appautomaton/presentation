@@ -1,0 +1,9 @@
+{
+  "name": "brand-system",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Visual identity system — palettes, fonts, style direction, preview rendering",
+  "dependencies": {
+    "playwright": "^1.52.0"
+  }
+}

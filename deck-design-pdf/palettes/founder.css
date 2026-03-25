@@ -1,0 +1,34 @@
+/* Founder — Modern Blue
+ *
+ * Clean, friendly, modern. For startup pitches, board updates,
+ * product narratives, growth stories. One blue hue with cyan accent.
+ */
+
+[data-palette="founder"] {
+  /* Core */
+  --surface-dark:   #0B2D72;  /* Dark hero backgrounds */
+  --accent:         #0992C2;  /* Taglines, metrics, icon highlights */
+  --accent-light:   #D4DEE8;  /* Dividers, card borders */
+  --surface-muted:  #F5F8FB;  /* Light card fills */
+  --surface:        #F5F8FB;  /* Default slide background */
+
+  /* Text */
+  --text:           #333333;  /* Body copy on light surfaces */
+  --text-muted:     #666666;  /* Detail text, captions */
+  --text-fine:      #666666;
+  --text-on-dark:   #FFFFFF;
+
+  /* Chart — multi-series */
+  --chart-primary:  #0992C2;  /* Blue */
+  --chart-secondary:#2AADAD;  /* Teal */
+  --chart-tertiary: #6651B8;  /* Violet */
+
+  /* Signal — status indicators */
+  --signal-positive:#2E9E5A;
+  --signal-caution: #E8A317;
+  --signal-negative:#D04545;
+
+  /* Typography */
+  --font-heading:   'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-body:      'Plus Jakarta Sans', system-ui, sans-serif;
+}

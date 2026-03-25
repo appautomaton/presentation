@@ -1,0 +1,57 @@
+/* Deck Design PDF — Base Canvas
+ *
+ * The engine injects slide dimensions at render time. Defaults resolve to
+ * 1280×720 when no explicit size is provided.
+ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  width: var(--slide-width, 1280px);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: var(--slide-width, 1280px);
+  min-height: var(--slide-height, 720px);
+  overflow: visible;
+}
+
+body {
+  font-family: var(--font-body, 'Inter', system-ui, sans-serif);
+  color: var(--text, #1a1a1a);
+  background: var(--surface, #ffffff);
+}
+
+.slide {
+  width: var(--slide-width, 1280px);
+  height: var(--slide-height, 720px);
+  overflow: hidden;
+  position: relative;
+  background: var(--surface, #ffffff);
+  page-break-after: always;
+  break-after: page;
+}
+
+.slide:last-child {
+  page-break-after: auto;
+  break-after: auto;
+}
+
+@media print {
+  html, body {
+    width: var(--slide-width, 1280px);
+  }
+
+  body {
+    min-height: auto;
+    overflow: visible;
+  }
+}

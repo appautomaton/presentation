@@ -1,0 +1,33 @@
+/* Meridian Partners — Google AI Strategy
+ *
+ * Google brand colors muted for consulting gravitas.
+ * Deep navy primary, Google Blue accent, emerald/amber/coral signals.
+ */
+
+[data-palette="meridian-google"] {
+  /* Core */
+  --surface-dark:   #1A2744;  /* Cover and divider backgrounds */
+  --accent:         #4285F4;  /* Google Blue — headers, highlights, chart primary */
+  --accent-light:   #A8C7FA;  /* Panel borders, gridlines */
+  --surface-muted:  #E8F0FE;  /* Card backgrounds, evidence fills */
+  --surface:        #F8F9FA;  /* Default slide background */
+
+  /* Text */
+  --text:           #1A2744;  /* Body copy, headlines on light surfaces */
+  --text-muted:     #5F6368;  /* Secondary text, annotations */
+  --text-fine:      #9AA0A6;  /* Footnotes, source lines */
+  --text-on-dark:   #FFFFFF;
+
+  /* Chart */
+  --chart-primary:  #4285F4;  /* Google Blue */
+  --chart-secondary:#9AA0A6;  /* Neutral mid */
+
+  /* Signal colors (use inline, not as tokens) */
+  /* --positive: #0D9D58  Emerald */
+  /* --warning:  #F4B400  Amber */
+  /* --negative: #DB4437  Coral */
+
+  /* Typography — Inter + JetBrains Mono */
+  --font-heading:   'Inter', system-ui, sans-serif;
+  --font-body:      'Inter', system-ui, sans-serif;
+}

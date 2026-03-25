@@ -1,0 +1,38 @@
+/* Anthropic-Adjacent Consulting
+ *
+ * Warm ivory canvas, slate structure, and clay focus accent adapted from
+ * Anthropic's public web palette. Intended for strategy decks that should
+ * feel rigorous and human, not cold enterprise software.
+ */
+
+[data-palette="anthropic-consulting"] {
+  /* Core */
+  --surface-dark:    #141413;  /* Anthropic slate */
+  --accent:          #C6613F;  /* Clay focus accent */
+  --accent-light:    #E3DACC;  /* Oat / quiet separators */
+  --surface-muted:   #F0EEE6;  /* Warm working surface */
+  --surface:         #FAF9F5;  /* Main canvas */
+  --border:          #D1CFC5;  /* Cloud light */
+
+  /* Text */
+  --text:            #141413;
+  --text-muted:      #5E5D59;
+  --text-fine:       #87867F;
+  --text-on-dark:    #FAF9F5;
+
+  /* Chart */
+  --chart-primary:   #C6613F;  /* Focus series */
+  --chart-secondary: #788C5D;  /* Olive support */
+  --chart-tertiary:  #6A9BCC;  /* Sky comparison */
+
+  /* Signal */
+  --signal-positive: #788C5D;
+  --signal-caution:  #D4A27F;
+  --signal-negative: #C46686;
+
+  /* Typography
+   * Google Fonts are loaded by the build script via headExtra.
+   */
+  --font-heading:    'Manrope', system-ui, sans-serif;
+  --font-body:       'Manrope', system-ui, sans-serif;
+}
