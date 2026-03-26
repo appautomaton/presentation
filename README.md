@@ -57,6 +57,17 @@ graph LR
 
 Each skill also works independently.
 
+## Repo structure
+
+> [!NOTE]
+> **`vendor/`** folders (fonts, icons, chart libs) are committed. They enable offline rendering with zero network dependency at build time.
+>
+> **`node_modules/`** folders are gitignored. Run `npm install` per skill after cloning.
+
 ## License
 
 MIT
+
+---
+
+🤖 Checkout [linux.do](https://linux.do) for more fun stuff about AI!
