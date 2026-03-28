@@ -1,93 +1,167 @@
-const { STANDARD_COLORS, cssText, defineExample, getTemplateTextStyles } = require('./_shared');
+const fs = require('fs');
+const path = require('path');
+const INTER_DIR = path.join(__dirname, '../vendor/fonts/inter');
+const INTER_CSS = [400, 600, 700].map(w => {
+  const file = path.join(INTER_DIR, `${w}.css`);
+  return fs.readFileSync(file, 'utf8').replace(/url\(\.\//g, `url(file://${INTER_DIR}/`);
+}).join('\n');
 
-module.exports = defineExample({
-  id: 'coverage-matrix',
-  title: 'Coverage / Reallocation Matrix',
-  tier: 3,
-  proves: 'current vs. recommended resource allocation across channels and segments',
-  data: 'Sales coverage reallocation across 4 channels × 4 segments',
+// ---------------------------------------------------------------------------
+// Palette
+// ---------------------------------------------------------------------------
+const navy        = '#123A63';
+const blue        = '#2E7D9B';
+const textStrong  = '#101A27';
+const textMuted   = '#4E6176';
+const textLight   = '#8BA5BD';
+const border      = '#D7E4EE';
+const borderSoft  = '#E8F0F7';
+const success     = '#2E9E5A';
+const danger      = '#A43C35';
+
+// ---------------------------------------------------------------------------
+// Data
+// ---------------------------------------------------------------------------
+const segments = ['Enterprise', 'Mid-Market', 'SMB', 'New Logos'];
+const channels = [
+  { name: 'Field Sales',         cells: [{ lev:'H', dir:'→' },{ lev:'M', dir:'↑' },{ lev:'M', dir:'↓' },{ lev:'L', dir:'↑' }], net: '−15' },
+  { name: 'Inside Sales',        cells: [{ lev:'L', dir:'→' },{ lev:'H', dir:'→' },{ lev:'H', dir:'↓' },{ lev:'M', dir:'↑' }], net: '−10' },
+  { name: 'Channel Partners',    cells: [{ lev:'M', dir:'→' },{ lev:'L', dir:'↑' },{ lev:'M', dir:'→' },{ lev:'L', dir:'→' }], net: '+5'  },
+  { name: 'Digital / Self-Serve',cells: [{ lev:'L', dir:'→' },{ lev:'L', dir:'↑' },{ lev:'L', dir:'↑' },{ lev:'M', dir:'↑' }], net: '+20' },
+];
+const summaryMetrics = [
+  { val: '0',     label: 'net headcount change'    },
+  { val: '+$18M', label: 'projected revenue uplift' },
+  { val: '6 mo',  label: 'full ramp to target'      },
+];
+
+// ---------------------------------------------------------------------------
+// Export
+// ---------------------------------------------------------------------------
+module.exports = {
+  id:           'coverage-matrix',
+  title:        'Coverage / Reallocation Matrix',
+  tier:         3,
+  proves:       'current vs. recommended resource allocation across channels and segments',
+  data:         'Sales coverage reallocation across 4 channels × 4 segments',
   sectionLabel: 'Commercial Reallocation',
-  actionTitle: 'Shift 40 sales reps from low-ROI SMB field coverage to high-growth Mid-Market digital',
-  source: 'Source: Sales capacity model, CRO planning team',
-  exhibitId: 'Exhibit 13.1',
-  responsiveSpec: {
-    templateClass: 'layout',
-    previewSamples: [
-      { label: 'compact', width: 1024, height: 576 },
-      { label: 'preferred', width: 1280, height: 720 },
-      { label: 'wide', width: 1440, height: 810 },
-    ],
-    agentSizingNotes: 'Coverage matrices need balanced column widths. At compact width, abbreviate channel names or reduce to 3 segments.',
-  },
+  actionTitle:  'Shift 40 sales reps from low-ROI SMB field coverage to high-growth Mid-Market digital',
+  source:       'Source: Sales capacity model, CRO planning team',
+  exhibitId:    'Exhibit 13.1',
+
   renderExhibit({ tokens }) {
-    const colors = STANDARD_COLORS;
-    const text = getTemplateTextStyles(tokens, colors);
-
-    const segments = ['Enterprise', 'Mid-Market', 'SMB', 'New Logos'];
-    const channels = [
-      { name: 'Field Sales', cells: [{ lev: 'H', dir: '→' }, { lev: 'M', dir: '↑' }, { lev: 'M', dir: '↓' }, { lev: 'L', dir: '↑' }], net: '−15' },
-      { name: 'Inside Sales', cells: [{ lev: 'L', dir: '→' }, { lev: 'H', dir: '→' }, { lev: 'H', dir: '↓' }, { lev: 'M', dir: '↑' }], net: '−10' },
-      { name: 'Channel Partners', cells: [{ lev: 'M', dir: '→' }, { lev: 'L', dir: '↑' }, { lev: 'M', dir: '→' }, { lev: 'L', dir: '→' }], net: '+5' },
-      { name: 'Digital / Self-Serve', cells: [{ lev: 'L', dir: '→' }, { lev: 'L', dir: '↑' }, { lev: 'L', dir: '↑' }, { lev: 'M', dir: '↑' }], net: '+20' },
-    ];
-
-    const levStyles = {
-      H: { bg: colors.accent, text: '#fff' },
-      M: { bg: colors.textLight, text: '#fff' },
-      L: { bg: colors.borderSoft, text: colors.textMuted },
+    const minDim = Math.min(tokens.width, tokens.height);
+    const lerp = (range) => {
+      const [lo, hi] = range;
+      return Math.max(lo, Math.min(hi, Math.round(lo + (minDim - 300) / (720 - 300) * (hi - lo))));
     };
-    const arrowColors = { '↑': colors.success, '↓': colors.danger, '→': colors.textLight };
-    const badgeSize = tokens.adapt(22, 28, 32);
-    const arrowSize = tokens.adapt(14, 18, 20);
+
+    const bodyFont  = lerp([9,  13]);
+    const microFont = lerp([7,  10]);
+    const badgeW    = lerp([18, 26]);
+    const cellPadY  = lerp([5,  11]);
+    const cellPadX  = lerp([6,  14]);
+    const gap       = lerp([6,  12]);
+    const statFont  = lerp([14, 20]);
+
+    // H/M/L badge styles
+    const levBg    = { H: navy,       M: blue,  L: borderSoft };
+    const levColor = { H: '#ffffff',  M: '#fff', L: textMuted  };
+
+    // Arrow colours
+    const arrowColor = { '↑': success, '↓': danger, '→': textLight };
+
+    // ------------------------------------------------------------------
+    // Thead
+    // ------------------------------------------------------------------
+    const thBase = `padding:${cellPadY}px ${cellPadX}px;font-family:'Inter',sans-serif;font-size:${microFont}px;font-weight:600;color:${textMuted};text-transform:uppercase;letter-spacing:0.04em;`;
 
     const headerCells = segments.map(s =>
-      `<th style="padding:${tokens.tableCellPadY}px ${tokens.tableCellPadX}px;text-align:center;${cssText(text.tableHeader)};">${s}</th>`
+      `<th style="${thBase}text-align:center;">${s}</th>`
     ).join('');
 
-    const bodyRows = channels.map(ch => {
-      const cells = ch.cells.map(c => {
-        const ls = levStyles[c.lev];
-        return `<td style="padding:${tokens.adapt(6, 8, 10)}px ${tokens.adapt(8, 12, 14)}px;text-align:center;">
-          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
-            <span style="font-size:${tokens.smallText}px;font-weight:700;width:${badgeSize}px;height:${badgeSize - 4}px;border-radius:4px;display:flex;align-items:center;justify-content:center;background:${ls.bg};color:${ls.text};">${c.lev}</span>
-            <span style="font-size:${arrowSize}px;font-weight:700;color:${arrowColors[c.dir]};">${c.dir}</span>
+    // ------------------------------------------------------------------
+    // Tbody
+    // ------------------------------------------------------------------
+    const bodyRows = channels.map((ch, ri) => {
+      const rowBorder = ri < channels.length - 1
+        ? `border-bottom:1px solid ${borderSoft};`
+        : '';
+
+      const dataCells = ch.cells.map(c => {
+        const bg  = levBg[c.lev];
+        const fg  = levColor[c.lev];
+        const arr = arrowColor[c.dir];
+        return `<td style="padding:${cellPadY}px ${cellPadX}px;text-align:center;">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:3px;">
+            <div style="width:${badgeW}px;height:${badgeW}px;background:${bg};color:${fg};display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-size:${microFont}px;font-weight:700;">${c.lev}</div>
+            <span style="font-family:'Inter',sans-serif;font-size:${microFont}px;font-weight:700;color:${arr};">${c.dir}</span>
           </div>
         </td>`;
       }).join('');
 
-      const netColor = ch.net.startsWith('+') ? colors.success : ch.net.startsWith('−') ? colors.danger : colors.textLight;
+      const netColor = ch.net.startsWith('+') ? success
+                     : ch.net.startsWith('−') ? danger
+                     : textLight;
 
-      return `<tr style="border-bottom:1px solid rgba(199,213,229,0.4);">
-        <td style="padding:${tokens.tableCellPadY}px ${tokens.tableCellPadX}px;font-weight:500;color:${colors.textStrong};font-size:${tokens.bodyText}px;">${ch.name}</td>
-        ${cells}
-        <td style="padding:${tokens.tableCellPadY}px ${tokens.tableCellPadX}px;text-align:center;font-size:${tokens.bodyText}px;font-weight:700;color:${netColor};">${ch.net}</td>
+      return `<tr style="${rowBorder}">
+        <td style="padding:${cellPadY}px ${cellPadX}px;font-family:'Inter',sans-serif;font-size:${bodyFont}px;font-weight:600;color:${textStrong};">${ch.name}</td>
+        ${dataCells}
+        <td style="padding:${cellPadY}px ${cellPadX}px;text-align:center;font-family:'Inter',sans-serif;font-size:${bodyFont}px;font-weight:700;color:${netColor};">${ch.net}</td>
       </tr>`;
     }).join('');
 
-    const summaryMetrics = [
-      { val: '0', label: 'net headcount change', color: colors.accent },
-      { val: '+$18M', label: 'projected revenue uplift', color: colors.success },
-      { val: '6 mo', label: 'full ramp to target', color: colors.accent },
-    ];
-
-    const summaryHtml = summaryMetrics.map(m =>
-      `<div><span style="font-size:${tokens.adapt(16, 20, 24)}px;font-weight:700;color:${m.color};">${m.val}</span><span style="font-size:${tokens.smallText}px;color:${colors.textMuted};margin-left:6px;">${m.label}</span></div>`
+    // ------------------------------------------------------------------
+    // Summary strip
+    // ------------------------------------------------------------------
+    const statsHtml = summaryMetrics.map(m =>
+      `<div style="display:flex;align-items:baseline;gap:${Math.round(gap * 0.6)}px;">
+        <span style="font-family:'Inter',sans-serif;font-size:${statFont}px;font-weight:700;color:${navy};">${m.val}</span>
+        <span style="font-family:'Inter',sans-serif;font-size:${microFont}px;color:${textMuted};">${m.label}</span>
+      </div>`
     ).join('');
 
-    return `<div class="h-full w-full" style="display:grid;grid-template-rows:minmax(0,1fr) auto;gap:${tokens.adapt(8, 12, 14)}px;">
-      <table style="width:100%;border-collapse:collapse;font-family:var(--font-body);">
-        <thead>
-          <tr style="border-bottom:2px solid ${colors.accent};">
-            <th style="text-align:left;padding:${tokens.tableCellPadY}px ${tokens.tableCellPadX}px;${cssText(text.tableHeader)};">Channel</th>
-            ${headerCells}
-            <th style="text-align:center;padding:${tokens.tableCellPadY}px ${tokens.tableCellPadX}px;color:${colors.textLight};font-weight:600;font-size:${tokens.smallText}px;">Net Δ FTEs</th>
-          </tr>
-        </thead>
-        <tbody>${bodyRows}</tbody>
-      </table>
-      <div style="padding:${tokens.adapt(8, 12, 14)}px ${tokens.adapt(10, 14, 16)}px;background:#F3F6FA;border-radius:${tokens.exhibitRadius}px;display:flex;gap:${tokens.adapt(16, 24, 28)}px;">
-        ${summaryHtml}
-      </div>
+    // ------------------------------------------------------------------
+    // Insight callout
+    // ------------------------------------------------------------------
+    const callout = `<div style="border-left:3px solid ${navy};padding:${Math.round(cellPadY * 0.8)}px ${cellPadX}px;font-family:'Inter',sans-serif;font-size:${microFont}px;color:${textMuted};line-height:1.4;">
+      Digital and Channel routes require net FTE additions; Enterprise Field and Inside Sales absorb the reductions—net org impact is flat.
     </div>`;
+
+    // ------------------------------------------------------------------
+    // Full layout
+    // ------------------------------------------------------------------
+    return `<style>${INTER_CSS}</style>
+<div class="h-full w-full" style="display:grid;grid-template-rows:minmax(0,1fr) auto;gap:${gap}px;padding:2px;overflow:hidden;">
+
+  <div style="overflow:auto;">
+    <table style="width:100%;table-layout:fixed;border-collapse:collapse;">
+      <colgroup>
+        <col style="width:28%;">
+        <col style="width:minmax(0,1fr);">
+        <col style="width:minmax(0,1fr);">
+        <col style="width:minmax(0,1fr);">
+        <col style="width:minmax(0,1fr);">
+        <col style="width:10%;">
+      </colgroup>
+      <thead>
+        <tr style="border-bottom:2px solid ${navy};">
+          <th style="${thBase}text-align:left;">Channel</th>
+          ${headerCells}
+          <th style="${thBase}text-align:center;">Net&nbsp;Δ&nbsp;FTEs</th>
+        </tr>
+      </thead>
+      <tbody>${bodyRows}</tbody>
+    </table>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:${gap}px;">
+    ${callout}
+    <div style="border-top:1px solid ${border};padding-top:${gap}px;display:flex;gap:${gap * 3}px;flex-wrap:wrap;">
+      ${statsHtml}
+    </div>
+  </div>
+
+</div>`;
   },
-});
+};
