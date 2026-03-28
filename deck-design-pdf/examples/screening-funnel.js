@@ -1,6 +1,36 @@
-const { STANDARD_COLORS, cssText, defineExample, getTemplateTextStyles } = require('./_shared');
+const fs   = require('fs');
+const path = require('path');
 
-module.exports = defineExample({
+// Load vendored Source Sans 3 (weights: 400, 600, 700) — Bain's typeface
+const SS3_DIR = path.join(__dirname, '../vendor/fonts/source-sans-3');
+const SS3_CSS = [400, 600, 700].map(w => {
+  const file = path.join(SS3_DIR, `${w}.css`);
+  return fs.readFileSync(file, 'utf8')
+    .replace(/url\(\.\//g, `url(file://${SS3_DIR}/`);
+}).join('\n');
+
+// ════════════════════════════════════════════════════════════════════════
+// Screening Funnel — Bain style
+// ════════════════════════════════════════════════════════════════════════
+// Systematic elimination logic: how a broad universe narrows to finalists.
+// Bain aesthetic: Source Sans 3, charcoal bars narrowing to one red focal
+// bar at the bottom, elimination counts in red, everything else gray.
+// Recommended minimum: 400px on the shorter side.
+//
+// Responsive template for agentic AI. Three things to change:
+//   1. Brand variables  → swap from Bain palette if needed
+//   2. Data             → swap stages array (label, count, pct, width, filter, eliminated)
+//   3. Sizing limits    → tune knobs if defaults don't fit
+//
+// Design notes for agents:
+//   • stages[0] has no filter/eliminated — it is the starting universe
+//   • width is a CSS percentage string controlling bar width
+//   • Bain rule: ONE red element per exhibit — here it is the finalist bar
+//     and the elimination counts (the key insight is what was cut)
+//   • Bars are center-aligned so the funnel narrows symmetrically
+//   • No rounded corners, no opacity tricks, no card UI
+
+module.exports = {
   id: 'screening-funnel',
   title: 'Screening Funnel',
   tier: 3,
@@ -10,91 +40,105 @@ module.exports = defineExample({
   actionTitle: 'Of 47 candidates evaluated, 3 survive all four screens — strategic fit and deal readiness are the binding constraints',
   source: 'Source: Target universe analysis, M&A team (March 2026)',
   exhibitId: 'Exhibit 12.1',
-  responsiveSpec: {
-    templateClass: 'layout',
-    previewSamples: [
-      { label: 'compact', width: 1024, height: 576 },
-      { label: 'preferred', width: 1280, height: 720 },
-      { label: 'wide', width: 1440, height: 810 },
-    ],
-    agentSizingNotes: 'Screening funnels are vertically oriented. At compact heights, reduce to 3 stages or abbreviate elimination rationale.',
-  },
-  renderExhibit({ tokens }) {
-    const colors = STANDARD_COLORS;
-    const text = getTemplateTextStyles(tokens, colors);
 
+  renderExhibit({ tokens }) {
+    // ── 1. Brand variables (Bain palette) ───────────────────────────────
+    const fontFamily  = "'Source Sans 3', sans-serif";
+    const charcoal    = '#2B2B2B';   // default bar color
+    const red         = '#CC0000';   // Bain red — finalist bar + elimination counts
+    const textStrong  = '#1A1A1A';
+    const textMuted   = '#666666';
+    const textFine    = '#888888';
+    const rule        = '#D8D5D2';   // warm gray rule
+
+    // ── 2. Data ─────────────────────────────────────────────────────────
+    // width is computed from count using sqrt-scaling for visual balance:
+    //   raw % (6%) would make the last bar unreadably thin;
+    //   sqrt scale compresses the range while preserving relative order.
+    //   A lerp-based min-width (set below) prevents any bar from being
+    //   too narrow to show its content at small container sizes.
     const stages = [
-      { label: 'Initial Universe', count: 47, pct: '100%', width: '100%', filter: null, eliminated: null },
-      { label: 'Revenue ≥$50M', count: 28, pct: '60%', width: '75%', filter: 'Size filter', eliminated: '19 below revenue threshold' },
-      { label: 'Strategic Fit', count: 12, pct: '26%', width: '52%', filter: 'Capability overlap', eliminated: '16 lack core technology or market position' },
-      { label: 'Financial Health', count: 6, pct: '13%', width: '36%', filter: 'Balance sheet screen', eliminated: '6 excessive leverage or declining margins' },
-      { label: 'Deal Readiness', count: 3, pct: '6%', width: '24%', filter: 'Willingness & timing', eliminated: '3 not for sale or in competing processes' },
+      { label: 'Initial Universe',    count: 47, filter: null,                      eliminated: null },
+      { label: 'Revenue ≥$50M',       count: 28, filter: 'Size filter',             eliminated: '19 below revenue threshold' },
+      { label: 'Strategic Fit',       count: 12, filter: 'Capability overlap',      eliminated: '16 lack core technology or market position' },
+      { label: 'Financial Health',    count:  6, filter: 'Balance sheet screen',    eliminated: '6 excessive leverage or declining margins' },
+      { label: 'Deal Readiness',      count:  3, filter: 'Willingness & timing',    eliminated: '3 not for sale or in competing processes' },
     ];
 
-    const barH = tokens.adapt(42, 50, 56);
-    const gap = tokens.adapt(8, 10, 12);
-    const cardGap = tokens.adapt(10, 14, 18);
+    const callout = '3 finalists advance: TargetCo Alpha ($280M rev, SaaS platform), TargetCo Beta ($180M rev, data infra), and TargetCo Gamma ($95M rev, vertical AI). Proceed to detailed diligence on all three.';
 
-    const rows = stages.map((s, i) => {
-      const isFirst = i === 0;
-      const isLast = i === stages.length - 1;
-      const barColor = isLast ? colors.success : (isFirst ? colors.accent : colors.accentAlt);
-      const barOpacity = isFirst ? 1 : (0.4 + (i / stages.length) * 0.6);
+    // ── 3. Sizing limits ────────────────────────────────────────────────
+    const barHRange         = [28, 44];  // [min, max] px bar height
+    const countFontRange    = [16, 26];  // [min, max] px for count number
+    const labelFontRange    = [9,  13];  // [min, max] px for stage label
+    const elimFontRange     = [8,  11];  // [min, max] px for elimination note
+    const calloutRange      = [9,  12];  // [min, max] px for bottom callout
+    const barPadRange       = [6,  14];  // [min, max] px horizontal bar padding
+    const gapRange          = [3,  7];   // [min, max] px between elements
+    const minBarWidthRange  = [80, 120]; // [min, max] px — prevents narrowest bar from clipping content
 
-      const retained = i === 0 ? '100% retained' : `${s.pct} retained`;
-      const previousCount = i === 0 ? null : stages[i - 1].count;
-      const eliminatedCount = previousCount === null ? null : previousCount - s.count;
+    // ── Responsive sizing (computed — don't edit) ────────────────────────
+    const minDim = Math.min(tokens.width, tokens.height);
+    const lerp = (range) => {
+      const [lo, hi] = range;
+      return Math.max(lo, Math.min(hi,
+        Math.round(lo + (minDim - 300) / (720 - 300) * (hi - lo))));
+    };
 
-      const stageBar = `
-        <div style="display:flex;justify-content:center;">
-          <div style="width:${s.width};min-width:${tokens.adapt(180, 240, 280)}px;height:${barH}px;background:${barColor};opacity:${barOpacity};border-radius:${tokens.adapt(6, 8, 10)}px;display:grid;grid-template-columns:${tokens.adapt(54, 66, 74)}px 1fr auto;align-items:center;padding:0 ${tokens.adapt(12, 16, 18)}px;column-gap:${tokens.adapt(8, 12, 14)}px;">
-            <div style="font-size:${tokens.adapt(22, 30, 34)}px;font-weight:700;color:#fff;line-height:1;text-align:right;">${s.count}</div>
-            <div style="min-width:0;">
-              <div style="font-size:${tokens.bodyText}px;font-weight:600;color:#fff;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${s.label}</div>
-              <div style="font-size:${tokens.microText}px;color:rgba(255,255,255,0.78);margin-top:3px;">${retained}</div>
-            </div>
-            ${eliminatedCount === null ? '<div></div>' : `<div style="font-size:${tokens.smallText}px;font-weight:600;color:rgba(255,255,255,0.85);white-space:nowrap;">−${eliminatedCount}</div>`}
+    const barH        = lerp(barHRange);
+    const countFont   = lerp(countFontRange);
+    const labelFont   = lerp(labelFontRange);
+    const elimFont    = lerp(elimFontRange);
+    const calloutFont = lerp(calloutRange);
+    const barPad      = lerp(barPadRange);
+    const gap         = lerp(gapRange);
+    const minBarWidth = lerp(minBarWidthRange);
+
+    // Compute visual bar widths from data using sqrt-scaling.
+    // sqrt compresses the range (100%→6% becomes 100%→25%) so narrow bars
+    // remain readable, while still reflecting relative magnitude.
+    const maxCount = stages[0].count;
+    stages.forEach(s => {
+      s.visualPct = Math.round(Math.sqrt(s.count / maxCount) * 100);
+      s.retainedPct = Math.round(s.count / maxCount * 100) + '%';
+    });
+
+    // ── Funnel rows ──────────────────────────────────────────────────────
+    const funnelRows = stages.map((s, i) => {
+      const isLast  = i === stages.length - 1;
+      const barColor = isLast ? red : charcoal;
+      const prevCount = i > 0 ? stages[i - 1].count : null;
+      const elimCount = prevCount !== null ? prevCount - s.count : null;
+
+      // Elimination note between bars (shown above all except first)
+      const elimNote = s.filter ? `
+        <div style="text-align:center;padding:${gap}px 0;font-family:${fontFamily};font-size:${elimFont}px;color:${textFine};line-height:1.3;">
+          <span style="color:${red};font-weight:700;">−${elimCount} eliminated</span>
+          <span style="color:${textMuted};"> · ${s.filter}: ${s.eliminated}</span>
+        </div>` : '';
+
+      // The bar itself — centered, narrowing each stage
+      const bar = `
+        <div style="width:${s.visualPct}%;min-width:${minBarWidth}px;margin:0 auto;background:${barColor};height:${barH}px;display:flex;align-items:center;padding:0 ${barPad}px;gap:${barPad}px;">
+          <div style="font-family:${fontFamily};font-size:${countFont}px;font-weight:700;color:#FFFFFF;line-height:1;white-space:nowrap;">${s.count}</div>
+          <div style="min-width:0;">
+            <div style="font-family:${fontFamily};font-size:${labelFont}px;font-weight:600;color:#FFFFFF;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${s.label}</div>
+            <div style="font-family:${fontFamily};font-size:${elimFont}px;color:rgba(255,255,255,0.65);margin-top:1px;">${s.retainedPct} retained</div>
           </div>
         </div>`;
 
-      const filterHtml = s.filter ? `
-        <div style="padding:${tokens.adapt(8, 10, 12)}px ${tokens.adapt(10, 14, 16)}px;background:#F7FAFC;border:1px solid ${colors.borderSoft};border-radius:${tokens.exhibitRadius}px;">
-          <div style="${cssText(text.metaLabel)};color:${colors.textLight};margin-bottom:4px;">Screen ${i}</div>
-          <div style="${cssText(text.metricLabel)};margin-bottom:4px;">${s.filter}</div>
-          <div style="${cssText(text.annotation)};line-height:1.35;"><span style="font-weight:700;color:${colors.danger};">${eliminatedCount} eliminated:</span> ${s.eliminated}</div>
-        </div>` : `
-        <div style="padding:${tokens.adapt(8, 10, 12)}px ${tokens.adapt(10, 14, 16)}px;background:#F7FAFC;border:1px solid ${colors.borderSoft};border-radius:${tokens.exhibitRadius}px;">
-          <div style="${cssText(text.metaLabel)};color:${colors.textLight};margin-bottom:4px;">Starting Point</div>
-          <div style="${cssText(text.metricLabel)};margin-bottom:4px;">Broad Target Universe</div>
-          <div style="${cssText(text.annotation)};line-height:1.35;">Longlist built from software, data infrastructure, and vertical AI targets before screen application.</div>
-        </div>`;
-
-      return `<div style="display:grid;grid-template-columns:minmax(0,1fr);align-items:center;">
-        ${stageBar}
-      </div>`;
+      return elimNote + bar;
     }).join('');
 
-    const screenCards = stages.slice(1).map((s, index) => {
-      const previousCount = stages[index].count;
-      const eliminatedCount = previousCount - s.count;
-      return `<div style="padding:${tokens.adapt(8, 10, 12)}px ${tokens.adapt(10, 14, 16)}px;background:#F7FAFC;border:1px solid ${colors.borderSoft};border-radius:${tokens.exhibitRadius}px;">
-        <div style="${cssText(text.metaLabel)};color:${colors.textLight};margin-bottom:4px;">Screen ${index + 1}</div>
-        <div style="${cssText(text.metricLabel)};margin-bottom:4px;">${s.filter}</div>
-        <div style="${cssText(text.annotation)};line-height:1.3;"><span style="font-weight:700;color:${colors.danger};">${eliminatedCount} eliminated:</span> ${s.eliminated}</div>
-      </div>`;
-    }).join('');
-
-    return `<div class="h-full w-full" style="display:grid;grid-template-columns:minmax(0,1.45fr) minmax(${tokens.adapt(250, 300, 340)}px,0.95fr);grid-template-rows:minmax(0,1fr) auto;column-gap:${cardGap}px;row-gap:${tokens.adapt(8, 12, 14)}px;">
-      <div style="display:flex;flex-direction:column;gap:${gap}px;justify-content:center;min-width:0;">
-        ${rows}
+    // ── Template ─────────────────────────────────────────────────────────
+    return `<style>${SS3_CSS}</style>
+    <div class="h-full w-full" style="display:grid;grid-template-rows:minmax(0,1fr) auto;gap:${gap * 2}px;padding:2px;overflow:hidden;">
+      <div style="display:flex;flex-direction:column;justify-content:center;">
+        ${funnelRows}
       </div>
-      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:${tokens.adapt(8, 10, 12)}px;align-content:center;">
-        ${screenCards}
-      </div>
-      <div style="grid-column:1 / -1;padding:${tokens.cardPad}px;background:rgba(46,158,90,0.08);border-left:4px solid ${colors.success};border-radius:0 ${tokens.exhibitRadius}px ${tokens.exhibitRadius}px 0;">
-        <div style="${cssText(text.metaLabel)};color:${colors.success};margin-bottom:6px;">Finalists</div>
-        <div style="${cssText(text.body)};line-height:1.35;"><span style="font-weight:700;color:${colors.success};">3 finalists advance:</span> TargetCo Alpha ($280M rev, SaaS platform), TargetCo Beta ($180M rev, data infra), and TargetCo Gamma ($95M rev, vertical AI). Proceed to detailed diligence on all three.</div>
+      <div style="border-top:1px solid ${rule};border-left:3px solid ${red};padding:${gap + 2}px ${gap + 4}px;margin-top:${gap}px;">
+        <span style="font-family:${fontFamily};font-size:${calloutFont}px;font-weight:700;color:${red};">3 finalists: </span><span style="font-family:${fontFamily};font-size:${calloutFont}px;color:${textMuted};">${callout}</span>
       </div>
     </div>`;
   },
-});
+};

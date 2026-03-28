@@ -1,6 +1,21 @@
-const { STANDARD_COLORS, cssText, defineExample, getTemplateTextStyles } = require('./_shared');
+const fs = require('fs');
+const path = require('path');
+const INTER_DIR = path.join(__dirname, '../vendor/fonts/inter');
+const INTER_CSS = [400, 600, 700].map(w => {
+  const file = path.join(INTER_DIR, `${w}.css`);
+  return fs.readFileSync(file, 'utf8').replace(/url\(\.\//g, `url(file://${INTER_DIR}/`);
+}).join('\n');
 
-module.exports = defineExample({
+const fontFamily = "'Inter', sans-serif";
+const navy       = '#123A63';
+const blue       = '#2E7D9B';
+const textStrong = '#101A27';
+const textMuted  = '#4E6176';
+const textLight  = '#8BA5BD';
+const border     = '#D7E4EE';
+const danger     = '#A43C35';
+
+module.exports = {
   id: 'driver-tree',
   title: 'Driver Tree / Issue Tree',
   tier: 3,
@@ -10,77 +25,119 @@ module.exports = defineExample({
   actionTitle: 'Margin decline is driven by volume erosion in mid-tier, not pricing — market share loss is the root cause',
   source: 'Source: Financial model, team analysis',
   exhibitId: 'Exhibit 3.1',
-  responsiveSpec: {
-    templateClass: 'layout',
-    previewSamples: [
-      { label: 'compact', width: 1024, height: 576 },
-      { label: 'preferred', width: 1280, height: 720 },
-      { label: 'wide', width: 1440, height: 810 },
-    ],
-    agentSizingNotes: 'Driver trees need horizontal space. At compact widths, reduce leaf nodes or use two-level instead of three-level decomposition.',
-  },
   renderExhibit({ tokens }) {
-    const colors = STANDARD_COLORS;
-    const text = getTemplateTextStyles(tokens, colors);
+    const minDim = Math.min(tokens.width, tokens.height);
+    const lerp = (range) => {
+      const [lo, hi] = range;
+      return Math.max(lo, Math.min(hi, Math.round(lo + (minDim - 300) / (720 - 300) * (hi - lo))));
+    };
 
-    const nodeRadius = tokens.adapt(6, 8, 10);
-    const nodePad = tokens.adapt(10, 14, 18);
-    const metricSize = tokens.adapt(18, 22, 28);
-    const leafMetricSize = tokens.adapt(14, 17, 20);
-    const connW = tokens.adapt(24, 36, 42);
-    const operatorSize = tokens.adapt(14, 18, 20);
+    const connW      = lerp([20, 40]);
+    const nodeMetric = lerp([14, 22]);
+    const leafMetric = lerp([11, 17]);
+    const nodePad    = lerp([6, 14]);
+    const labelFont  = lerp([8, 11]);
+    const opSize     = lerp([11, 16]);
+    const gap        = lerp([4, 8]);
 
-    function node(label, value, delta, deltaColor, borderColor, opts = {}) {
-      const bg = opts.dark ? '#0B2545' : opts.alert ? '#FFF5F5' : '#fff';
-      const textColor = opts.dark ? '#fff' : colors.textStrong;
-      const labelColor = opts.dark ? 'rgba(255,255,255,0.5)' : colors.textLight;
-      const border = opts.dark ? 'none' : `1.5px solid ${colors.borderSoft}`;
-      const leftBorder = borderColor && !opts.dark ? `border-left:5px solid ${borderColor};` : '';
-      const fontSize = opts.large ? metricSize : leafMetricSize;
-      return `<div style="padding:${nodePad}px;background:${bg};border:${border};${leftBorder}border-radius:${nodeRadius}px;">
-        <div style="${cssText(text.metaLabel)};color:${labelColor};">${label}</div>
-        <div style="font-size:${fontSize}px;font-weight:700;color:${textColor};line-height:1.05;margin-top:${tokens.adapt(3, 6, 8)}px;">${value}</div>
-        <div style="font-size:${tokens.smallText}px;font-weight:700;color:${deltaColor};margin-top:${tokens.adapt(3, 6, 8)}px;">${delta}</div>
+    function rootNode(label, value, delta) {
+      return `<div style="display:flex;align-items:center;justify-content:center;">
+        <div style="background:${navy};color:#fff;padding:${nodePad}px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-sizing:border-box;width:100%;">
+          <div style="font-family:${fontFamily};font-size:${labelFont}px;font-weight:600;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.04em;">${label}</div>
+          <div style="font-family:${fontFamily};font-size:${nodeMetric}px;font-weight:700;line-height:1.1;margin-top:${Math.round(nodePad * 0.4)}px;">${value}</div>
+          <div style="font-family:${fontFamily};font-size:${labelFont}px;font-weight:600;color:rgba(255,255,255,0.7);margin-top:${Math.round(nodePad * 0.3)}px;">${delta}</div>
+        </div>
       </div>`;
     }
 
-    function connector() {
-      return `<div style="display:flex;align-items:center;justify-content:center;width:${connW}px;">
-        <div style="width:100%;height:2px;background:${colors.borderSoft};"></div>
+    function l1Node(label, value, delta, deltaColor) {
+      return `<div style="border:1px solid ${navy};background:#fff;padding:${nodePad}px;display:flex;flex-direction:column;align-items:center;text-align:center;box-sizing:border-box;">
+        <div style="font-family:${fontFamily};font-size:${labelFont}px;font-weight:600;color:${textLight};text-transform:uppercase;letter-spacing:0.04em;">${label}</div>
+        <div style="font-family:${fontFamily};font-size:${nodeMetric}px;font-weight:700;color:${textStrong};line-height:1.1;margin-top:${Math.round(nodePad * 0.4)}px;">${value}</div>
+        <div style="font-family:${fontFamily};font-size:${labelFont}px;font-weight:600;color:${deltaColor};margin-top:${Math.round(nodePad * 0.3)}px;">${delta}</div>
+      </div>`;
+    }
+
+    function leafNode(label, value, delta, deltaColor, alert = false) {
+      const leftBorder = alert ? `border-left:3px solid ${danger};` : '';
+      return `<div style="border:1px solid ${border};${leftBorder}background:#fff;padding:${nodePad}px;display:flex;flex-direction:column;align-items:center;text-align:center;box-sizing:border-box;">
+        <div style="font-family:${fontFamily};font-size:${labelFont}px;font-weight:600;color:${textLight};text-transform:uppercase;letter-spacing:0.04em;">${label}</div>
+        <div style="font-family:${fontFamily};font-size:${leafMetric}px;font-weight:700;color:${textStrong};line-height:1.1;margin-top:${Math.round(nodePad * 0.4)}px;">${value}</div>
+        <div style="font-family:${fontFamily};font-size:${labelFont}px;font-weight:600;color:${deltaColor};margin-top:${Math.round(nodePad * 0.3)}px;">${delta}</div>
       </div>`;
     }
 
     function operator(symbol) {
-      return `<div style="text-align:center;font-size:${operatorSize}px;font-weight:700;color:${colors.borderSoft};line-height:1;">${symbol}</div>`;
+      return `<div style="font-family:${fontFamily};font-weight:700;color:${navy};font-size:${opSize}px;text-align:center;line-height:1;">${symbol}</div>`;
     }
 
-    return `<div class="h-full w-full" style="display:grid;grid-template-columns:minmax(120px,160px) ${connW}px minmax(140px,200px) ${connW - 8}px 1fr;align-items:center;font-family:var(--font-body);">
-      <!-- L0: Root -->
-      ${node('Total Revenue', '$4.2B', '−$180M vs plan', '#FF8A80', null, { dark: true, large: true })}
+    // Connector column: horizontal line spanning to the midpoints of the nodes it connects
+    function connectorCol() {
+      return `<div style="position:relative;height:100%;display:flex;align-items:stretch;">
+        <div style="width:${connW}px;position:relative;">
+          <div style="position:absolute;top:50%;left:0;right:0;height:1px;background:${border};transform:translateY(-50%);"></div>
+        </div>
+      </div>`;
+    }
 
-      ${connector()}
+    // Left connector: single horizontal line from root to L1 column midpoint
+    const leftConn = `<div style="display:flex;align-items:center;height:100%;">
+      <div style="width:${connW}px;height:1px;background:${border};"></div>
+    </div>`;
 
-      <!-- L1: Volume × Price -->
-      <div style="display:flex;flex-direction:column;gap:${tokens.adapt(4, 6, 8)}px;">
-        ${node('Volume', '12.4M', '−8% vs plan', colors.danger, colors.danger, { large: true })}
-        ${operator('×')}
-        ${node('Avg Price', '$338', '+2% vs plan', colors.success, colors.success, { large: true })}
+    // Right connector: vertical spine + horizontal branches to each leaf row
+    // We use a flex column matching the L1 column layout
+    const rightConn = `<div style="display:flex;flex-direction:column;gap:${gap}px;height:100%;width:${connW}px;position:relative;">
+      <div style="flex:1;position:relative;display:flex;align-items:center;">
+        <div style="position:absolute;top:50%;left:0;width:100%;height:1px;background:${border};"></div>
       </div>
-
-      ${connector()}
-
-      <!-- L2: Leaf nodes -->
-      <div style="display:flex;flex-direction:column;gap:${tokens.adapt(4, 6, 8)}px;">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:${tokens.adapt(4, 6, 8)}px;">
-          ${node('Mkt Size', '48M', '+2%', colors.success, colors.success)}
-          ${node('Mkt Share', '25.8%', '−3.2pp', colors.danger, colors.danger, { alert: true })}
-        </div>
-        <div style="border-top:1px dashed ${colors.borderSoft};margin:${tokens.adapt(1, 2, 3)}px 0;"></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:${tokens.adapt(4, 6, 8)}px;">
-          ${node('List Price', '$395', '+4%', colors.success, colors.success)}
-          ${node('Discount', '14.4%', '+1.8pp', '#B85C2C', '#B85C2C')}
-        </div>
+      <div style="height:${opSize + gap * 2}px;"></div>
+      <div style="flex:1;position:relative;display:flex;align-items:center;">
+        <div style="position:absolute;top:50%;left:0;width:100%;height:1px;background:${border};"></div>
       </div>
     </div>`;
+
+    const callout = `<div style="border-left:3px solid ${navy};padding-left:${nodePad}px;">
+      <span style="font-family:${fontFamily};font-size:${labelFont}px;font-weight:600;color:${textMuted};">Key insight: </span><span style="font-family:${fontFamily};font-size:${labelFont}px;color:${textMuted};">Volume erosion (−8% vs plan) in mid-tier segment is the primary driver of revenue miss — market share loss of 3.2pp, not pricing, is the root cause.</span>
+    </div>`;
+
+    return `<style>${INTER_CSS}</style>
+<div class="h-full w-full" style="display:grid;grid-template-rows:minmax(0,1fr) auto;gap:${gap}px;padding:2px;overflow:hidden;">
+  <!-- Main driver tree -->
+  <div style="display:grid;grid-template-columns:minmax(0,1fr) ${connW}px minmax(0,1fr) ${connW}px minmax(0,1fr);align-items:stretch;gap:0;min-height:0;">
+
+    <!-- Col 1: Root node -->
+    ${rootNode('Total Revenue', '$4.2B', '−$180M vs plan')}
+
+    <!-- Col 2: Left connector -->
+    ${leftConn}
+
+    <!-- Col 3: L1 nodes stacked with operator -->
+    <div style="display:flex;flex-direction:column;gap:${gap}px;justify-content:center;">
+      ${l1Node('Volume', '12.4M', '−8% vs plan', danger)}
+      ${operator('×')}
+      ${l1Node('Avg Price', '$338', '+2% vs plan', blue)}
+    </div>
+
+    <!-- Col 4: Right connectors -->
+    ${rightConn}
+
+    <!-- Col 5: 2×2 leaf grid -->
+    <div style="display:flex;flex-direction:column;gap:${gap}px;justify-content:center;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:${gap}px;">
+        ${leafNode('Mkt Size', '48M', '+2% vs plan', blue)}
+        ${leafNode('Mkt Share', '25.8%', '−3.2pp vs plan', danger, true)}
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:${gap}px;">
+        ${leafNode('List Price', '$395', '+4% vs plan', blue)}
+        ${leafNode('Discount', '14.4%', '+1.8pp vs plan', danger)}
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Callout -->
+  ${callout}
+</div>`;
   },
-});
+};

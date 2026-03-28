@@ -1,6 +1,35 @@
-const { STANDARD_COLORS, cssText, defineExample, getTemplateTextStyles } = require('./_shared');
+const fs   = require('fs');
+const path = require('path');
 
-module.exports = defineExample({
+// Load vendored DM Sans (weights: 400, 600, 700) — BCG's typeface
+const DM_SANS_DIR = path.join(__dirname, '../vendor/fonts/dm-sans');
+const DM_SANS_CSS = [400, 600, 700].map(w => {
+  const file = path.join(DM_SANS_DIR, `${w}.css`);
+  return fs.readFileSync(file, 'utf8')
+    .replace(/url\(\.\//g, `url(file://${DM_SANS_DIR}/`);
+}).join('\n');
+
+// ════════════════════════════════════════════════════════════════════════
+// Organizational Model — BCG style
+// ════════════════════════════════════════════════════════════════════════
+// Target operating model: CEO box → BU layer → shared services bar.
+// BCG aesthetic: DM Sans, dark green structural, lime callout borders,
+// no fill on CEO box, no rounded corners, no shadows.
+// Recommended minimum: 300px on the shorter side.
+//
+// Responsive template for agentic AI. Three things to change:
+//   1. Brand variables  → swap from BCG palette if needed
+//   2. Data             → swap bus[], sharedSvcs[], designCallouts[]
+//   3. Sizing limits    → tune knobs if defaults don't fit
+//
+// Design notes for agents:
+//   • CEO: border-only box (no fill) centered above 3-col BU grid
+//   • BUs: border:1px solid gray; border-left:3px solid green
+//   • Shared services: single wide bar with services listed inline
+//   • Design callouts: border-left:3px solid lime, no card background
+//   • Connectors: height:${connH}px; width:1px; background:gray; margin:0 auto
+
+module.exports = {
   id: 'org-model',
   title: 'Organizational Model',
   tier: 3,
@@ -10,92 +39,106 @@ module.exports = defineExample({
   actionTitle: 'Product-aligned BUs with centralized shared services reduce layers from 7 to 4 and cut decision cycle by 60%',
   source: 'Source: Organizational design team, target state March 2026',
   exhibitId: 'Exhibit 8.1',
-  responsiveSpec: {
-    templateClass: 'layout',
-    previewSamples: [
-      { label: 'compact', width: 1024, height: 576 },
-      { label: 'preferred', width: 1280, height: 720 },
-      { label: 'wide', width: 1440, height: 810 },
-    ],
-    agentSizingNotes: 'Org models are vertically dense. At compact heights, reduce shared services row or merge design choice callouts.',
-  },
+
   renderExhibit({ tokens }) {
-    const colors = STANDARD_COLORS;
-    const text = getTemplateTextStyles(tokens, colors);
+    // ── 1. Brand variables (BCG palette) ────────────────────────────────
+    const fontFamily = "'DM Sans', sans-serif";
+    const accent     = '#0F6B4F';   // BCG dark green — structural
+    const lime       = '#6AB648';   // BCG lime green — callout borders
+    const charcoal   = '#111111';
+    const textMuted  = '#5F6368';
+    const border     = '#D0D0D0';
 
-    const cardPad = tokens.adapt(8, 12, 16);
-    const gap = tokens.adapt(6, 8, 10);
-    const buColors = [colors.accent, colors.accentAlt, colors.accentSoft];
-
+    // ── 2. Data ─────────────────────────────────────────────────────────
     const bus = [
-      { name: 'Cloud Platform', rev: '$1.8B', ppl: '2,400' },
-      { name: 'Data & AI', rev: '$1.2B', ppl: '1,600' },
-      { name: 'Enterprise Apps', rev: '$1.2B', ppl: '1,800' },
+      { name: 'Cloud Platform',  rev: '$1.8B', ppl: '2,400 FTEs' },
+      { name: 'Data & AI',       rev: '$1.2B', ppl: '1,600 FTEs' },
+      { name: 'Enterprise Apps', rev: '$1.2B', ppl: '1,800 FTEs' },
     ];
-
     const sharedSvcs = ['Finance & Accounting', 'HR & Talent', 'IT & Infrastructure', 'Legal & Compliance'];
 
-    const designChoices = [
-      { color: colors.accent, text: 'Product-aligned P&L ownership — each BU owns revenue, cost, and roadmap' },
-      { color: colors.accentAlt, text: 'Eliminate regional layer — BUs go direct to market with shared GTM support' },
+    const designCallouts = [
+      'Product-aligned P&L ownership — each BU owns revenue, cost, and roadmap independently',
+      'Centralize procurement, FP&A, and HRBP into shared services — saves ~$45M and standardizes processes',
     ];
 
-    const buCards = bus.map((bu, i) => `
-      <div style="padding:${cardPad}px;background:#fff;border:1.5px solid ${colors.borderSoft};border-left:5px solid ${buColors[i]};border-radius:${tokens.exhibitRadius}px;">
-        <div style="${cssText(text.metaLabel)};color:${colors.textLight};">Business Unit</div>
-        <div style="${cssText(text.metricLabel)};margin-top:3px;">${bu.name}</div>
-        <div style="display:flex;gap:${tokens.adapt(8, 12, 14)}px;margin-top:6px;">
-          <span style="${cssText(text.annotation)}">${bu.rev} rev</span>
-          <span style="${cssText(text.annotation)}">${bu.ppl} FTEs</span>
-        </div>
-      </div>`).join('');
+    // ── 3. Sizing limits ────────────────────────────────────────────────
+    const bodyFontRange  = [9,  13];    // [min, max] px for BU name, svc text
+    const microFontRange = [7,  10];    // [min, max] px for labels, sub-text
+    const padRange       = [6,  14];    // [min, max] px cell padding
+    const gapRange       = [4,  10];    // [min, max] px between elements
+    const connHRange     = [8,  14];    // [min, max] px connector height
+    const ceoMinWRange   = [140, 200];  // [min, max] px for CEO box min-width
 
-    const svcCards = sharedSvcs.map(s => `
-      <div style="padding:${tokens.adapt(6, 10, 12)}px;background:${colors.gridLine};border-radius:${tokens.exhibitRadius}px;text-align:center;">
-        <div style="font-size:${tokens.smallText}px;font-weight:600;color:${colors.accent};">${s}</div>
-        <div style="font-size:${tokens.microText}px;color:${colors.textLight};margin-top:3px;">Shared Service</div>
-      </div>`).join('');
+    // ── Responsive sizing (computed — don't edit) ────────────────────────
+    const minDim = Math.min(tokens.width, tokens.height);
+    const lerp = (range) => {
+      const [lo, hi] = range;
+      return Math.max(lo, Math.min(hi,
+        Math.round(lo + (minDim - 300) / (720 - 300) * (hi - lo))));
+    };
 
-    const choiceCallouts = designChoices.map(dc => `
-      <div style="flex:1;padding:${tokens.adapt(6, 8, 10)}px ${tokens.adapt(8, 12, 14)}px;background:#F3F6FA;border-left:3px solid ${dc.color};border-radius:0 ${tokens.exhibitRadius}px ${tokens.exhibitRadius}px 0;">
-        <span style="${cssText(text.annotation)}"><span style="font-weight:700;color:${dc.color};">Design choice:</span> ${dc.text}</span>
-      </div>`).join('');
+    const bodyFont  = lerp(bodyFontRange);
+    const microFont = lerp(microFontRange);
+    const pad       = lerp(padRange);
+    const gap       = lerp(gapRange);
+    const connH     = lerp(connHRange);
+    const ceoMinW   = lerp(ceoMinWRange);
 
-    const connectorV = `<div style="display:flex;justify-content:center;"><div style="width:2px;height:${tokens.adapt(8, 12, 14)}px;background:${colors.borderSoft};"></div></div>`;
+    // ── Connector ────────────────────────────────────────────────────────
+    const connectorV = `<div style="height:${connH}px;width:1px;background:${border};margin:0 auto;"></div>`;
 
-    return `<div class="h-full w-full" style="display:flex;flex-direction:column;gap:${gap}px;">
-      <!-- Executive layer -->
+    // ── CEO card ─────────────────────────────────────────────────────────
+    const ceoCard = `
       <div style="display:flex;justify-content:center;">
-        <div style="padding:${cardPad}px ${tokens.adapt(16, 20, 24)}px;background:#0B2545;border-radius:${tokens.exhibitRadius}px;color:#fff;text-align:center;min-width:${tokens.adapt(160, 200, 220)}px;">
-          <div style="${cssText(text.metaLabel)};color:rgba(255,255,255,0.5);">Executive</div>
-          <div style="font-size:${tokens.bodyTextLarge}px;font-weight:700;margin-top:4px;">CEO + 3 Direct Reports</div>
-          <div style="font-size:${tokens.microText}px;color:rgba(255,255,255,0.6);margin-top:2px;">COO &middot; CFO &middot; Chief Product Officer</div>
+        <div style="border:2px solid ${accent};padding:${pad}px ${pad * 2}px;text-align:center;min-width:${ceoMinW}px;">
+          <div style="font-family:${fontFamily};font-size:${microFont}px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:${textMuted};">Executive</div>
+          <div style="font-family:${fontFamily};font-size:${bodyFont + 2}px;font-weight:700;color:${charcoal};margin-top:2px;">CEO + 3 Direct Reports</div>
+          <div style="font-family:${fontFamily};font-size:${microFont}px;color:${textMuted};margin-top:1px;">COO · CFO · Chief Product Officer</div>
         </div>
-      </div>
+      </div>`;
 
-      ${connectorV}
+    // ── BU grid ──────────────────────────────────────────────────────────
+    const buCards = bus.map(bu =>
+      `<div style="border:1px solid ${border};border-left:3px solid ${accent};padding:${pad}px;">
+        <div style="font-family:${fontFamily};font-size:${microFont}px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:${textMuted};">Business Unit</div>
+        <div style="font-family:${fontFamily};font-size:${bodyFont}px;font-weight:700;color:${charcoal};margin-top:2px;">${bu.name}</div>
+        <div style="font-family:${fontFamily};font-size:${microFont}px;color:${textMuted};margin-top:${Math.round(gap / 2)}px;">${bu.rev} rev · ${bu.ppl}</div>
+      </div>`
+    ).join('');
 
-      <!-- BU layer -->
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:${gap}px;">
+    const buGrid = `
+      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:${gap}px;">
         ${buCards}
+      </div>`;
+
+    // ── Shared services bar ──────────────────────────────────────────────
+    const sharedSvcBar = `
+      <div style="border:1px solid ${border};padding:${Math.round(pad * 0.7)}px ${pad}px;display:flex;align-items:center;gap:${gap + 4}px;">
+        <div style="font-family:${fontFamily};font-size:${microFont}px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:${accent};white-space:nowrap;flex-shrink:0;">Shared Services</div>
+        <div style="font-family:${fontFamily};font-size:${microFont}px;color:${textMuted};overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${sharedSvcs.join(' · ')}</div>
+      </div>`;
+
+    // ── Design callouts ──────────────────────────────────────────────────
+    const calloutDivs = designCallouts.map(txt =>
+      `<div style="border-left:3px solid ${lime};padding:${Math.round(gap / 2)}px ${gap + 2}px;flex:1;min-width:0;">
+        <span style="font-family:${fontFamily};font-size:${microFont}px;font-weight:700;color:${accent};">Design choice: </span><span style="font-family:${fontFamily};font-size:${microFont}px;color:${textMuted};">${txt}</span>
+      </div>`
+    ).join('');
+
+    // ── Template ─────────────────────────────────────────────────────────
+    return `<style>${DM_SANS_CSS}</style>
+    <div class="h-full w-full" style="display:grid;grid-template-rows:minmax(0,1fr) auto;gap:${gap}px;padding:2px;overflow:hidden;">
+      <div style="display:flex;flex-direction:column;gap:${gap}px;justify-content:center;">
+        ${ceoCard}
+        ${connectorV}
+        ${buGrid}
+        ${connectorV}
+        ${sharedSvcBar}
       </div>
-
-      <!-- Design choices -->
-      <div style="display:flex;gap:${gap}px;">
-        ${choiceCallouts}
-      </div>
-
-      ${connectorV}
-
-      <!-- Shared services -->
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:${tokens.adapt(4, 6, 8)}px;">
-        ${svcCards}
-      </div>
-
-      <!-- Bottom callout -->
-      <div style="margin-top:auto;padding:${tokens.adapt(6, 8, 10)}px ${tokens.adapt(8, 12, 14)}px;background:#F3F6FA;border-left:3px solid ${colors.success};border-radius:0 ${tokens.exhibitRadius}px ${tokens.exhibitRadius}px 0;">
-        <span style="${cssText(text.annotation)}"><span style="font-weight:700;color:${colors.success};">Design choice:</span> Centralize procurement, FP&amp;A, and HRBP into shared services — saves ~$45M and standardizes processes</span>
+      <div style="display:flex;gap:${gap}px;flex-wrap:wrap;border-top:1px solid ${border};padding-top:${gap}px;">
+        ${calloutDivs}
       </div>
     </div>`;
   },
-});
+};

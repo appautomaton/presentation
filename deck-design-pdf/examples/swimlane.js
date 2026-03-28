@@ -1,80 +1,165 @@
-const { STANDARD_COLORS, cssText, defineExample, getTemplateTextStyles } = require('./_shared');
+const fs   = require('fs');
+const path = require('path');
 
-module.exports = defineExample({
+// Load vendored DM Sans (weights used: 400, 600, 700) and rewrite url() to absolute file:// paths
+const DM_SANS_DIR = path.join(__dirname, '../vendor/fonts/dm-sans');
+const DM_SANS_CSS = [400, 600, 700].map(w => {
+  const file = path.join(DM_SANS_DIR, `${w}.css`);
+  return fs.readFileSync(file, 'utf8')
+    .replace(/url\(\.\//g, `url(file://${DM_SANS_DIR}/`);
+}).join('\n');
+
+// ════════════════════════════════════════════════════════════════════════
+// Swimlane Process Map — BCG style
+// ════════════════════════════════════════════════════════════════════════
+// Cross-functional process map: teams (rows) × phases (columns).
+// BCG aesthetic: DM Sans, green anchored, shaded column headers,
+// alternating row fills, no shadows, no rounded corners.
+// Recommended minimum: 300px on the shorter side.
+//
+// Responsive template for agentic AI. Three things to change:
+//   1. Brand variables  → swap from BCG palette if needed
+//   2. Data             → swap stages, lanes, and tasks
+//   3. Sizing limits    → tune knobs if defaults don't fit
+//
+// Layout notes for agents:
+//   • stages[] = column headers (phases of the process)
+//   • lanes[] = rows (teams); each has items[] placed by col index
+//   • Bottleneck tasks: set alert:true — gets dark green left accent
+//   • Keep stages to 4–6 and lanes to 4–6 for legibility
+//   • teamColW controls the team label gutter width
+
+module.exports = {
   id: 'swimlane',
   title: 'Swimlane Process Map',
   tier: 3,
+  minSize: 400,   // 5 stages × 5 lanes doesn't render usably below ~400px
   proves: 'cross-team process with handoffs and bottleneck identification',
   data: 'Order-to-cash cycle across 5 teams with stage durations',
   sectionLabel: 'Process Mapping',
-  actionTitle: 'Order-to-cash cycle has 3 cross-team handoffs with the Finance→Legal review adding 9 days',
+  actionTitle: 'Order-to-cash cycle has 3 cross-team handoffs with Finance→Legal review adding 9 days',
   source: 'Source: Process mining, order-to-cash (n=1,200 orders, Q1 2026)',
   exhibitId: 'Exhibit 11.1',
-  responsiveSpec: {
-    templateClass: 'layout',
-    previewSamples: [
-      { label: 'compact', width: 1024, height: 576 },
-      { label: 'preferred', width: 1280, height: 720 },
-      { label: 'wide', width: 1440, height: 810 },
-    ],
-    agentSizingNotes: 'Swimlanes need horizontal space for stages and vertical space for teams. Reduce stages or combine teams at compact widths.',
-  },
-  renderExhibit({ tokens }) {
-    const colors = STANDARD_COLORS;
-    const text = getTemplateTextStyles(tokens, colors);
 
+  renderExhibit({ tokens }) {
+    // ── 1. Brand variables (BCG palette) ────────────────────────────────
+    const fontFamily    = "'DM Sans', sans-serif";
+    const textColor     = '#111111';
+    const textMuted     = '#5F6368';
+    const accent        = '#0F6B4F';   // BCG dark green — structural
+    const accentRule    = '#6AB648';   // BCG lime green — signature rule
+    const surfaceMuted  = '#F5F6F4';   // alternate row fill
+    const border        = '#D0D0D0';   // gridlines
+    const alertFill     = '#0F6B4F';   // bottleneck — solid green fill (BCG isolation-by-color)
+
+    // ── 2. Data ─────────────────────────────────────────────────────────
     const stages = ['Intake', 'Validate', 'Process', 'Review', 'Close'];
+
+    // Each lane is a team row. items[] placed by col index (0-based).
+    // alert:true marks bottlenecks with a green accent.
     const lanes = [
-      { team: 'Sales', color: colors.accent, items: [{ col: 0, label: 'Receive order', days: '1d' }, { col: 1, label: 'Verify terms', days: '2d' }] },
-      { team: 'Operations', color: colors.accentAlt, items: [{ col: 1, label: 'Check inventory', days: '1d' }, { col: 2, label: 'Fulfill order', days: '3d' }] },
-      { team: 'Finance', color: colors.accentSoft, items: [{ col: 2, label: 'Generate invoice', days: '1d' }, { col: 3, label: 'Credit review', days: '4d', alert: true }] },
-      { team: 'Legal', color: colors.textLight, items: [{ col: 3, label: 'Contract review', days: '5d', alert: true }] },
-      { team: 'Customer Success', color: colors.success, items: [{ col: 4, label: 'Confirm & onboard', days: '2d' }] },
+      { team: 'Sales', items: [
+        { col: 0, label: 'Receive order',   days: '1d' },
+        { col: 1, label: 'Verify terms',    days: '2d' },
+      ]},
+      { team: 'Operations', items: [
+        { col: 1, label: 'Check inventory', days: '1d' },
+        { col: 2, label: 'Fulfill order',   days: '3d' },
+      ]},
+      { team: 'Finance', items: [
+        { col: 2, label: 'Generate invoice', days: '1d' },
+        { col: 3, label: 'Credit review',   days: '4d', alert: true },
+      ]},
+      { team: 'Legal', items: [
+        { col: 3, label: 'Contract review', days: '5d', alert: true },
+      ]},
+      { team: 'Customer Success', items: [
+        { col: 4, label: 'Confirm & onboard', days: '2d' },
+      ]},
     ];
 
-    const teamColW = tokens.adapt(80, 100, 110);
-    const cellPad = tokens.adapt(4, 6, 8);
-    const cardPad = tokens.adapt(6, 8, 10);
+    const callout = 'Finance credit review (4d) + Legal contract review (5d) = 9 days of sequential review. Parallelizing would cut cycle time by 40%.';
 
-    const headerRow = stages.map(s =>
-      `<div style="padding:${cellPad}px;text-align:center;${cssText(text.metricLabel)};">${s}</div>`
+    // ── 3. Sizing limits ────────────────────────────────────────────────
+    const headerFontRange  = [9, 13];     // [min, max] px for stage headers
+    const teamFontRange    = [9, 13];     // [min, max] px for team labels
+    const taskFontRange    = [9, 13];     // [min, max] px for task label
+    const daysFontRange    = [8, 11];     // [min, max] px for duration
+    const calloutFontRange = [9, 12];     // [min, max] px for bottom callout
+    const teamColRange     = [64, 96];    // [min, max] px for team gutter
+    const cellPadRange     = [4, 8];      // [min, max] px cell padding
+    const taskPadRange     = [4, 8];      // [min, max] px task inner padding
+    const headerHRange     = [22, 32];    // [min, max] px header row height
+
+    // ── Responsive sizing (computed — don't edit) ───────────────────────
+    const minDim = Math.min(tokens.width, tokens.height);
+    const lerp = (range) => {
+      const [lo, hi] = range;
+      return Math.max(lo, Math.min(hi,
+        Math.round(lo + (minDim - 300) / (720 - 300) * (hi - lo))));
+    };
+
+    const headerFont  = lerp(headerFontRange);
+    const teamFont    = lerp(teamFontRange);
+    const taskFont    = lerp(taskFontRange);
+    const daysFont    = lerp(daysFontRange);
+    const calloutFont = lerp(calloutFontRange);
+    const teamCol     = lerp(teamColRange);
+    const cellPad     = lerp(cellPadRange);
+    const taskPad     = lerp(taskPadRange);
+    const headerH     = lerp(headerHRange);
+
+    const gridCols = `${teamCol}px repeat(${stages.length}, minmax(0,1fr))`;
+
+    // ── Header row ───────────────────────────────────────────────────────
+    const stageCells = stages.map(s =>
+      `<div style="padding:0 ${cellPad}px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:${fontFamily};font-size:${headerFont}px;font-weight:700;color:${textColor};text-transform:uppercase;letter-spacing:0.06em;border-left:1px solid ${border};">${s}</div>`
     ).join('');
 
-    const laneRows = lanes.map(lane => {
+    // ── Lane rows ────────────────────────────────────────────────────────
+    const laneRows = lanes.map((lane, li) => {
+      const rowBg = li % 2 === 1 ? surfaceMuted : 'transparent';
+
       const cells = stages.map((_, col) => {
         const item = lane.items.find(i => i.col === col);
-        if (!item) return `<div style="padding:${cellPad}px;border-left:1px solid rgba(199,213,229,0.3);min-height:${tokens.adapt(44, 56, 62)}px;"></div>`;
-        const bg = item.alert ? '#FFF5F5' : '#fff';
-        const border = item.alert ? '1.5px solid #FECDD3' : `1px solid ${colors.borderSoft}`;
-        const leftColor = item.alert ? colors.danger : lane.color;
-        const daysColor = item.alert ? colors.danger : colors.textLight;
-        return `<div style="padding:${cellPad}px;border-left:1px solid rgba(199,213,229,0.3);display:flex;align-items:center;justify-content:center;">
-          <div style="width:100%;padding:${cardPad}px;background:${bg};border:${border};border-left:3px solid ${leftColor};border-radius:${tokens.adapt(4, 6, 7)}px;">
-            <div style="${cssText(text.annotation)};font-weight:600;color:${colors.textStrong};">${item.label}</div>
-            <div style="font-size:${tokens.microText}px;font-weight:700;color:${daysColor};margin-top:3px;">${item.days}${item.alert ? ' ← bottleneck' : ''}</div>
-          </div>
+        if (!item) return `<div style="border-left:1px solid ${border};background:${rowBg};"></div>`;
+
+        const cellBg    = item.alert ? alertFill : rowBg;
+        const labelColor = item.alert ? '#FFFFFF' : textColor;
+        const daysColor  = item.alert ? 'rgba(255,255,255,0.8)' : textMuted;
+
+        return `<div style="border-left:1px solid ${border};background:${cellBg};padding:${cellPad}px ${taskPad}px;display:flex;flex-direction:column;justify-content:center;">
+          <div style="font-family:${fontFamily};font-size:${taskFont}px;font-weight:600;color:${labelColor};line-height:1.25;">${item.label}</div>
+          <div style="font-family:${fontFamily};font-size:${daysFont}px;font-weight:700;color:${daysColor};margin-top:2px;">${item.days}</div>
         </div>`;
       }).join('');
 
-      return `<div style="display:grid;grid-template-columns:${teamColW}px repeat(5,1fr);border-bottom:1px solid rgba(199,213,229,0.3);align-items:center;">
-        <div style="padding:${cellPad}px;font-weight:600;color:${lane.color};font-size:${tokens.smallText}px;display:flex;align-items:center;gap:6px;">
-          <div style="width:8px;height:8px;border-radius:2px;background:${lane.color};"></div>${lane.team}
+      return `<div style="display:grid;grid-template-columns:${gridCols};border-top:1px solid ${border};min-height:0;flex:1;">
+        <div style="padding:${cellPad}px ${cellPad + 2}px;display:flex;align-items:center;background:${rowBg};border-right:2px solid ${accentRule};">
+          <span style="font-family:${fontFamily};font-size:${teamFont}px;font-weight:700;color:${accent};">${lane.team}</span>
         </div>
         ${cells}
       </div>`;
     }).join('');
 
-    return `<div class="h-full w-full" style="display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:0;font-family:var(--font-body);">
-      <div style="display:grid;grid-template-columns:${teamColW}px repeat(5,1fr);border-bottom:2px solid ${colors.accent};">
-        <div style="padding:${cellPad}px;${cssText(text.metaLabel)};color:${colors.textLight};">Team</div>
-        ${headerRow}
+    // ── Template ─────────────────────────────────────────────────────────
+    return `<style>${DM_SANS_CSS}</style>
+    <div class="h-full w-full" style="display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:0;padding:2px;overflow:hidden;">
+      <!-- Header -->
+      <div style="display:grid;grid-template-columns:${gridCols};height:${headerH}px;border-bottom:3px solid ${accentRule};border-top:1px solid ${border};">
+        <div style="padding:0 ${cellPad + 2}px;display:flex;align-items:center;border-right:2px solid ${accentRule};">
+          <span style="font-family:${fontFamily};font-size:${headerFont}px;font-weight:700;color:${textMuted};text-transform:uppercase;letter-spacing:0.06em;">Team</span>
+        </div>
+        ${stageCells}
       </div>
-      <div style="display:flex;flex-direction:column;">
+      <!-- Lanes -->
+      <div style="display:flex;flex-direction:column;border-bottom:1px solid ${border};">
         ${laneRows}
       </div>
-      <div style="margin-top:auto;padding:${tokens.adapt(8, 10, 12)}px ${tokens.adapt(10, 12, 14)}px;background:#FFF5F5;border:1px solid #FECDD3;border-radius:${tokens.exhibitRadius}px;font-size:${tokens.smallText}px;color:${colors.danger};font-weight:500;font-family:var(--font-body);">
-        <span style="font-weight:700;">Critical path:</span> Finance credit review (4d) + Legal contract review (5d) = 9 days of sequential review. Parallelizing would cut cycle time by 40%.
+      <!-- Callout -->
+      <div style="padding:${cellPad + 2}px ${cellPad + 4}px;border-left:3px solid ${accentRule};margin-top:${cellPad}px;">
+        <span style="font-family:${fontFamily};font-size:${calloutFont}px;font-weight:700;color:${accent};">Critical path: </span><span style="font-family:${fontFamily};font-size:${calloutFont}px;color:${textMuted};">${callout}</span>
       </div>
     </div>`;
   },
-});
+};
