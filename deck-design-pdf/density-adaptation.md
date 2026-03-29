@@ -74,3 +74,29 @@ Density and typography tier are related but distinct:
 | L1 | `'presentation'` | Room-safe, projection-safe. Body ≥15pt, axis ≥14pt. |
 | L2 | `'document'` or `'presentation'` | Depends on venue — working session vs. conference room. |
 | L3 | `'document'` | Dense content needs smaller baselines. Body ≥12pt, axis ≥11pt. |
+
+## L1 Sizing — Fill, Don't Float
+
+L1 means fewer elements per slide, not smaller content floating in empty space. Each element should scale up to fill the ~600px body zone. The fill-first rule applies at every density level — L1 achieves it with larger fonts and more breathing room between fewer items, not by leaving blank space at the bottom.
+
+**L1 typography rule:** Bump each role up one native Tailwind step from the L2 baseline. Footer stays at the floor (`text-xs`).
+
+| Role | L2 class | L1 class | L1 rendered |
+|---|---|---|---|
+| **Cover title** | `text-5xl` (48px) | `text-6xl` | 60px / 45pt |
+| **Action title** | `text-3xl` (30px) | `text-4xl` | 36px / 27pt |
+| **Card metric** | `text-2xl` (24px) | `text-3xl` | 30px / 22.5pt |
+| **Subtitle** | `text-lg` (18px) | `text-xl` | 20px / 15pt |
+| **Body** | `text-base` (16px) | `text-lg` | 18px / 13.5pt |
+| **Body small** | `text-sm` (14px) | `text-base` | 16px / 12pt |
+| **Card label** | `text-sm` (14px) | `text-base` | 16px / 12pt |
+| **Callout body** | `text-sm` (14px) | `text-base` | 16px / 12pt |
+| **Card detail** | `text-xs` (12px) | `text-sm` | 14px / 10.5pt |
+| **Section label** | `text-xs` (12px) | `text-sm` | 14px / 10.5pt |
+| **Panel header** | `text-xs` (12px) | `text-sm` | 14px / 10.5pt |
+| **Data label / axis** | `text-xs` (12px) | `text-sm` | 14px / 10.5pt |
+| **Footer** | `text-xs` (12px) | `text-xs` | 12px / 9pt (floor) |
+
+The hierarchy holds at both levels: cover > action > metric > subtitle > body > labels > fine print. No ranges to decide — one class per role per density.
+
+**L1 chart sizing:** Charts at L1 still follow the fill-first rule. A chart that is the sole exhibit on a slide should fill the body zone (≈ 540–580px after title and gap), not sit at 300px with whitespace below. L1 charts tend to be simpler (fewer series, fewer data points) but physically larger.

@@ -1,152 +1,161 @@
-const { STANDARD_COLORS, defineExample, getChartChrome, getFigureTypography } = require('./_shared');
+// ════════════════════════════════════════════════════════════════════════
+// 2×2 Matrix — strategic positioning grid with four discrete quadrants
+// ════════════════════════════════════════════════════════════════════════
+// Flexible layout: works in portrait, landscape, or square containers.
+// Pure HTML/CSS grid — no chart library needed.
+// Recommended minimum: 300px on the shorter side.
+//
+// Responsive template for agentic AI. Three things to change:
+//   1. Brand variables  → swap font + colors from the brand config
+//   2. Data             → swap axes, quadrant names, and items
+//   3. Sizing limits    → tune the knobs if defaults don't fit
+// Everything else adapts automatically to container size.
+//
+// Layout notes for agents:
+//   • Quadrants are arranged: top-left, top-right, bottom-left, bottom-right
+//   • Each quadrant has a name and a list of items with optional metrics
+//   • Axis labels sit outside the grid on left (Y) and bottom (X)
+//   • Keep items to 2–4 per quadrant to avoid overflow at small sizes
+//   • The "star" quadrant (top-right by default) gets accent styling
 
-module.exports = defineExample({
+module.exports = {
   id: 'matrix-2x2',
   title: '2×2 Matrix',
   tier: 2,
   proves: 'strategic positioning on two dimensions',
-  data: 'Business units positioned by growth versus margin; bubble size = revenue',
+  data: 'Business units positioned by growth versus margin',
   sectionLabel: 'Portfolio Strategy',
   actionTitle: 'Two business units warrant accelerated investment based on growth-margin position',
-  source: 'Source: BU financials FY2025, bubble size = revenue',
+  source: 'Source: BU financials FY2025',
   exhibitId: 'Exhibit 7.1',
-  responsiveSpec: {
-    templateClass: 'chart',
-    exhibitRange: {
-      min: { width: 920, height: 520 },
-      preferred: { width: 1280, height: 720 },
-      max: { width: 1600, height: 900 },
-    },
-    slideRange: {
-      min: { width: 1024, height: 576 },
-      preferred: { width: 1280, height: 720 },
-      max: { width: 1600, height: 900 },
-    },
-    rationale: 'quadrant labels and bubble names need at least md width',
-  },
+
   renderExhibit({ tokens }) {
-    const chartId = 'matrix-2x2-core';
-    const colors = STANDARD_COLORS;
-    const figure = getFigureTypography(tokens, colors);
-    const chrome = getChartChrome(tokens, colors, figure);
-    const quadrantMuted = { ...figure.annotationStrong, color: colors.textMuted };
-    const quadrantAccent = { ...figure.annotationStrong, color: colors.accent };
-    const axisTitle = figure.axisTitle;
-    return `<div class="h-full w-full">
-      <div id="${chartId}" style="width:100%;height:100%;"></div>
-    </div>
-    <script>
-    (() => {
-      const mount = document.getElementById('${chartId}');
-      if (!mount) return;
-      const chart = echarts.init(mount, null, { renderer: 'svg' });
-      const points = [
-        { name: 'Digital', code: 'DIG', x: 70, y: 75, revenue: 44, highlight: true, labelPos: 'inside' },
-        { name: 'Healthcare', code: 'HC', x: 55, y: 65, revenue: 36, highlight: true, labelPos: 'inside' },
-        { name: 'Energy', code: 'EN', x: 68, y: 34, revenue: 26, highlight: false, labelPos: 'right' },
-        { name: 'Retail', code: 'RT', x: 24, y: 18, revenue: 18, highlight: false, labelPos: 'bottom' },
-        { name: 'Logistics', code: 'LOG', x: 32, y: 50, revenue: 22, highlight: false, labelPos: 'left' },
-        { name: 'Corp Svc', code: 'CS', x: 45, y: 12, revenue: 14, highlight: false, labelPos: 'bottom' },
-      ];
-      chart.setOption({
-        animation: false,
-        tooltip: ${JSON.stringify(chrome.tooltipHidden)},
-        grid: {
-          left: ${tokens.adapt(54, 64, 74)},
-          right: ${tokens.adapt(20, 26, 32)},
-          top: ${tokens.adapt(28, 32, 38)},
-          bottom: ${tokens.adapt(48, 52, 60)},
-        },
-        xAxis: {
-          type: 'value',
-          min: 10,
-          max: 80,
-          axisLine: ${JSON.stringify(chrome.axisLineMuted)},
-          axisTick: ${JSON.stringify(chrome.axisTickNone)},
-          axisLabel: ${JSON.stringify(chrome.hiddenAxisLabels)},
-          splitLine: ${JSON.stringify(chrome.splitLineNone)},
-        },
-        yAxis: {
-          type: 'value',
-          min: 0,
-          max: 90,
-          name: 'Revenue growth (%)',
-          nameLocation: 'center',
-          nameGap: ${tokens.adapt(34, 40, 46)},
-          nameTextStyle: ${JSON.stringify(axisTitle)},
-          axisLine: ${JSON.stringify(chrome.axisLineMuted)},
-          axisTick: ${JSON.stringify(chrome.axisTickNone)},
-          axisLabel: ${JSON.stringify(chrome.hiddenAxisLabels)},
-          splitLine: ${JSON.stringify(chrome.splitLineNone)},
-        },
-        graphic: [
-          {
-            type: 'rect',
-            left: '53%',
-            top: '8%',
-            shape: { width: 160, height: 100 },
-            style: { fill: 'rgba(18,58,99,0.04)' },
-          },
-          {
-            type: 'text',
-            left: '10%',
-            top: '10%',
-            style: { ...${JSON.stringify(quadrantMuted)}, text: 'Invest\\nto grow', fill: '${colors.textMuted}' },
-          },
-          {
-            type: 'text',
-            left: '67%',
-            top: '10%',
-            style: { ...${JSON.stringify(quadrantAccent)}, text: 'Accelerate', fill: '${colors.accent}' },
-          },
-          {
-            type: 'text',
-            left: '10%',
-            top: '76%',
-            style: { ...${JSON.stringify(quadrantMuted)}, text: 'Rationalize', fill: '${colors.textMuted}' },
-          },
-          {
-            type: 'text',
-            left: '71%',
-            top: '76%',
-            style: { ...${JSON.stringify(quadrantMuted)}, text: 'Harvest', fill: '${colors.textMuted}' },
-          },
-          {
-            type: 'text',
-            left: '42%',
-            top: '92%',
-            style: { ...${JSON.stringify(axisTitle)}, text: 'EBITDA margin (%)', fill: '${colors.textMuted}' },
-          },
+    // ── 1. Brand variables ──────────────────────────────────────────────
+    const fontFamily  = 'sans-serif';
+    const textColor   = '#101A27';
+    const textMuted   = '#4E6176';
+    const textLight   = '#6B7F94';
+    const accent      = '#123A63';
+    const accentSoft  = '#E8EEF4';
+    const cellBg      = '#F6F8FB';
+    const cellBorder  = '#D7E4EE';
+    const starBg      = '#EDF2F8';
+
+    // ── 2. Data ─────────────────────────────────────────────────────────
+    const xAxis = { low: 'Low margin', high: 'High margin', label: 'EBITDA margin' };
+    const yAxis = { low: 'Low growth', high: 'High growth', label: 'Revenue growth' };
+
+    // Quadrants: topLeft, topRight (star), bottomLeft, bottomRight
+    // Each quadrant has a name, items, and a one-line action note.
+    // Keep items to 2–4 per quadrant to avoid overflow at small sizes.
+    const quadrants = {
+      topLeft: {
+        name: 'Invest to grow',
+        note: 'Fund selectively to build scale',
+        items: [
+          { name: 'Logistics', metric: '$22M' },
+          { name: 'AI / ML Platform', metric: '$18M' },
+          { name: 'Data Analytics', metric: '$15M' },
         ],
-        series: [{
-          type: 'scatter',
-          markLine: {
-            silent: true,
-            symbol: 'none',
-            lineStyle: { color: '#D7E4EE', type: 'dashed', width: 1 },
-            data: [{ xAxis: 45 }, { yAxis: 45 }],
-          },
-          labelLayout: { hideOverlap: true },
-          data: points.map((point) => ({
-            value: [point.x, point.y],
-            symbolSize: Math.round((18 + point.revenue * 0.65) * ${tokens.bubbleScale}),
-            label: {
-              show: true,
-              formatter: point.labelPos === 'inside' ? point.code : point.name,
-              ...${JSON.stringify(figure.annotationStrong)},
-              color: point.labelPos === 'inside' ? '#ffffff' : '#123A63',
-              position: point.labelPos,
-            },
-            itemStyle: {
-              color: point.highlight ? '#123A63' : '#D7E4EE',
-              borderColor: point.highlight ? '#123A63' : '#8BA5BD',
-              borderWidth: point.highlight ? 1 : 0.5,
-            },
-          })),
-        }],
-      });
-      window.addEventListener('resize', () => chart.resize());
-    })();
-    </script>`;
+      },
+      topRight: {
+        name: 'Accelerate',
+        star: true,
+        note: 'Double down — highest ROI potential',
+        items: [
+          { name: 'Digital', metric: '$44M' },
+          { name: 'Healthcare', metric: '$36M' },
+          { name: 'Cybersecurity', metric: '$28M' },
+        ],
+      },
+      bottomLeft: {
+        name: 'Rationalize',
+        note: 'Reduce cost or divest',
+        items: [
+          { name: 'Retail', metric: '$18M' },
+          { name: 'Corp Services', metric: '$14M' },
+          { name: 'Print Media', metric: '$8M' },
+        ],
+      },
+      bottomRight: {
+        name: 'Harvest',
+        note: 'Maximize cash flow, limit investment',
+        items: [
+          { name: 'Energy', metric: '$26M' },
+          { name: 'Telecom', metric: '$20M' },
+        ],
+      },
+    };
+
+    // ── 3. Sizing limits ────────────────────────────────────────────────
+    const quadrantFontRange = [12, 16];     // [min, max] px for quadrant name
+    const itemFontRange     = [11, 15];     // [min, max] px for item name
+    const metricFontRange   = [10, 14];     // [min, max] px for item metric
+    const axisFontRange     = [10, 13];     // [min, max] px for axis labels
+    const padRange          = [8, 16];      // [min, max] px for cell padding
+    const gapRange          = [4, 10];      // [min, max] px for item gap
+    const axisStripRange    = [20, 30];     // [min, max] px for axis label strip width
+
+    // ── Responsive sizing (computed — don't edit) ───────────────────────
+    const minDim = Math.min(tokens.width, tokens.height);
+    const lerp = (range) => {
+      const [lo, hi] = range;
+      return Math.max(lo, Math.min(hi,
+        Math.round(lo + (minDim - 300) / (720 - 300) * (hi - lo))));
+    };
+
+    const quadrantFont = lerp(quadrantFontRange);
+    const itemFont     = lerp(itemFontRange);
+    const metricFont   = lerp(metricFontRange);
+    const axisFont     = lerp(axisFontRange);
+    const pad          = lerp(padRange);
+    const itemGap      = lerp(gapRange);
+    const axisStrip    = lerp(axisStripRange);
+
+    // ── Render helpers ──────────────────────────────────────────────────
+    function renderCell(q) {
+      const bg = q.star ? starBg : cellBg;
+      const nameColor = q.star ? accent : textMuted;
+      const items = q.items.map(it => `
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:4px;">
+          <span style="font-family:${fontFamily};font-size:${itemFont}px;font-weight:600;color:${textColor};line-height:1.3;">${it.name}</span>
+          ${it.metric ? `<span style="font-family:${fontFamily};font-size:${metricFont}px;color:${textLight};white-space:nowrap;">${it.metric}</span>` : ''}
+        </div>`).join('');
+
+      const noteHtml = q.note ? `<div style="font-family:${fontFamily};font-size:${metricFont}px;font-style:italic;color:${textLight};line-height:1.3;margin-top:auto;">${q.note}</div>` : '';
+
+      return `<div style="background:${bg};border:1px solid ${cellBorder};border-radius:4px;padding:${pad}px;display:flex;flex-direction:column;gap:${itemGap}px;overflow:hidden;">
+        <div style="font-family:${fontFamily};font-size:${quadrantFont}px;font-weight:700;color:${nameColor};line-height:1.1;">${q.name}</div>
+        ${items}
+        ${noteHtml}
+      </div>`;
+    }
+
+    // ── Template ────────────────────────────────────────────────────────
+    return `<div class="h-full w-full" style="display:grid;grid-template-columns:${axisStrip}px 1fr 1fr;grid-template-rows:1fr 1fr ${axisStrip}px;gap:2px;overflow:hidden;">
+      <!-- Y-axis label -->
+      <div style="grid-row:1/3;grid-column:1;display:flex;align-items:center;justify-content:center;">
+        <div style="writing-mode:vertical-lr;transform:rotate(180deg);font-family:${fontFamily};font-size:${axisFont}px;font-weight:700;color:${textMuted};text-align:center;white-space:nowrap;">${yAxis.label}</div>
+      </div>
+      <!-- Y-axis high/low -->
+
+      <!-- Top-left quadrant -->
+      ${renderCell(quadrants.topLeft)}
+      <!-- Top-right quadrant -->
+      ${renderCell(quadrants.topRight)}
+      <!-- Bottom-left quadrant -->
+      ${renderCell(quadrants.bottomLeft)}
+      <!-- Bottom-right quadrant -->
+      ${renderCell(quadrants.bottomRight)}
+
+      <!-- Bottom-left corner (empty) -->
+      <div></div>
+      <!-- X-axis label -->
+      <div style="grid-column:2/4;display:flex;align-items:center;justify-content:center;">
+        <div style="font-family:${fontFamily};font-size:${axisFont}px;font-weight:700;color:${textMuted};text-align:center;">
+          ${xAxis.low} ←&nbsp;&nbsp;${xAxis.label}&nbsp;&nbsp;→ ${xAxis.high}
+        </div>
+      </div>
+    </div>`;
   },
-});
+};

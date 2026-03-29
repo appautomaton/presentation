@@ -1,6 +1,26 @@
-const { STANDARD_COLORS, defineExample, getChartChrome, getFigureTypography } = require('./_shared');
+// ════════════════════════════════════════════════════════════════════════
+// Indexed Lines — relative growth comparison from a common base (100)
+// ════════════════════════════════════════════════════════════════════════
+// Flexible layout: works in portrait, landscape, or square containers.
+// Recommended minimum width: 300px.
+//
+// Responsive template for agentic AI. Three things to change:
+//   1. Brand variables  → swap font + colors from the brand config
+//   2. Data             → swap categories, series with real data
+//   3. Sizing limits    → tune the knobs if defaults don't fit
+// Everything else adapts automatically to container size.
+//
+// ECharts gotchas captured here so the agent doesn't rediscover them:
+//   • Use markLine for target/threshold lines — data-coordinate, auto-responsive
+//   • Do NOT use graphic elements for anything tied to data positions
+//   • containLabel only covers axis labels — markLine labels and endLabels
+//     can overflow the grid. Use legend for series names instead of endLabel,
+//     and keep markLine labels inside the grid (insideMiddleTop, not at edges)
+//   • alignMinLabel/alignMaxLabel (ECharts 5.5+) pins first/last axis labels
+//     so they don't clip — no manual grid padding needed
+//   • yAxis formatter is a function — can't be JSON.stringify'd, must be inline
 
-module.exports = defineExample({
+module.exports = {
   id: 'indexed-lines',
   title: 'Indexed Lines',
   tier: 4,
@@ -10,29 +30,101 @@ module.exports = defineExample({
   actionTitle: 'Company A has outgrown the market and all peers since 2020, with 2.4x cumulative growth',
   source: 'Source: Company financials, market index. Base year 2020 = 100',
   exhibitId: 'Exhibit T4.10',
-  responsiveSpec: {
-    templateClass: 'chart',
-    exhibitRange: {
-      min: { width: 820, height: 462 },
-      preferred: { width: 1280, height: 720 },
-      max: { width: 1600, height: 900 },
-    },
-    slideRange: {
-      min: { width: 900, height: 506 },
-      preferred: { width: 1280, height: 720 },
-      max: { width: 1600, height: 900 },
-    },
-    rationale: 'indexed lines with end labels are similar to standard trend charts',
-  },
+
   renderExhibit({ tokens }) {
     const chartId = 'indexed-lines-core';
-    const colors = STANDARD_COLORS;
-    const figure = getFigureTypography(tokens, colors);
-    const chrome = getChartChrome(tokens, colors, figure);
-    const primaryLabel = { ...figure.annotationStrong, color: colors.accent };
-    const secondaryLabel = { ...figure.annotation, color: colors.accentAlt };
-    const marketLabel = { ...figure.annotation, color: colors.textLight };
-    const tertiaryLabel = { ...figure.annotation, color: colors.axisLine };
+
+    // ── 1. Brand variables ──────────────────────────────────────────────
+    const fontFamily   = 'sans-serif';
+    const textMuted    = '#4E6176';
+    const accent       = '#123A63';           // primary series
+    const accentAlt    = '#2E7D9B';           // secondary series
+    const textLight    = '#8BA5BD';           // market / benchmark
+    const axisLineClr  = '#C7D5E5';          // tertiary series + axis
+    const gridLine     = '#E4EDF7';
+    const thresholdClr = '#2E9E5A';          // threshold markLine
+
+    // ── 2. Data ─────────────────────────────────────────────────────────
+    const categories = ['2020', '2021', '2022', '2023', '2024', '2025'];
+    // labelOffset: [x, y] nudge for endLabel when lines converge at the end.
+    // Agents should adjust these if end values change — lines ending close
+    // together need vertical separation so labels don't overlap.
+    const series = [
+      { name: 'Company A', data: [100, 118, 142, 175, 210, 240], color: accent,     weight: 'bold', primary: true, labelOffset: [-8, 0] },
+      { name: 'Company B', data: [100, 108, 118, 130, 138, 148], color: accentAlt,  weight: 'normal', labelOffset: [-8, -8] },
+      { name: 'Market',    data: [100, 106, 114, 122, 130, 140], color: textLight,  weight: 'normal', dashed: true, noSymbol: true, labelOffset: [-8, 0] },
+      { name: 'Company C', data: [100, 105, 112, 120, 125, 132], color: axisLineClr, weight: 'normal', labelOffset: [-8, 8] },
+    ];
+    const baseValue    = 100;                 // horizontal threshold line
+    const baseLabel    = 'Base = 100';
+
+    // ── 3. Sizing limits ────────────────────────────────────────────────
+    const fontSizeRange   = [11, 16];         // [min, max] px for axis/legend labels
+    const lineWidthRange  = [1.5, 3];         // [min, max] px line thickness
+    const pointSizeRange  = [4, 8];           // [min, max] px data point diameter
+
+    // ── 4. Responsive sizing (computed — don't edit) ────────────────────
+    const minDim = Math.min(tokens.width, tokens.height);
+
+    const [fontMin, fontMax] = fontSizeRange;
+    const fontSize = Math.max(fontMin, Math.min(fontMax,
+      Math.round(fontMin + (minDim - 300) / (720 - 300) * (fontMax - fontMin))));
+
+    const [lwMin, lwMax] = lineWidthRange;
+    const lineWidth = Math.max(lwMin, Math.min(lwMax,
+      +(lwMin + (minDim - 300) / (720 - 300) * (lwMax - lwMin)).toFixed(1)));
+
+    const [ptMin, ptMax] = pointSizeRange;
+    const pointSize = Math.max(ptMin, Math.min(ptMax,
+      Math.round(ptMin + (minDim - 300) / (720 - 300) * (ptMax - ptMin))));
+
+    // ── Build ECharts series ────────────────────────────────────────────
+    const echartsSeriesJSON = JSON.stringify(series.map((s, i) => {
+      const isPrimary = !!s.primary;
+      const lw = isPrimary ? lineWidth : Math.max(lineWidth - 0.5, 1.5);
+      const ps = isPrimary ? pointSize + 1 : (i === series.length - 1 ? Math.max(pointSize - 1, 3) : pointSize);
+      const obj = {
+        name: s.name,
+        type: 'line',
+        data: s.data,
+        smooth: false,
+        symbol: s.noSymbol ? 'none' : 'circle',
+        symbolSize: ps,
+        lineStyle: { width: lw, color: s.color },
+        itemStyle: { color: s.color },
+      };
+      if (s.dashed) {
+        obj.lineStyle.type = [6, 4];
+      }
+      // Inline label at end of line — no legend needed
+      obj.endLabel = {
+        show: true,
+        formatter: s.name,
+        fontSize, fontFamily, fontWeight: 'bold',
+        color: s.color,
+        align: 'right',
+        offset: s.labelOffset || [-8, 0],
+        valueAnimation: false,
+      };
+      // Attach markLine to the first series for the base threshold
+      if (i === 0) {
+        obj.markLine = {
+          silent: true,
+          symbol: 'none',
+          lineStyle: { color: thresholdClr, type: 'dashed', width: 1.5 },
+          label: {
+            show: true,
+            position: 'insideMiddleTop',
+            fontSize, fontFamily, fontWeight: 'bold', color: thresholdClr,
+            formatter: baseLabel,
+          },
+          data: [{ yAxis: baseValue }],
+        };
+      }
+      return obj;
+    }));
+
+    // ── Template ────────────────────────────────────────────────────────
     return `<div class="h-full w-full">
       <div id="${chartId}" style="width:100%;height:100%;"></div>
     </div>
@@ -43,65 +135,31 @@ module.exports = defineExample({
       const chart = echarts.init(mount, null, { renderer: 'svg' });
       chart.setOption({
         animation: false,
-        tooltip: ${JSON.stringify(chrome.tooltipHidden)},
-        grid: {
-          left: ${tokens.adapt(40, 48, 56)},
-          right: ${tokens.adapt(90, 110, 128)},
-          top: ${tokens.adapt(16, 20, 24)},
-          bottom: ${tokens.adapt(30, 40, 48)},
-        },
+        tooltip: { show: false },
+        legend: { show: false },
+        grid: { left: 2, right: 2, top: 2, bottom: 2 },
         xAxis: {
           type: 'category',
-          data: ['2020', '2021', '2022', '2023', '2024', '2025'],
+          data: ${JSON.stringify(categories)},
           boundaryGap: false,
-          axisLine: ${JSON.stringify(chrome.axisLineMuted)},
-          axisTick: ${JSON.stringify(chrome.axisTickNone)},
-          axisLabel: ${JSON.stringify(figure.axisTick)},
-          splitLine: ${JSON.stringify(chrome.splitLineNone)},
+          axisLine:  { lineStyle: { color: '${axisLineClr}' } },
+          axisTick:  { show: false },
+          axisLabel: { fontSize: ${fontSize}, fontFamily: '${fontFamily}', color: '${textMuted}',
+                       alignMinLabel: 'left', alignMaxLabel: 'right' },
+          splitLine: { show: false },
         },
         yAxis: {
           type: 'value',
-          axisLine: ${JSON.stringify(chrome.axisLineNone)},
-          axisTick: ${JSON.stringify(chrome.axisTickNone)},
-          axisLabel: ${JSON.stringify(figure.axisTick)},
-          splitLine: ${JSON.stringify(chrome.splitLineDashed)},
+          axisLine:  { show: false },
+          axisTick:  { show: false },
+          axisLabel: { fontSize: ${fontSize}, fontFamily: '${fontFamily}', color: '${textMuted}',
+                       formatter: (v) => v + 'x' },
+          splitLine: { lineStyle: { color: '${gridLine}', type: 'dashed' } },
         },
-        series: [
-          {
-            name: 'Company A', type: 'line',
-            data: [100, 118, 142, 175, 210, 240],
-            smooth: false, symbol: 'circle', symbolSize: ${tokens.pointSize + 1},
-            lineStyle: { width: ${tokens.lineWidth}, color: '${colors.accent}' },
-            itemStyle: { color: '${colors.accent}' },
-            endLabel: { show: true, ...${JSON.stringify(primaryLabel)}, formatter: 'Company A\\n240 (2.4x)' },
-          },
-          {
-            name: 'Company B', type: 'line',
-            data: [100, 108, 118, 130, 138, 148],
-            smooth: false, symbol: 'circle', symbolSize: ${tokens.pointSize},
-            lineStyle: { width: ${Math.max(tokens.lineWidth - 0.5, 1.5)}, color: '${colors.accentAlt}' },
-            itemStyle: { color: '${colors.accentAlt}' },
-            endLabel: { show: true, ...${JSON.stringify(secondaryLabel)}, formatter: 'Company B\\n148' },
-          },
-          {
-            name: 'Market Index', type: 'line',
-            data: [100, 106, 114, 122, 130, 140],
-            smooth: false, symbol: 'none',
-            lineStyle: { width: ${Math.max(tokens.lineWidth - 0.5, 1.5)}, color: '${colors.textLight}', type: [6, 4] },
-            endLabel: { show: true, ...${JSON.stringify(marketLabel)}, formatter: 'Market\\n140' },
-          },
-          {
-            name: 'Company C', type: 'line',
-            data: [100, 105, 112, 120, 125, 132],
-            smooth: false, symbol: 'circle', symbolSize: ${tokens.pointSize - 1},
-            lineStyle: { width: ${Math.max(tokens.lineWidth - 1, 1.5)}, color: '${colors.axisLine}' },
-            itemStyle: { color: '${colors.axisLine}' },
-            endLabel: { show: true, ...${JSON.stringify(tertiaryLabel)}, formatter: 'Company C\\n132' },
-          },
-        ],
+        series: ${echartsSeriesJSON},
       });
       window.addEventListener('resize', () => chart.resize());
     })();
     </script>`;
   },
-});
+};

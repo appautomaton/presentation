@@ -8,7 +8,15 @@ High-fidelity PDF slide decks built with HTML/CSS and rendered via Playwright. S
 
 ```
 skills/deck-design-pdf/
-├── SKILL.md                    ← operational playbook
+├── SKILL.md                    ← operational playbook (start here)
+├── build-reference.md          ← slide construction: shell, typography, ECharts, layouts
+├── ghost-deck.md               ← consulting ghost deck: layers, dependencies, quality gates
+├── engagement-archetypes.md    ← 8 archetypes, transitions, rising-stakes
+├── evidence-recipes.md         ← 10 data-shape compositions
+├── chart-taxonomy.md           ← exhibit decision tree, firm visual DNA
+├── firm-dna.md                 ← McKinsey/BCG/Bain conventions
+├── density-adaptation.md       ← L1/L2/L3 compression/expansion
+├── skeletons/                  ← pillar architecture per engagement type
 ├── engine/
 │   ├── index.js                ← createDeck(options) orchestrator
 │   ├── render.js               ← Playwright HTML → PDF pipeline
@@ -50,7 +58,7 @@ createDeck({
 
     `<div class="flex flex-col h-full">
        <div class="px-14 pt-10 pb-4 border-t-4 border-[var(--accent)]">
-         <h2 class="text-[32px] font-semibold text-[var(--text)]">Key Finding</h2>
+         <h2 class="text-3xl font-semibold text-[var(--text)]">Key Finding</h2>
        </div>
        <div class="flex-1 px-14 grid grid-cols-2 gap-8">
          <div><!-- left column --></div>

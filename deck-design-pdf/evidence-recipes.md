@@ -23,7 +23,7 @@ One evidence layer = one distinct visual element (chart, table, metric cards, ca
 
 | Density | Layers | Composition |
 |---|---|---|
-| **L1 Narrative** | 1 | One chart, generous whitespace. Title carries 80% of argument. |
+| **L1 Narrative** | 1 | One exhibit, scaled up to fill the body zone. Title carries 80% of argument. |
 | **L2 Structured** | 1–2 | Primary + supporting (sidebar, metric cards, or callout). |
 | **L3 Dense** | 2–4 | Primary + supporting + annotation stack. Body convinces a skeptic alone. |
 

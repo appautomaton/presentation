@@ -305,7 +305,7 @@ The storyboard must include:
 4. **Firm overlay**: McKinsey, BCG, Bain, or none.
 5. **Per-slide specification**:
    - Action title (conclusion sentence, not topic label).
-   - Content description: what the slide argues, what it needs to prove, and the analytical question it answers. Be specific about the comparison, decomposition, or evaluation the slide performs — but do not specify chart types or visual patterns.
+   - Content description: answer the question "what does this slide need to prove?" — name the specific comparison, decomposition, or evaluation the slide performs, and what claim it must make convincingly. "Shows the competitive landscape" is a topic. "Benchmarks 12 peers by EBITDA margin, showing the client ranks 9th at 8.2% vs. peer median 12.6% — a 4.4pp gap" is a proof statement. Do not specify chart types or visual patterns.
 6. **Structured data**: any data referenced in slides must be provided in a parseable format (markdown table, list, or inline). Arithmetic must be consistent — especially in bridges where components must sum to the total.
 
 The delivery skill handles all visualization decisions: exhibit selection, layout composition, chart types, and visual identity. Consultant provides the argument and evidence, not the visual form. See [examples/storyboard-walkthrough.md](examples/storyboard-walkthrough.md) for a worked example.
