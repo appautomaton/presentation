@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Presentation Skills · Agent skills for boardroom-ready decks</title>
+<meta name="description" content="Four open-source skills that take Claude Code or Codex from raw analysis to a boardroom-ready deck: consultant, brand-system, deck-design-pdf, deck-design-ppt.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<script>
+  // set theme before first paint to avoid a flash
+  (function () {
+    try {
+      var t = localStorage.getItem('theme');
+      if (t) document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,400..900;1,400..900&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Fragment+Mono:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #ffffff;
+    --ink: #14161a;
+    --navy: #16337e;
+    --teal: #0e6f63;
+    --redline: #d02f0f;
+    --graphite: #5f6670;
+    --fineline: #c9cdd3;
+    --rowhover: #f2f4f8;
+    --chev-fg: #ffffff;
+    --ghost-teal: rgba(14, 111, 99, 0.09);
+    --ghost-navy: rgba(22, 51, 126, 0.08);
+    --ghost-red: rgba(208, 47, 15, 0.07);
+    --ghost-gray: rgba(95, 102, 112, 0.10);
+    --display: 'Besley', Georgia, serif;
+    --body: 'Libre Franklin', 'Helvetica Neue', Arial, sans-serif;
+    --mono: 'Fragment Mono', ui-monospace, Menlo, Consolas, monospace;
+  }
+
+  [data-theme="dark"] {
+    --paper: #101114;
+    --ink: #eceded;
+    --navy: #5b82e8;
+    --teal: #2bbba9;
+    --redline: #ff6b4a;
+    --graphite: #9aa1aa;
+    --fineline: #2a2d33;
+    --rowhover: #191b1f;
+    --chev-fg: #101114;
+    --ghost-teal: rgba(43, 187, 169, 0.13);
+    --ghost-navy: rgba(91, 130, 232, 0.13);
+    --ghost-red: rgba(255, 107, 74, 0.11);
+    --ghost-gray: rgba(154, 161, 170, 0.12);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #101114;
+      --ink: #eceded;
+      --navy: #5b82e8;
+      --teal: #2bbba9;
+      --redline: #ff6b4a;
+      --graphite: #9aa1aa;
+      --fineline: #2a2d33;
+      --rowhover: #191b1f;
+      --chev-fg: #101114;
+      --ghost-teal: rgba(43, 187, 169, 0.13);
+      --ghost-navy: rgba(91, 130, 232, 0.13);
+      --ghost-red: rgba(255, 107, 74, 0.11);
+      --ghost-gray: rgba(154, 161, 170, 0.12);
+    }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  a { color: var(--ink); }
+  a:hover { color: var(--redline); }
+  :focus-visible { outline: 3px solid var(--redline); outline-offset: 3px; }
+
+  .pad { padding-left: clamp(20px, 5vw, 72px); padding-right: clamp(20px, 5vw, 72px); }
+
+  /* ---------- Top strip ---------- */
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--paper);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    border-bottom: 4px solid var(--ink);
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    transition: padding 0.25s ease, background 0.3s ease;
+  }
+  .topbar.compact { padding-top: 10px; padding-bottom: 10px; }
+
+  .progress {
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    height: 4px;
+    width: 0;
+    background: var(--redline);
+    z-index: 1;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  .logo svg { display: block; width: 22px; height: 22px; }
+  .logo .lb1 { fill: var(--navy); }
+  .logo .lb2 { fill: var(--teal); }
+  .logo .lb3 { fill: var(--ink); }
+  .logo .lax { fill: var(--redline); }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .logo rect { transform: scaleY(0); transform-origin: bottom; transform-box: fill-box; transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1); }
+    .logo .lax { transform: scaleX(0); transform-origin: left; }
+    .logo.built rect { transform: none; }
+    .logo.built .lb2 { transition-delay: 0.12s; }
+    .logo.built .lb3 { transition-delay: 0.24s; }
+    .logo.built .lax { transition-delay: 0.4s; }
+  }
+
+  .excount { color: var(--redline); white-space: nowrap; }
+
+  .topnav { display: flex; align-items: center; gap: clamp(10px, 2.5vw, 28px); flex-wrap: wrap; }
+  .topnav a {
+    text-decoration: none;
+    text-transform: uppercase;
+    border-bottom: 3px solid transparent;
+    padding-bottom: 2px;
+  }
+  .topnav a.active { color: var(--redline); border-bottom-color: var(--redline); }
+
+  .theme-btn {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: none;
+    border: 2px solid var(--ink);
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  .theme-btn:hover { color: var(--redline); border-color: var(--redline); }
+
+  /* ---------- Exhibit chrome ---------- */
+
+  .exhibit {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 4px solid var(--ink);
+    padding-top: clamp(40px, 6vh, 72px);
+    padding-bottom: clamp(40px, 6vh, 72px);
+  }
+
+  .ghost {
+    position: absolute;
+    z-index: -1;
+    right: -2vw;
+    top: -4vw;
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: clamp(160px, 34vw, 460px);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+    will-change: transform;
+  }
+  .ghost.g-teal { color: var(--ghost-teal); }
+  .ghost.g-navy { color: var(--ghost-navy); }
+  .ghost.g-red { color: var(--ghost-red); }
+  .ghost.g-gray { color: var(--ghost-gray); }
+
+  .ex-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: clamp(24px, 4vh, 44px);
+  }
+
+  .ex-label .no { color: var(--redline); }
+  .ex-label .note { color: var(--graphite); text-align: right; }
+
+  .ex-title {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: clamp(30px, 4.6vw, 56px);
+    line-height: 1.06;
+    letter-spacing: -0.01em;
+    max-width: 26ch;
+    margin-bottom: clamp(28px, 4vh, 48px);
+  }
+
+  .sourceline {
+    margin-top: clamp(32px, 5vh, 56px);
+    padding-top: 12px;
+    border-top: 1px solid var(--fineline);
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--graphite);
+  }
+
+  /* ---------- Exhibit 01: hero + waterfall ---------- */
+
+  .hero h1 {
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: clamp(34px, 9.2vw, 128px);
+    line-height: 0.98;
+    letter-spacing: -0.015em;
+    text-transform: uppercase;
+    max-width: 12ch;
+  }
+
+  .hero h1 .stop { color: var(--redline); }
+
+  .hero .sub {
+    margin-top: 28px;
+    font-size: clamp(16px, 1.6vw, 19px);
+    max-width: 58ch;
+    color: var(--graphite);
+  }
+
+  .hero .sub code { font-family: var(--mono); font-size: 0.88em; color: var(--ink); }
+
+  .hero-actions { margin-top: 32px; display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+
+  .cta {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--paper);
+    background: var(--redline);
+    padding: 16px 28px;
+  }
+  .cta:hover { background: var(--ink); color: var(--paper); }
+
+  .ghlink { font-family: var(--mono); font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; }
+
+  .fig-tag {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--graphite);
+    margin: clamp(40px, 7vh, 72px) 0 20px;
+  }
+
+  /* Waterfall */
+
+  .wf {
+    position: relative;
+    height: clamp(300px, 44vh, 480px);
+    display: flex;
+    align-items: flex-end;
+    gap: clamp(16px, 4vw, 56px);
+    border-bottom: 4px solid var(--ink);
+    border-left: 4px solid var(--ink);
+    padding-left: clamp(12px, 2vw, 28px);
+    margin-bottom: 84px;
+  }
+
+  .wf-col { position: relative; flex: 1; height: 100%; }
+  .wf-col.total { flex: 1.35; }
+
+  .bar {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    bottom: var(--off, 0%);
+    height: var(--h);
+    background: var(--navy);
+    transform-origin: bottom;
+  }
+
+  .bar.hatch {
+    background: repeating-linear-gradient(45deg, var(--teal) 0, var(--teal) 5px, var(--paper) 5px, var(--paper) 10px);
+    box-shadow: inset 0 0 0 3px var(--teal);
+  }
+
+  .bar.hatch.navy-hatch {
+    background: repeating-linear-gradient(45deg, var(--navy) 0, var(--navy) 5px, var(--paper) 5px, var(--paper) 10px);
+    box-shadow: inset 0 0 0 3px var(--navy);
+  }
+
+  .bar.sum { background: var(--ink); }
+
+  .bar.half { width: 47%; }
+  .bar.half.right { left: 53%; }
+
+  .wf-col .link {
+    position: absolute;
+    left: 100%;
+    bottom: calc(var(--off, 0%) + var(--h));
+    width: clamp(16px, 4vw, 56px);
+    border-top: 2px dashed var(--ink);
+  }
+
+  .wf-lbl {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 16px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    line-height: 1.5;
+  }
+  .wf-lbl .out { color: var(--graphite); display: block; }
+
+  /* the consultant's red pen circles the deliverable */
+  .wf-col.total .wf-lbl { padding: 6px 10px; }
+  .redcircle {
+    position: absolute;
+    inset: -8px -6px;
+    width: calc(100% + 12px);
+    height: calc(100% + 16px);
+    overflow: visible;
+    pointer-events: none;
+  }
+  .redcircle ellipse {
+    fill: none;
+    stroke: var(--redline);
+    stroke-width: 2.5;
+    transform: rotate(-2deg);
+    transform-origin: center;
+  }
+
+  .annot {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: calc(var(--h) + 14px);
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--redline);
+    text-align: center;
+  }
+
+  /* build animation */
+  @media (prefers-reduced-motion: no-preference) {
+    .wf .bar { transform: scaleY(0); transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1); }
+    .wf .link, .wf .annot { opacity: 0; transition: opacity 0.4s ease; }
+    .wf.built .bar { transform: scaleY(1); }
+    .wf.built .bar.b2 { transition-delay: 0.18s; }
+    .wf.built .bar.b3 { transition-delay: 0.36s; }
+    .wf.built .bar.b4 { transition-delay: 0.54s; }
+    .wf.built .link, .wf.built .annot { opacity: 1; transition-delay: 0.9s; }
+
+    .redcircle ellipse { stroke-dasharray: 100; stroke-dashoffset: 100; }
+    .wf.built .redcircle ellipse { animation: drawcircle 0.8s ease-out 1.3s forwards; }
+    @keyframes drawcircle { to { stroke-dashoffset: 0; } }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .redcircle ellipse { stroke-dasharray: none; }
+  }
+
+  /* ---------- Exhibit 02: pipeline chevrons ---------- */
+
+  .flow {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    align-items: center;
+  }
+
+  .chev {
+    color: var(--chev-fg);
+    padding: clamp(24px, 3.5vw, 44px) clamp(20px, 2.5vw, 40px) clamp(24px, 3.5vw, 44px) clamp(28px, 3.5vw, 52px);
+    clip-path: polygon(0 0, calc(100% - 26px) 0, 100% 50%, calc(100% - 26px) 100%, 0 100%, 26px 50%);
+  }
+  .chev.first { clip-path: polygon(0 0, calc(100% - 26px) 0, 100% 50%, calc(100% - 26px) 100%, 0 100%); padding-left: clamp(20px, 2.5vw, 40px); }
+  .chev.s1 { background: var(--ink); color: var(--paper); }
+  .chev.s2 { background: var(--teal); }
+  .chev.s3 { background: var(--navy); }
+
+  .chev .name { font-family: var(--mono); font-size: clamp(14px, 1.4vw, 17px); display: block; }
+  .chev .role { font-size: clamp(12px, 1.2vw, 14px); opacity: 0.82; display: block; margin-top: 6px; }
+
+  .pass {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--redline);
+    text-align: center;
+    padding: 0 clamp(10px, 1.5vw, 22px);
+    white-space: nowrap;
+  }
+  .pass .arr { display: block; font-size: 16px; margin-top: 2px; }
+
+  .fork { display: flex; flex-direction: column; gap: 12px; }
+
+  .flow-note { margin-top: 36px; font-size: 15px; color: var(--graphite); max-width: 62ch; }
+
+  /* ---------- Exhibit 03: ledger ---------- */
+
+  .ledger-wrap { overflow-x: auto; }
+
+  .ledger { width: 100%; border-collapse: collapse; min-width: 680px; }
+
+  .ledger th {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--graphite);
+    font-weight: 400;
+    text-align: left;
+    padding: 0 20px 14px 0;
+    border-bottom: 3px solid var(--ink);
+  }
+
+  .ledger td {
+    padding: 22px 20px 22px 0;
+    border-bottom: 1px solid var(--fineline);
+    vertical-align: top;
+    font-size: 15px;
+  }
+
+  .ledger tr:last-child td { border-bottom: 3px solid var(--ink); }
+  .ledger tbody tr:hover td { background: var(--rowhover); }
+
+  .ledger .name { font-family: var(--mono); font-size: 15px; color: var(--navy); white-space: nowrap; }
+  .ledger .name.t { color: var(--teal); }
+  .ledger .stage { color: var(--graphite); white-space: nowrap; }
+
+  .chip {
+    font-family: var(--mono);
+    font-size: 12px;
+    border: 2px solid var(--navy);
+    color: var(--navy);
+    padding: 3px 9px;
+    white-space: nowrap;
+  }
+  .chip.t { border-color: var(--teal); color: var(--teal); }
+
+  .fn { margin-top: 20px; font-size: 13.5px; color: var(--graphite); }
+  .fn sup { color: var(--redline); }
+
+  /* ---------- Exhibit 04: install ---------- */
+
+  .codeblock { border: 2px solid var(--ink); }
+  .codeblock + .codeblock, .rednote + .codeblock { margin-top: 24px; }
+
+  .codebar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 16px;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .codebar .lang {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--graphite);
+  }
+
+  .copy-btn {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--redline);
+    background: none;
+    border: 2px solid var(--redline);
+    padding: 5px 12px;
+    cursor: pointer;
+  }
+  .copy-btn:hover { background: var(--redline); color: var(--paper); }
+
+  .codeblock pre {
+    padding: 20px 22px;
+    overflow-x: auto;
+    font-family: var(--mono);
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .codeblock .c { color: var(--graphite); }
+  .codeblock .a { color: var(--navy); }
+
+  .rednote {
+    margin-top: 28px;
+    border-top: 4px solid var(--redline);
+    padding: 14px 0 0;
+    max-width: 70ch;
+    font-size: 15px;
+  }
+  .rednote .lead { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; color: var(--redline); text-transform: uppercase; margin-right: 10px; }
+  .rednote code { font-family: var(--mono); font-size: 0.88em; }
+
+  /* ---------- Colophon ---------- */
+
+  .colo-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px clamp(32px, 5vw, 72px);
+    align-items: start;
+  }
+
+  .colo-item h3 {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 400;
+    padding-bottom: 10px;
+    margin-bottom: 14px;
+    border-bottom: 3px solid var(--ink);
+  }
+
+  .colo-item p { font-size: 14.5px; color: var(--graphite); }
+  .colo-item p + p { margin-top: 10px; }
+  .colo-item code { font-family: var(--mono); font-size: 13px; color: var(--ink); }
+
+  .tokens { border: 2px solid var(--ink); padding: 20px 22px; overflow-x: auto; }
+  .tokens pre { font-family: var(--mono); font-size: 12.5px; line-height: 1.75; }
+  .tokens .c { color: var(--graphite); }
+  .tokens .k { color: var(--navy); }
+  .tokens .v { color: var(--redline); }
+
+  .stamp {
+    display: inline-block;
+    margin-top: 36px;
+    border: 3px double var(--redline);
+    color: var(--redline);
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 12px 20px;
+    transform: rotate(-3deg);
+  }
+
+  /* ---------- Footer ---------- */
+
+  .basefoot {
+    padding-top: 22px;
+    padding-bottom: 28px;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--graphite);
+  }
+
+  /* ---------- Responsive ---------- */
+
+  @media (max-width: 860px) {
+    .excount { display: none; }
+
+    .flow { grid-template-columns: 1fr; }
+    .chev, .chev.first {
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 18px), 50% 100%, 0 calc(100% - 18px));
+      padding-bottom: 38px;
+    }
+    .fork .chev { clip-path: none; padding-bottom: clamp(24px, 3.5vw, 44px); }
+    .pass { padding: 14px 0; }
+    .pass .arr { display: inline-block; transform: rotate(90deg); margin-left: 8px; }
+
+    .colo-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 640px) {
+    .topbar { flex-wrap: wrap; gap: 10px 16px; }
+
+    .wf {
+      display: block;
+      height: auto;
+      border-bottom: none;
+      border-left: 4px solid var(--ink);
+      padding: 8px 0 8px 16px;
+      margin-bottom: 32px;
+    }
+    .wf-col, .wf-col.prod { position: static; height: auto; margin-bottom: 44px; }
+    .wf-col:last-child { margin-bottom: 8px; }
+    .bar {
+      position: static;
+      height: 40px;
+      width: var(--h);
+      margin-left: 0;
+      transform-origin: left;
+    }
+    .bar.half { width: var(--h); height: 18px; }
+    .bar.half.right { margin-top: 4px; }
+    .wf-col .link { display: none; }
+    .wf-lbl { position: static; margin-top: 10px; }
+    .wf-col.total { position: relative; }
+    .wf-col.total .wf-lbl { display: inline-block; }
+    .annot { position: static; text-align: left; margin: 8px 0 2px; }
+    @media (prefers-reduced-motion: no-preference) {
+      .wf .bar { transform: scaleX(0); }
+      .wf.built .bar { transform: scaleX(1); }
+    }
+
+    .ghost { font-size: clamp(120px, 44vw, 200px); top: auto; bottom: -6vw; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar pad" id="topbar">
+  <a class="logo" href="#top" id="logo" aria-label="Presentation Skills, back to top">
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <rect class="lb1" x="3" y="17" width="7" height="10"/>
+      <rect class="lb2" x="12" y="10" width="7" height="7"/>
+      <rect class="lb3" x="21" y="4" width="8" height="23"/>
+      <rect class="lax" x="0" y="28" width="32" height="4"/>
+    </svg>
+    <span>Presentation Skills</span>
+  </a>
+  <span class="excount" id="excount" aria-live="polite">EX 01 / 05</span>
+  <nav class="topnav" aria-label="Sections">
+    <a href="#pipeline">Pipeline</a>
+    <a href="#skills">Skills</a>
+    <a href="#install">Install</a>
+    <a href="#colophon">Colophon</a>
+    <a href="https://github.com/appautomaton/presentation" rel="noopener">GitHub</a>
+    <button class="theme-btn" id="themeBtn" type="button" aria-pressed="false">Night</button>
+  </nav>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+</header>
+
+<main>
+
+  <!-- EXHIBIT 01 · hero -->
+  <section class="exhibit hero pad" id="top" aria-label="Overview">
+    <div class="ex-label">
+      <span class="no">Exhibit 01</span>
+      <span class="note">Agent skills · Claude Code &amp; Codex</span>
+    </div>
+
+    <h1>The deck is the deliverable<span class="stop">.</span></h1>
+    <p class="sub">
+      Four open-source skills take an agent from raw analysis to a boardroom-ready deck.
+      <code>consultant</code> structures the argument, <code>brand-system</code> sets the identity,
+      <code>deck-design-pdf</code> and <code>deck-design-ppt</code> render the slides.
+      McKinsey, BCG, or Bain methodology, end to end.
+    </p>
+    <div class="hero-actions">
+      <a class="cta" href="#install">Install the skills</a>
+      <a class="ghlink" href="https://github.com/appautomaton/presentation" rel="noopener">View source →</a>
+    </div>
+
+    <p class="fig-tag">Fig. 1 · The pipeline, cumulative</p>
+
+    <div class="wf" id="waterfall" role="img" aria-label="Waterfall chart: consultant, brand-system, and the two deck-design skills build cumulatively into one boardroom-ready deck.">
+      <div class="wf-col">
+        <div class="bar b1" style="--h:28%"></div>
+        <span class="link" style="--h:28%" aria-hidden="true"></span>
+        <div class="wf-lbl">consultant<span class="out">storyboard</span></div>
+      </div>
+      <div class="wf-col">
+        <div class="bar hatch b2" style="--h:22%; --off:28%"></div>
+        <span class="link" style="--h:22%; --off:28%" aria-hidden="true"></span>
+        <div class="wf-lbl">brand-system<span class="out">identity.js</span></div>
+      </div>
+      <div class="wf-col prod">
+        <div class="bar half b3" style="--h:30%; --off:50%"></div>
+        <div class="bar half right hatch navy-hatch b3" style="--h:30%; --off:50%"></div>
+        <span class="link" style="--h:30%; --off:50%" aria-hidden="true"></span>
+        <div class="wf-lbl">deck-design-pdf / -ppt<span class="out">deck.pdf · deck.pptx</span></div>
+      </div>
+      <div class="wf-col total">
+        <div class="bar sum b4" style="--h:80%"></div>
+        <div class="annot" style="--h:80%">Your agent ships this</div>
+        <div class="wf-lbl">
+          <svg class="redcircle" aria-hidden="true" preserveAspectRatio="none" viewBox="0 0 100 60">
+            <ellipse cx="50" cy="30" rx="47" ry="26" pathLength="100"/>
+          </svg>
+          boardroom-ready deck<span class="out">the sum of the pipeline</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sourceline">
+      <span>Source: README.md · Each skill also works independently</span>
+      <span>Fig. 1 is conceptual: stages, not hours</span>
+    </div>
+  </section>
+
+  <!-- EXHIBIT 02 · pipeline -->
+  <section class="exhibit pad" id="pipeline" aria-label="Pipeline">
+    <span class="ghost g-teal" aria-hidden="true" data-parallax>02</span>
+    <div class="ex-label">
+      <span class="no">Exhibit 02</span>
+      <span class="note">Handoffs are plain files, not a framework</span>
+    </div>
+    <h2 class="ex-title">Each skill hands a file to the next: storyboard, identity, then slides.</h2>
+
+    <div class="flow">
+      <div class="chev first s1">
+        <span class="name">consultant</span>
+        <span class="role">Hypothesis-driven analysis and storyboarding</span>
+      </div>
+      <div class="pass">storyboard<span class="arr" aria-hidden="true">→</span></div>
+      <div class="chev s2">
+        <span class="name">brand-system</span>
+        <span class="role">Palette, font pairing, style direction</span>
+      </div>
+      <div class="pass">identity.js<span class="arr" aria-hidden="true">→</span></div>
+      <div class="fork">
+        <div class="chev s3">
+          <span class="name">deck-design-pdf</span>
+          <span class="role">Pixel-perfect PDF</span>
+        </div>
+        <div class="chev s3">
+          <span class="name">deck-design-ppt</span>
+          <span class="role">Editable PPTX</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="flow-note">
+      Point the production skills at any storyboard and identity you already have, or let the agent run the full chain.
+      The pipeline is a convention: every handoff is an ordinary file in your working directory.
+    </p>
+
+    <div class="sourceline">
+      <span>Source: README.md · Pipeline</span>
+      <span>2 / 5</span>
+    </div>
+  </section>
+
+  <!-- EXHIBIT 03 · skills ledger -->
+  <section class="exhibit pad" id="skills" aria-label="The four skills">
+    <span class="ghost g-navy" aria-hidden="true" data-parallax>03</span>
+    <div class="ex-label">
+      <span class="no">Exhibit 03</span>
+      <span class="note">One skill per engagement stage</span>
+    </div>
+    <h2 class="ex-title">Analysis, identity, and production: separable by design.<sup>1</sup></h2>
+
+    <div class="ledger-wrap">
+      <table class="ledger">
+        <thead>
+          <tr>
+            <th scope="col">Skill</th>
+            <th scope="col">Stage</th>
+            <th scope="col">Function</th>
+            <th scope="col">Output</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="name">consultant</td>
+            <td class="stage">Analysis</td>
+            <td>Structures the problem and storyboards the argument with McKinsey, BCG, or Bain methodology: governing thought, pillars, slide-by-slide so-whats.</td>
+            <td><span class="chip">storyboard</span></td>
+          </tr>
+          <tr>
+            <td class="name t">brand-system</td>
+            <td class="stage">Identity</td>
+            <td>Builds the visual system: color palette, font pairing, style direction, rendered as a preview PDF for sign-off before production.</td>
+            <td><span class="chip t">identity.js</span></td>
+          </tr>
+          <tr>
+            <td class="name">deck-design-pdf</td>
+            <td class="stage">Production</td>
+            <td>Renders pixel-perfect decks with HTML, Tailwind, and Playwright: rich typography, ECharts exhibits, print-exact layout.</td>
+            <td><span class="chip">deck.pdf</span></td>
+          </tr>
+          <tr>
+            <td class="name">deck-design-ppt</td>
+            <td class="stage">Production</td>
+            <td>Builds native, fully editable decks with pptxgenjs, for teams that rework slides after delivery.</td>
+            <td><span class="chip">deck.pptx</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="fn"><sup>1</sup> Each skill also works independently. No cross-skill dependency.</p>
+
+    <div class="sourceline">
+      <span>Source: README.md · Skills</span>
+      <span>3 / 5</span>
+    </div>
+  </section>
+
+  <!-- EXHIBIT 04 · install -->
+  <section class="exhibit pad" id="install" aria-label="Install">
+    <span class="ghost g-red" aria-hidden="true" data-parallax>04</span>
+    <div class="ex-label">
+      <span class="no">Exhibit 04</span>
+      <span class="note">Appendix A · Install</span>
+    </div>
+    <h2 class="ex-title">Clone once, then symlink into any agent that reads skills.</h2>
+
+    <div class="codeblock">
+      <div class="codebar">
+        <span class="lang">sh · clone &amp; symlink</span>
+        <button class="copy-btn" type="button" data-copy="clone">Copy</button>
+      </div>
+      <pre id="code-clone">git clone https://github.com/appautomaton/presentation.git ~/skills/presentation
+cd ~/skills/presentation
+
+<span class="c"># Claude Code</span>
+for s in consultant brand-system deck-design-pdf deck-design-ppt; do
+  ln -s "$(pwd)/$s" <span class="a">~/.claude/skills</span>/$s
+done
+
+<span class="c"># Codex</span>
+for s in consultant brand-system deck-design-pdf deck-design-ppt; do
+  ln -s "$(pwd)/$s" <span class="a">~/.codex/skills</span>/$s
+done</pre>
+    </div>
+
+    <div class="rednote">
+      <span class="lead">Note</span>
+      Three skills ship their own rendering engines. After cloning, run <code>npm install</code> in
+      <code>brand-system</code>, <code>deck-design-pdf</code>, and <code>deck-design-ppt</code>.
+    </div>
+
+    <div class="codeblock">
+      <div class="codebar">
+        <span class="lang">sh · install engines</span>
+        <button class="copy-btn" type="button" data-copy="install">Copy</button>
+      </div>
+      <pre id="code-install">cd brand-system &amp;&amp; npm install
+cd ../deck-design-pdf &amp;&amp; npm install
+cd ../deck-design-ppt &amp;&amp; npm install</pre>
+    </div>
+
+    <div class="sourceline">
+      <span>Source: README.md · Quick start</span>
+      <span>4 / 5</span>
+    </div>
+  </section>
+
+  <!-- EXHIBIT 05 · colophon -->
+  <section class="exhibit pad" id="colophon" aria-label="Colophon">
+    <span class="ghost g-gray" aria-hidden="true" data-parallax>05</span>
+    <div class="ex-label">
+      <span class="no">Exhibit 05</span>
+      <span class="note">Colophon &amp; fine print</span>
+    </div>
+    <h2 class="ex-title">This page ate its own dog food.</h2>
+
+    <div class="colo-grid">
+      <div class="colo-item">
+        <h3>identity.js · this page's own tokens</h3>
+        <div class="tokens">
+<pre><span class="c">// docs/index.html was designed the way the skills work:</span>
+<span class="c">// tokens first, then production.</span>
+export default {
+  fonts: {
+    display: <span class="v">'Besley'</span>,        <span class="c">// Clarendon revival, ledger DNA</span>
+    body:    <span class="v">'Libre Franklin'</span>, <span class="c">// chart-label heritage</span>
+    utility: <span class="v">'Fragment Mono'</span>,  <span class="c">// source lines &amp; figures</span>
+  },
+  palette: {
+    paper:   { day: <span class="k">'#FFFFFF'</span>, night: <span class="k">'#101114'</span> },
+    ink:     { day: <span class="k">'#14161A'</span>, night: <span class="k">'#ECEDED'</span> },
+    navy:    { day: <span class="k">'#16337E'</span>, night: <span class="k">'#5B82E8'</span> },  <span class="c">// data mass</span>
+    teal:    { day: <span class="k">'#0E6F63'</span>, night: <span class="k">'#2BBBA9'</span> },  <span class="c">// second series</span>
+    redline: { day: <span class="k">'#D02F0F'</span>, night: <span class="k">'#FF6B4A'</span> },  <span class="c">// annotation voice</span>
+  },
+  radius: 0,
+}</pre>
+        </div>
+      </div>
+
+      <div>
+        <div class="colo-item">
+          <h3>vendor/ · committed</h3>
+          <p>Inside the skills, fonts, icons, and chart libraries are vendored so decks render offline with zero network dependency at build time. This page is the opposite on purpose: it loads fonts from a CDN because visitors are online.</p>
+        </div>
+        <div class="colo-item" style="margin-top: 32px;">
+          <h3>node_modules/ · gitignored</h3>
+          <p>Rendering engines install per skill. Run <code>npm install</code> once after cloning.</p>
+        </div>
+        <div class="colo-item" style="margin-top: 32px;">
+          <h3>License &amp; community</h3>
+          <p>MIT. Use it in client work, fork it, rebrand it.</p>
+          <p>Found via <a href="https://linux.do" rel="noopener">linux.do</a>, more fun stuff about AI over there.</p>
+        </div>
+        <span class="stamp">Public &amp; open source · MIT</span>
+      </div>
+    </div>
+
+    <div class="sourceline">
+      <span>Source: README.md · Repo structure · License</span>
+      <span>5 / 5</span>
+    </div>
+  </section>
+
+</main>
+
+<footer class="basefoot pad">
+  <span>Presentation Skills · consultant / brand-system / deck-design-pdf / deck-design-ppt</span>
+  <span>Set in Besley, Libre Franklin &amp; Fragment Mono</span>
+</footer>
+
+<script>
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Build animations: waterfall + logo
+  window.addEventListener('load', () => {
+    document.getElementById('waterfall').classList.add('built');
+    document.getElementById('logo').classList.add('built');
+  });
+  // replay the logo build on click while still navigating to top
+  document.getElementById('logo').addEventListener('click', () => {
+    const logo = document.getElementById('logo');
+    logo.classList.remove('built');
+    requestAnimationFrame(() => requestAnimationFrame(() => logo.classList.add('built')));
+  });
+
+  // Theme toggle
+  const themeBtn = document.getElementById('themeBtn');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+  function currentTheme() {
+    const set = document.documentElement.getAttribute('data-theme');
+    if (set) return set;
+    return prefersDark.matches ? 'dark' : 'light';
+  }
+  function paintBtn() {
+    const dark = currentTheme() === 'dark';
+    themeBtn.textContent = dark ? 'Day' : 'Night';
+    themeBtn.setAttribute('aria-pressed', String(dark));
+  }
+  themeBtn.addEventListener('click', () => {
+    const next = currentTheme() === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+    paintBtn();
+  });
+  prefersDark.addEventListener('change', paintBtn);
+  paintBtn();
+
+  // Scroll: progress rule, compact topbar, ghost parallax
+  const progress = document.getElementById('progress');
+  const topbar = document.getElementById('topbar');
+  const ghosts = [...document.querySelectorAll('[data-parallax]')];
+  let ticking = false;
+
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + '%';
+      topbar.classList.toggle('compact', window.scrollY > 48);
+      if (!reduced) {
+        const mid = window.innerHeight / 2;
+        ghosts.forEach((g) => {
+          const r = g.parentElement.getBoundingClientRect();
+          const delta = (r.top + r.height / 2 - mid) * 0.12;
+          g.style.transform = 'translate3d(0,' + delta.toFixed(1) + 'px,0)';
+        });
+      }
+      ticking = false;
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Scrollspy: nav active state + exhibit counter
+  const navLinks = [...document.querySelectorAll('.topnav a[href^="#"]')];
+  const byId = Object.fromEntries(navLinks.map((a) => [a.getAttribute('href').slice(1), a]));
+  const sections = [...document.querySelectorAll('.exhibit')];
+  const excount = document.getElementById('excount');
+
+  const spy = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      const idx = sections.indexOf(e.target) + 1;
+      excount.textContent = 'EX 0' + idx + ' / 05';
+      navLinks.forEach((a) => a.classList.remove('active'));
+      byId[e.target.id]?.classList.add('active');
+    });
+  }, { rootMargin: '-45% 0px -45% 0px' });
+  sections.forEach((s) => spy.observe(s));
+
+  // Copy buttons
+  document.querySelectorAll('.copy-btn').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const pre = document.getElementById('code-' + btn.dataset.copy);
+      try {
+        await navigator.clipboard.writeText(pre.innerText);
+        btn.textContent = 'Copied';
+        setTimeout(() => { btn.textContent = 'Copy'; }, 1600);
+      } catch {
+        btn.textContent = 'Select manually';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
