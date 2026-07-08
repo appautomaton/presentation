@@ -1,12 +1,12 @@
 # Framework Selection Guide
 
-When to use which framework. Not an encyclopedia — the model already knows what SWOT and Porter's Five Forces ARE. This file teaches WHEN and HOW to select and combine them.
+When to use which framework. Not an encyclopedia: the model already knows what SWOT and Porter's Five Forces ARE. This file teaches WHEN and HOW to select and combine them.
 
 ---
 
 ## 1. Selection by Question
 
-Match the business question to the right framework combination. Default to two frameworks — but if one framework fully answers the question, one is sufficient. Don't add a second to check a box.
+Match the business question to the right framework combination. Default to two frameworks, but if one framework fully answers the question, one is sufficient. Don't add a second to check a box.
 
 | Question | Primary framework | Pairing |
 |---|---|---|
@@ -46,7 +46,7 @@ If using two or more frameworks, include at least one that looks OUTWARD (market
 
 ### Maximum framework count
 
-Cap at 4 frameworks per question. If 4 don't converge, the problem definition is wrong — go back to the issue tree.
+Cap at 4 frameworks per question. If 4 don't converge, the problem definition is wrong: go back to the issue tree.
 
 ---
 
@@ -57,12 +57,12 @@ Frameworks are inputs to synthesis, not outputs to the client. Never present fra
 ### Synthesis patterns
 
 **Convergence**: Multiple frameworks point the same direction.
-- "Five Forces shows low competitive intensity, VRIO confirms our sustainable advantage, market sizing shows 12% growth — entry is attractive across all lenses."
+- "Five Forces shows low competitive intensity, VRIO confirms our sustainable advantage, market sizing shows 12% growth: entry is attractive across all lenses."
 - → High confidence. State the converging insight. Cite which frameworks support it.
 
 **Contradiction**: Frameworks point different directions.
 - "Market sizing shows $5B opportunity, but Five Forces reveals intense rivalry and low barriers to entry."
-- → Judgment call. State the trade-off explicitly. Explain which lens you weigh more and why. Never average contradictions — choose a position and defend it.
+- → Judgment call. State the trade-off explicitly. Explain which lens you weigh more and why. Never average contradictions: choose a position and defend it.
 
 **Blind spots**: What the frameworks DON'T cover.
 - "Neither Five Forces nor VRIO addresses the regulatory risk of pending legislation."
@@ -95,32 +95,32 @@ Entry is attractive with manageable risk. [Governing thought]
 
 ## 4. Reusable MECE Structures
 
-Starting scaffolds for recurring decompositions — adapt to the client's specific structure.
+Starting scaffolds for recurring decompositions: adapt to the client's specific structure.
 
 - **Revenue**: Price × Volume × Mix (each decomposes further: price into list × discount × terms; volume into addressable × penetration × retention)
 - **Profitability**: Revenue − COGS − SG&A − D&A (decompose each as rate × volume or fixed + variable)
 - **Growth**: Market growth + Share gain + New markets + New products
 - **Customer economics**: Acquire → Activate → Retain → Monetize → Refer (each stage has conversion rate + cost)
 
-If the client's business doesn't map cleanly to these, that's a signal — the non-standard structure is often where the insight lives.
+If the client's business doesn't map cleanly to these, that's a signal: the non-standard structure is often where the insight lives.
 
 ---
 
-## 5. Application Discipline — Internal Assessment
+## 5. Application Discipline: Internal Assessment
 
 The model knows the framework structures. These notes teach what goes wrong when applying them.
 
 **VRIO:** Apply to 8-12 resources. Common error: labeling everything valuable and rare. Most capabilities are parity. The power of VRIO is identifying the 2-3 that actually matter.
 
-**7S:** Map interdependencies — which misalignments cause downstream problems? Strategy changes that ignore systems/skills fail. The diagnosis isn't seven independent assessments; it's the friction map between them.
+**7S:** Map interdependencies: which misalignments cause downstream problems? Strategy changes that ignore systems/skills fail. The diagnosis isn't seven independent assessments; it's the friction map between them.
 
 **Balanced Scorecard:** Causal logic flows upward: learning → process → customer → financial. If the chain breaks, fix the lowest broken link first. A financial target without a supporting process improvement is wishful thinking.
 
 ---
 
-## 6. Application Discipline — Strategy Formulation
+## 6. Application Discipline: Strategy Formulation
 
-**Blue Ocean / Value Curve:** A differentiated value curve is the visual test. If your curve overlaps competitors, you're competing on the same terms. The goal is a curve with a distinct shape — not marginal improvement on existing factors.
+**Blue Ocean / Value Curve:** A differentiated value curve is the visual test. If your curve overlaps competitors, you're competing on the same terms. The goal is a curve with a distinct shape, not marginal improvement on existing factors.
 
 **Business Model Canvas:** Coherence test: do the blocks reinforce each other? A high-touch value proposition with a low-cost channel is a contradiction. A subscription revenue model with a one-time-use product creates friction.
 
@@ -128,6 +128,6 @@ The model knows the framework structures. These notes teach what goes wrong when
 
 ## 7. Worked Examples
 
-For four case studies derived from real MBB engagements — service model reform, pricing review, sector decarbonization, and organizational restructuring — demonstrating contradiction, convergence, cascading, and blind spot synthesis, see [framework-application.md](../../examples/framework-application.md).
+For four case studies derived from real MBB engagements (service model reform, pricing review, sector decarbonization, and organizational restructuring), demonstrating contradiction, convergence, cascading, and blind spot synthesis, see [framework-application.md](../../examples/framework-application.md).
 
 For market sizing worked examples with top-down/bottom-up triangulation and sensitivity analysis, see [market-sizing.md](../../examples/market-sizing.md).

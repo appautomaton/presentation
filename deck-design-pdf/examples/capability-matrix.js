@@ -22,7 +22,7 @@ module.exports = {
   proves: 'current vs. target capability visibility with risk flags and mitigations',
   data: 'Capability assessment across 6 domains with preservation risk and mitigation actions',
   sectionLabel: 'Organizational Transition',
-  actionTitle: 'Three critical capabilities are at risk in the transition — procurement expertise and regulatory knowledge require dedicated retention plans',
+  actionTitle: 'Three critical capabilities are at risk in the transition: procurement expertise and regulatory knowledge require dedicated retention plans',
   source: 'Source: Capability assessment, HR analytics + leadership interviews',
   exhibitId: 'Exhibit 15.1',
 

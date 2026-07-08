@@ -1,4 +1,4 @@
-# C03 — Evaluation Grid — Slot Budgets (Consulting-only)
+# C03 Evaluation Grid: Slot Budgets (Consulting-only)
 
 - **For:** criteria × options matrix with RAG color fills.
 - **Slots (budgets):**

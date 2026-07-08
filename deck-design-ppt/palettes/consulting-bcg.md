@@ -1,4 +1,4 @@
-# BCG — Green-Anchored
+# BCG: Green-Anchored
 
 Process-transparent, framework-first. Green rule below every action title (signature). Panel mini-headers with local green underline on multi-panel slides. "Trust us because you can see exactly how we got here."
 
@@ -10,7 +10,7 @@ Two greens: structural dark green for authority, rule green for visual rhythm. E
 |---|---|---|
 | `#1A1A1A` | Midnight | Section divider overlay background |
 | `#0F6B4F` | Structure | Section labels (uppercase), structural accent, panel headers |
-| `#6AB648` | Rule | Header rule, panel mini-rules — the BCG signature |
+| `#6AB648` | Rule | Header rule, panel mini-rules: the BCG signature |
 | `#D0D0D0` | Border | Panel borders, table gridlines |
 | `#F5F6F4` | Warm gray | Alternate row fills, low-salience zones |
 | `#FFFFFF` | White | Default slide canvas |
@@ -35,7 +35,7 @@ Teal-green (`#1F7A5A`) for primary series. Gray for secondary. BCG charts are fl
 
 ## Evaluation Matrices
 
-The scorecard matrix is BCG's signature exhibit (~20% of analytic slides). Cell fills use RAG washes at low opacity — not solid fills:
+The scorecard matrix is BCG's signature exhibit (~20% of analytic slides). Cell fills use RAG washes at low opacity, not solid fills:
 
 | Hex (wash) | Rating |
 |---|---|
@@ -47,7 +47,7 @@ Thin gray gridlines (~0.5pt). Bold row/column headers. The color pattern across 
 
 ## Typography
 
-Arial for everything — display and body. No second font.
+Arial for everything: display and body. No second font.
 
 ## Mode Variations
 

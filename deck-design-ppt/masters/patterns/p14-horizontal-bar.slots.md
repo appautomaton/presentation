@@ -1,4 +1,4 @@
-# P14 Horizontal Bar — Slot Budgets
+# P14 Horizontal Bar: Slot Budgets
 
 ## Title zone
 - **Section tag**: ≤ 40 chars

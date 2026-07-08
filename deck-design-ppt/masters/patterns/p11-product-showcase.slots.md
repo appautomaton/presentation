@@ -1,7 +1,7 @@
-# P11 — Product Showcase — Slot Budgets
+# P11 Product Showcase: Slot Budgets
 
 **Styles:** consulting · founder · sequoia
-**For:** Platform demo with feature list — capability evidence (consulting), product-led storytelling (founder), crisis dashboard (sequoia).
+**For:** Platform demo with feature list: capability evidence (consulting), product-led storytelling (founder), crisis dashboard (sequoia).
 
 **Slots:**
 - `h2`: <= 110 chars.

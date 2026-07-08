@@ -1,7 +1,7 @@
 # McKinsey Process Reference
 
 Updated: 2026-03-03
-Companion: [catalog.md](catalog.md) — per-framework intent, inputs, outputs, and deck expression.
+Companion: [catalog.md](catalog.md), per-framework intent, inputs, outputs, and deck expression.
 
 ## Agentic usage contract
 
@@ -31,8 +31,8 @@ Core dependency rule: output of each tier is input to the next tier.
 
 Two tools look similar but serve different purposes:
 
-- **Issue Tree** (Tier 1) is qualitative problem decomposition — it breaks an ambiguous concern into testable sub-problems. Nodes are questions and hypotheses. The output is a work plan.
-- **Value Driver Tree** (Tier 2) is quantitative performance decomposition — it breaks a financial KPI into arithmetic components down to operational drivers. Nodes are numbers with formulas connecting them. The output is a sensitivity map.
+- **Issue Tree** (Tier 1) is qualitative problem decomposition: it breaks an ambiguous concern into testable sub-problems. Nodes are questions and hypotheses. The output is a work plan.
+- **Value Driver Tree** (Tier 2) is quantitative performance decomposition: it breaks a financial KPI into arithmetic components down to operational drivers. Nodes are numbers with formulas connecting them. The output is a sensitivity map.
 
 The Issue Tree asks "why is margin declining?" The Value Driver Tree asks "which operational lever moves EBITDA most per unit of effort?" The first defines the analytical lanes; the second quantifies them.
 
@@ -81,7 +81,7 @@ Quality gates
 
 Objective: align analytical work with sponsor priority while preserving analytical rigor.
 
-The Issue Tree defines the objective function. The CEO Agenda defines the boundary conditions. A recommendation that optimizes the analysis but violates the sponsor's strategic commitments is infeasible — it will not survive the politics regardless of its analytical merit.
+The Issue Tree defines the objective function. The CEO Agenda defines the boundary conditions. A recommendation that optimizes the analysis but violates the sponsor's strategic commitments is infeasible: it will not survive the politics regardless of its analytical merit.
 
 Step T1.A - Sponsor agenda interview
 - Extract top priorities, top concerns, and single most important outcome.
@@ -170,7 +170,7 @@ Step T2.G1 - Segmentation architecture
 - Keep cell count manageable; pre-cluster if needed.
 
 Step T2.G2 - Historical attribution
-- Decompose growth into three components: portfolio momentum (market tailwinds), M&A (inorganic), and market share gain (competitive capture). This attribution reveals whether growth was earned or inherited — a company riding portfolio momentum alone is exposed when the cycle turns.
+- Decompose growth into three components: portfolio momentum (market tailwinds), M&A (inorganic), and market share gain (competitive capture). This attribution reveals whether growth was earned or inherited, a company riding portfolio momentum alone is exposed when the cycle turns.
 
 Step T2.G3 - Forward potential scoring
 - Score future potential by weighted factors such as:
@@ -306,7 +306,7 @@ Step T4.5 - Capability building
 - Design a knowledge-transfer mechanism (Center of Excellence, internal academy, or embedded coaching program) so the client can sustain execution after the engagement ends. The test: could the client repeat this analysis in 12 months without consultants?
 
 Step T4.6 - Change architecture
-- Apply the Influence Model: change sticks only when four conditions hold simultaneously: (1) a compelling change story people understand and believe, (2) visible role modeling by senior leaders, (3) skill-building so people can perform the new behaviors, (4) reinforcing mechanisms — metrics, incentives, and processes — aligned to the new way. If any one is missing, the other three are insufficient. See [change-management.md](../../domains/change-management.md) for the full adoption and resistance methodology.
+- Apply the Influence Model: change sticks only when four conditions hold simultaneously: (1) a compelling change story people understand and believe, (2) visible role modeling by senior leaders, (3) skill-building so people can perform the new behaviors, (4) reinforcing mechanisms (metrics, incentives, and processes) aligned to the new way. If any one is missing, the other three are insufficient. See [change-management.md](../../domains/change-management.md) for the full adoption and resistance methodology.
 
 Primary artifacts
 - Initiative portfolio overview.
@@ -322,9 +322,9 @@ Quality gates
 
 ## Argumentative Signatures
 
-**Outside-in anchor.** Every McKinsey argument establishes an external benchmark before discussing the client's position. The client's current state is one point on a distribution — never presented as an isolated fact. Global peers, comparable markets, or cross-sector benchmarks come first. This makes the gap between current and possible viscerally clear without directly criticizing the client.
+**Outside-in anchor.** Every McKinsey argument establishes an external benchmark before discussing the client's position. The client's current state is one point on a distribution, never presented as an isolated fact. Global peers, comparable markets, or cross-sector benchmarks come first. This makes the gap between current and possible viscerally clear without directly criticizing the client.
 
-**Scenario brackets.** Never present point forecasts. Every projection is a range with named scenarios (base/upside/downside or slow/mid/rapid). This makes the recommendation robust across scenarios — the discussion becomes "which scenario to plan for" rather than "is this forecast right?"
+**Scenario brackets.** Never present point forecasts. Every projection is a range with named scenarios (base/upside/downside or slow/mid/rapid). This makes the recommendation robust across scenarios: the discussion becomes "which scenario to plan for" rather than "is this forecast right?"
 
 **Recommend the infrastructure.** Where possible, recommend building ongoing decision-making capability, not just making a one-time decision. A market monitoring cycle, a pricing review process, a workforce planning capability. This embeds the analytical approach into the client's operations.
 

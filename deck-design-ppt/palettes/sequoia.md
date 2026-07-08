@@ -1,4 +1,4 @@
-# Sequoia — Dark + Red
+# Sequoia: Dark + Red
 
 Dark, dramatic, high-stakes. For crisis messaging, downturn memos, strategic inflection points, "burn/runway" rhetoric. Red accent on near-black canvas. Georgia serif for authority.
 
@@ -27,9 +27,9 @@ Red IS the signal. Everything else is gray.
 
 | Swatch | Hex | Token |
 |---|---|---|
-| | `#E8554D` | Red — primary emphasis (= Accent) |
-| | `#D4554D` | Dark red — subtitle emphasis, secondary accent |
-| | `#888888` | Muted — non-focus, context |
+| | `#E8554D` | Red: primary emphasis (= Accent) |
+| | `#D4554D` | Dark red: subtitle emphasis, secondary accent |
+| | `#888888` | Muted: non-focus, context |
 
 ## Text Pairing
 

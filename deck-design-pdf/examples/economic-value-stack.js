@@ -18,10 +18,10 @@ module.exports = {
   id: 'economic-value-stack',
   title: 'Economic Value Stack',
   tier: 2,
-  proves: 'total economic value decomposition — how much value the customer captures vs. what they pay',
+  proves: 'total economic value decomposition: how much value the customer captures vs. what they pay',
   data: 'Economic value estimation for enterprise SaaS pricing',
   sectionLabel: 'Pricing Strategy',
-  actionTitle: 'Total economic value is $840K per customer — current price captures only 38% of value delivered',
+  actionTitle: 'Total economic value is $840K per customer, yet current price captures only 38% of value delivered',
   source: 'Source: EVE model, customer value interviews (n=24 enterprise accounts)',
   exhibitId: 'Exhibit 19.1',
 

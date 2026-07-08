@@ -36,7 +36,7 @@ module.exports = {
   proves: 'approval-path bottleneck identification with cycle-time attribution',
   data: 'Capital expenditure approval flow across 6 stages with cycle times',
   sectionLabel: 'Process Optimization',
-  actionTitle: 'CapEx approvals take 34 days on average — 60% of elapsed time is in two sequential review gates',
+  actionTitle: 'CapEx approvals take 34 days on average, and 60% of elapsed time sits in two sequential review gates',
   source: 'Source: Process audit, CapEx approvals (n=86 requests, FY2025)',
   exhibitId: 'Exhibit 16.2',
 

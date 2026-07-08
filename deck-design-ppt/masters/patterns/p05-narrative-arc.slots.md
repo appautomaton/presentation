@@ -1,7 +1,7 @@
-# P05 — Narrative Arc — Slot Budgets
+# P05 Narrative Arc: Slot Budgets
 
 **Styles:** consulting · founder · sequoia
-**For:** Time series / progression — deconstructed chart (consulting), product growth (founder), market cycles (sequoia).
+**For:** Time series / progression: deconstructed chart (consulting), product growth (founder), market cycles (sequoia).
 
 **Slots:**
 - `h2`: <= 120 chars.

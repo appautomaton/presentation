@@ -6,7 +6,7 @@ How to design and execute organizational change. Covers adoption models, stakeho
 
 ## 1. When Change Management Applies
 
-Any initiative that requires people to work differently needs change management. Technology implementations, reorganizations, process redesigns, M&A integrations, strategy pivots — the technical solution is the easy part. Getting people to adopt it is the hard part.
+Any initiative that requires people to work differently needs change management. Technology implementations, reorganizations, process redesigns, M&A integrations, strategy pivots: the technical solution is the easy part. Getting people to adopt it is the hard part.
 
 The failure mode is consistent: the project delivers on time and on budget, but six months later nobody uses the new system, follows the new process, or behaves according to the new strategy. Change management prevents this.
 
@@ -34,7 +34,7 @@ For large-scale changes (company-wide initiatives, multi-year programs), layer o
 
 ### Five phases
 
-1. **Vision and coalition** (weeks 1-4): Define the change vision in one sentence. Build a coalition of sponsors, champions, and influencers. Without a coalition, the change is one executive's initiative — and dies when that executive's attention shifts.
+1. **Vision and coalition** (weeks 1-4): Define the change vision in one sentence. Build a coalition of sponsors, champions, and influencers. Without a coalition, the change is one executive's initiative, and dies when that executive's attention shifts.
 
 2. **Assessment and planning** (weeks 3-8): Map the current state, define the target state, identify the gaps, design the change plan. Assess organizational readiness honestly.
 
@@ -42,7 +42,7 @@ For large-scale changes (company-wide initiatives, multi-year programs), layer o
 
 4. **Deploy and support** (weeks 12-26): Roll out in waves, provide intensive support, monitor adoption metrics in real time. Deploy too fast and support collapses. Deploy too slow and momentum dies.
 
-5. **Sustain and optimize** (ongoing): Embed the change into standard operating procedures, performance management, and organizational culture. This phase never ends — it just becomes normal operations.
+5. **Sustain and optimize** (ongoing): Embed the change into standard operating procedures, performance management, and organizational culture. This phase never ends, it just becomes normal operations.
 
 ---
 

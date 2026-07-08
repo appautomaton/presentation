@@ -1,7 +1,7 @@
-# P04 — Scorecard — Slot Budgets
+# P04 Scorecard: Slot Budgets
 
 **Styles:** consulting (6 cards) · founder (5 cards) · sequoia (6 cards)
-**For:** KPI dashboard — health check (consulting), traction metrics (founder), damage assessment (sequoia).
+**For:** KPI dashboard: health check (consulting), traction metrics (founder), damage assessment (sequoia).
 
 **Slots (per card):**
 - `.section-tag`: <= 40 chars. Uppercase exhibit label.
@@ -14,7 +14,7 @@
 - `.summary-text`: <= 240 chars (consulting only).
 - Status dots: `.status-green` / `.status-amber` / `.status-red`.
 
-**Layout:** Flex-wrap grid, 3 cards per row. Cards use `flex: 1 1 calc(33.33% - 6pt)` — add or remove cards freely, rows rebalance automatically.
+**Layout:** Flex-wrap grid, 3 cards per row. Cards use `flex: 1 1 calc(33.33% - 6pt)`, add or remove cards freely, rows rebalance automatically.
 
 **Data schema:**
 ```js

@@ -8,7 +8,7 @@ Three worked issue trees, each demonstrating a different tree type. See thinking
 
 **User:** "Our EBITDA margins dropped 3 percentage points. Find out why and how to fix it."
 
-*This is a **logic tree** — exploratory decomposition of an open-ended problem. Use when the problem space is broad and you need to identify which branch contains the root cause.*
+*This is a **logic tree**: exploratory decomposition of an open-ended problem. Use when the problem space is broad and you need to identify which branch contains the root cause.*
 
 **Problem statement**: Identify the drivers of IndustrialCo's 3pp EBITDA margin decline ($45M) over the past two years and recommend actions to recover at least 200bp within 12 months.
 
@@ -75,9 +75,9 @@ Why have EBITDA margins declined 3pp ($45M)?
 
 ## 2. Growth Strategy (Hypothesis Tree)
 
-**User:** "Our core mid-market segment is saturating. We think enterprise is the answer — validate or redirect us."
+**User:** "Our core mid-market segment is saturating. We think enterprise is the answer: validate or redirect us."
 
-*This is a **hypothesis tree** — the team has a day-one answer ("enterprise expansion is the best growth vector"). Each branch tests a condition that must be true for the governing hypothesis to hold. Unlike a logic tree (which explores alternatives), a hypothesis tree validates or kills a specific bet.*
+*This is a **hypothesis tree**: the team has a day-one answer ("enterprise expansion is the best growth vector"). Each branch tests a condition that must be true for the governing hypothesis to hold. Unlike a logic tree (which explores alternatives), a hypothesis tree validates or kills a specific bet.*
 
 **Problem statement**: Validate whether enterprise expansion can deliver $25M+ ARR for CloudStack within 24 months, or redirect to alternative growth vectors.
 
@@ -131,7 +131,7 @@ growth vector and can deliver $25M+ ARR within 24 months.
 
 **User:** "We've been asked to assess whether a $200M organizational restructuring should proceed. Give us a go/no-go framework."
 
-*This is a **kill-condition tree** — any single branch, if falsified, terminates the analysis. Use for binary go/no-go decisions where the cost of a wrong positive vastly exceeds a wrong negative. Branches are sequenced fastest-to-falsify first. Grounded in patterns from real restructuring failures (see Bain SARS quality benchmark).*
+*This is a **kill-condition tree**: any single branch, if falsified, terminates the analysis. Use for binary go/no-go decisions where the cost of a wrong positive vastly exceeds a wrong negative. Branches are sequenced fastest-to-falsify first. Grounded in patterns from real restructuring failures (see Bain SARS quality benchmark).*
 
 **Problem statement**: Determine whether to proceed with the proposed $200M organizational restructuring of a 14,000-person government agency.
 
@@ -146,7 +146,7 @@ Should we proceed with this organizational restructuring?
 │   "An operating model is a strategy upon which a structure is built.
 │    There was no new strategy upon which the structure was rebuilt."
 │
-│   *** K1 TRIGGERED — no strategy document exists. ***
+│   *** K1 TRIGGERED: no strategy document exists. ***
 │   *** Analysis stops. Remaining conditions not tested. ***
 │
 ├── K2: Has the diagnostic consulted operational staff, not just leadership?
@@ -176,7 +176,7 @@ Should we proceed with this organizational restructuring?
 
 ### Outcome
 
-K1 triggers immediately. Recommendation: "Develop the strategy that the new structure must serve before proceeding with structural design. The restructuring is not rejected — it is premature. Address K1, then re-evaluate K2-K5 in sequence."
+K1 triggers immediately. Recommendation: "Develop the strategy that the new structure must serve before proceeding with structural design. The restructuring is not rejected, merely premature. Address K1, then re-evaluate K2-K5 in sequence."
 
 This saved the cost of testing K2-K5. In the real case, all five conditions were violated. Estimated impact: R100 billion in lost revenue collection over 3 years.
 
@@ -186,9 +186,9 @@ This saved the cost of testing K2-K5. In the real case, all five conditions were
 
 Each tree type serves a different problem structure:
 
-- **Logic tree** (Tree 1 — Profitability): Exploratory. Branches are ALTERNATIVES — "which driver is causing this?" Open-ended decomposition when you don't know where the problem lives.
-- **Hypothesis tree** (Tree 2 — Growth): Directed. Branches are CONDITIONS — "what must be true for this bet to work?" Validates a specific day-one answer. If any condition fails, the hypothesis is redirected.
-- **Kill-condition tree** (Tree 3 — Restructuring): Binary go/no-go. Branches are DEAL-BREAKERS — any single one kills the recommendation. Sequenced fastest-to-falsify first. Saves analytical cost by stopping early.
+- **Logic tree** (Tree 1, Profitability): Exploratory. Branches are ALTERNATIVES: "which driver is causing this?" Open-ended decomposition when you don't know where the problem lives.
+- **Hypothesis tree** (Tree 2, Growth): Directed. Branches are CONDITIONS: "what must be true for this bet to work?" Validates a specific day-one answer. If any condition fails, the hypothesis is redirected.
+- **Kill-condition tree** (Tree 3, Restructuring): Binary go/no-go. Branches are DEAL-BREAKERS: any single one kills the recommendation. Sequenced fastest-to-falsify first. Saves analytical cost by stopping early.
 
 The structural difference: logic tree branches are mutually exclusive explanations. Hypothesis tree branches are simultaneously required conditions. Kill-condition tree branches are independently sufficient to terminate.
 
@@ -199,4 +199,4 @@ For logic and hypothesis trees:
 
 For kill-condition trees:
 - **Every leaf has a binary pass/fail test** with a clear termination criterion and specific test method.
-- **Validation is prioritized by speed-to-falsify.** The fastest-to-test condition comes first — saving the cost of testing all subsequent branches.
+- **Validation is prioritized by speed-to-falsify.** The fastest-to-test condition comes first: saving the cost of testing all subsequent branches.

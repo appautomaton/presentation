@@ -1,4 +1,4 @@
-# P15 Bubble Matrix — Slot Budgets
+# P15 Bubble Matrix: Slot Budgets
 
 ## Title zone
 - **Section tag**: ≤ 40 chars

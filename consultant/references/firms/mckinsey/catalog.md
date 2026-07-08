@@ -1,7 +1,7 @@
 # McKinsey Framework Catalog
 
 Updated: 2026-03-03
-Companion: [process.md](process.md) — 4-tier stack workflow and quality gates.
+Companion: [process.md](process.md), 4-tier stack workflow and quality gates.
 
 ## Purpose
 

@@ -4,7 +4,7 @@ A complete 20-slide deck storyboard for a market entry strategy. Demonstrates go
 
 ---
 
-**User:** "Build a deck storyboard for a European market entry strategy — show deck density."
+**User:** "Build a deck storyboard for a European market entry strategy: show deck density."
 
 ## Setup
 
@@ -18,10 +18,10 @@ A complete 20-slide deck storyboard for a market entry strategy. Demonstrates go
 
 Four pillars, each answering a distinct question:
 
-1. **Market opportunity** — Is Europe worth entering? (slides 4-6)
-2. **Entry mode** — Acquisition vs. organic vs. partnership? (slides 7-9)
-3. **Target selection** — Why EuroDistributor? (slides 10-12)
-4. **Financial case and risks** — Does the math work? (slides 13-17)
+1. **Market opportunity**: Is Europe worth entering? (slides 4-6)
+2. **Entry mode**: Acquisition vs. organic vs. partnership? (slides 7-9)
+3. **Target selection**: Why EuroDistributor? (slides 10-12)
+4. **Financial case and risks**: Does the math work? (slides 13-17)
 
 Test: these are MECE (they don't overlap) and collectively they prove the governing thought. A reader who accepts all four pillars must accept the recommendation.
 
@@ -47,7 +47,7 @@ Test: these are MECE (they don't overlap) and collectively they prove the govern
 | 14 | Financials | Revenue synergies come from cross-selling MedTech's portfolio through EuroDistributor's hospital network |
 | 15 | Financials | Cost synergies of $5M annually from procurement consolidation and back-office integration |
 | 16 | Financials | Sensitivity analysis shows positive NPV in all scenarios except worst-case downside |
-| 17 | Risks | Three key risks — integration, regulation, and currency — each have a defined mitigation plan |
+| 17 | Risks | Three key risks: integration, regulation, and currency, each have a defined mitigation plan |
 | 18 | Implementation | 18-month integration plan in three phases: close (M1-3), stabilize (M4-9), and grow (M10-18) |
 | 19 | Next Steps | Three decisions needed: approve LOI, authorize $2M due diligence budget, appoint integration lead |
 | 20 | Appendix | Appendix divider |
@@ -57,10 +57,10 @@ Test: these are MECE (they don't overlap) and collectively they prove the govern
 ## Why Specific Titles Work
 
 **Slide 4**: "European medical device market is $12B and growing at 8% annually, 2x the US growth rate"
-- Quantified ($12B, 8%). Comparative (2x US). The reader immediately knows: the market is big and growing faster than our home market. Compare to a bad title: "European Market Overview" — this tells you nothing.
+- Quantified ($12B, 8%). Comparative (2x US). The reader immediately knows: the market is big and growing faster than our home market. Compare to a bad title: "European Market Overview", which tells you nothing.
 
 **Slide 8**: "Organic entry requires 5+ years and $80M with high execution risk due to distribution complexity"
-- This title KILLS an option. The reader doesn't need to read the slide body — the title alone eliminates organic entry from consideration. A good storyboard advances the argument in every title.
+- This title KILLS an option. The reader doesn't need to read the slide body: the title alone eliminates organic entry from consideration. A good storyboard advances the argument in every title.
 
 **Slide 10**: "EuroDistributor is the strongest target across strategic fit, financial profile, and cultural alignment"
 - Names the three evaluation criteria right in the title. The reader knows the basis for selection before seeing the evidence. The next two slides provide the proof.
@@ -69,7 +69,7 @@ Test: these are MECE (they don't overlap) and collectively they prove the govern
 - The entire financial case in one sentence. An executive can read this title and know whether the deal passes their return hurdle.
 
 **Slide 19**: "Three decisions needed: approve LOI, authorize $2M due diligence budget, appoint integration lead"
-- Specific asks with dollar amounts. The board knows exactly what they're being asked to do. Compare to a bad title: "Next Steps" — which asks for nothing.
+- Specific asks with dollar amounts. The board knows exactly what they're being asked to do. Compare to a bad title: "Next Steps", which asks for nothing.
 
 ---
 

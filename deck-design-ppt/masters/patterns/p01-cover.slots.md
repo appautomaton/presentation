@@ -1,4 +1,4 @@
-# P01 — Anchor — Slot Budgets
+# P01 Anchor: Slot Budgets
 
 ## Consulting
 

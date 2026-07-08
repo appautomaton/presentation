@@ -1,4 +1,4 @@
-# C04 — Facts vs Perspectives — Slot Budgets (Consulting-only)
+# C04 Facts vs Perspectives: Slot Budgets (Consulting-only)
 
 - **For:** left column = facts/data; right column = implications/recommendations.
 - **Slots (budgets):**

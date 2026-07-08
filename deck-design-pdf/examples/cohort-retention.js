@@ -26,7 +26,7 @@ module.exports = {
   proves: 'retention decay patterns across acquisition cohorts over time',
   data: 'Quarterly cohort retention from Q1 2024 to Q4 2025',
   sectionLabel: 'Customer Retention',
-  actionTitle: 'Q1 2024 cohort retained 72% at month 12 — recent cohorts show steeper early decay suggesting onboarding regression',
+  actionTitle: 'Q1 2024 cohort retained 72% at month 12, while recent cohorts show steeper early decay suggesting onboarding regression',
   source: 'Source: Customer analytics, retention by quarterly acquisition cohort',
   exhibitId: 'Exhibit 18.1',
 

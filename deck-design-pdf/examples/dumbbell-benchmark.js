@@ -21,7 +21,7 @@ module.exports = {
   proves: 'before/after or client-vs-peer gap on multiple metrics',
   data: 'Client vs. peer median performance across 6 operational metrics',
   sectionLabel: 'Performance Benchmarking',
-  actionTitle: 'Client trails peer median on 4 of 6 metrics — largest gaps in cycle time and digital adoption',
+  actionTitle: 'Client trails peer median on 4 of 6 metrics, with the largest gaps in cycle time and digital adoption',
   source: 'Source: Peer benchmarking survey (n=14 companies), FY2025',
   exhibitId: 'Exhibit 4.1',
 

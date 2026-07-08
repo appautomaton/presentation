@@ -6,7 +6,7 @@ How to understand customers systematically. Covers segmentation, journey mapping
 
 ## 1. Customer Segmentation
 
-Segmentation is useful only if it changes how you act — different segments should receive different strategies.
+Segmentation is useful only if it changes how you act: different segments should receive different strategies.
 
 ### Quality test
 

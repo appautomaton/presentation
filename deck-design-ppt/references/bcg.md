@@ -1,22 +1,22 @@
-# BCG Reference — Firm-Specific Conventions
+# BCG Reference: Firm-Specific Conventions
 
 > Loaded when the brief specifies BCG philosophy or consulting style at L2+.
-> Use alongside [craft.md](craft.md) — this file covers only what is **BCG-specific**.
+> Use alongside [craft.md](craft.md): this file covers only what is **BCG-specific**.
 > General density rules, exhibit threading, annotation budgets, and callout quality live in craft.md.
 
-**Design disposition:** Process-transparent. BCG makes the analytical machinery visible — frameworks, matrices, annotated exhibits — so the reader can audit the reasoning, not just receive the conclusion. Charts carry interpretation layers: data + callout boxes + annotation arrows explaining what each data point means. Visually the "fullest" of the three firms because annotation sits on top of data. The intellectual rigor IS the aesthetic — "trust us because you can see exactly how we got here."
+**Design disposition:** Process-transparent. BCG makes the analytical machinery visible (frameworks, matrices, annotated exhibits) so the reader can audit the reasoning, not just receive the conclusion. Charts carry interpretation layers: data + callout boxes + annotation arrows explaining what each data point means. Visually the "fullest" of the three firms because annotation sits on top of data. The intellectual rigor IS the aesthetic: "trust us because you can see exactly how we got here."
 
 ## Contents
 
-- [§1 The Reader Contract](#1-the-reader-contract) — five promises every BCG deck makes
-- [§2 Slide Grammar](#2-slide-grammar) — green rule header, panel mini-headers, footer system
-- [§3 Action Title Templates](#3-action-title-templates) — four sentence patterns with examples
-- [§4 Body Text Rules](#4-body-text-rules) — prose style, bullet grammar, evidence language
-- [§5 Composition Patterns](#5-composition-patterns) — 10 layouts with ratios
-- [§6 Exhibit Conventions](#6-exhibit-conventions) — green-anchored color system, panel framing, annotation devices
-- [§7 Navigation System](#7-navigation-system) — repeating agenda as divider, section numbering
-- [§8 Deck Modes](#8-deck-modes) — classic program book vs modern impact report vs working binder
-- [§9 Anti-Patterns](#9-anti-patterns) — what breaks the illusion
+- [§1 The Reader Contract](#1-the-reader-contract): five promises every BCG deck makes
+- [§2 Slide Grammar](#2-slide-grammar): green rule header, panel mini-headers, footer system
+- [§3 Action Title Templates](#3-action-title-templates): four sentence patterns with examples
+- [§4 Body Text Rules](#4-body-text-rules): prose style, bullet grammar, evidence language
+- [§5 Composition Patterns](#5-composition-patterns): 10 layouts with ratios
+- [§6 Exhibit Conventions](#6-exhibit-conventions): green-anchored color system, panel framing, annotation devices
+- [§7 Navigation System](#7-navigation-system): repeating agenda as divider, section numbering
+- [§8 Deck Modes](#8-deck-modes): classic program book vs modern impact report vs working binder
+- [§9 Anti-Patterns](#9-anti-patterns): what breaks the illusion
 
 Sourced from 4 BCG decks: NYCHA Key Findings 2015 (112pp, classic program book), OER Ecosystem (23pp, classic research deck), Ford Economic Impact (29pp, modern impact report), Dallas Loose Dogs 2016 (406pp, working binder).
 
@@ -26,8 +26,8 @@ Sourced from 4 BCG decks: NYCHA Key Findings 2015 (112pp, classic program book),
 
 Every BCG deck implicitly promises five things. If any fail, the output stops reading as BCG regardless of typography.
 
-1. **A structured model, not just findings.** BCG builds frameworks — maturity stages, ecosystem maps, evaluation matrices. Every exhibit fits into an analytic structure that the reader can trace. The framework is not decoration; it's the primary intellectual product.
-2. **Interpretation layered onto data.** Charts carry annotation callout boxes explaining what each data point means. McKinsey lets data speak for itself; Bain separates facts from perspectives in columns; BCG puts the interpretation directly on top of the exhibit. This is why BCG slides are visually the "fullest" — annotation layer + data layer.
+1. **A structured model, not just findings.** BCG builds frameworks: maturity stages, ecosystem maps, evaluation matrices. Every exhibit fits into an analytic structure that the reader can trace. The framework is not decoration; it's the primary intellectual product.
+2. **Interpretation layered onto data.** Charts carry annotation callout boxes explaining what each data point means. McKinsey lets data speak for itself; Bain separates facts from perspectives in columns; BCG puts the interpretation directly on top of the exhibit. This is why BCG slides are visually the "fullest": annotation layer + data layer.
 3. **Evidence with traceable provenance.** Source and Note lines are explicit and frequent. Every quantitative claim cites an organization, dataset, or methodology.
 4. **Benchmark-relative interpretation.** Metrics are scored against quartile ranges, peer groups, or prior states. Standalone numbers without context are unacceptable.
 5. **Panel-level clarity on dense slides.** When a slide has multiple exhibits, each panel has its own mini-header and local framing. The reader never has to guess what a chart is showing.
@@ -35,7 +35,7 @@ Every BCG deck implicitly promises five things. If any fail, the output stops re
 Document-control signals (when contextually appropriate):
 - Status banners: "PRELIMINARY", "DRAFT FOR DISCUSSION", "WORKING MATERIALS"
 - Confidentiality: "Confidential" or copyright lines in footer
-- Sequence markers: "(I/IV)", "3.3.2" — enabling fast facilitator referencing
+- Sequence markers: "(I/IV)", "3.3.2", enabling fast facilitator referencing
 
 ---
 
@@ -46,13 +46,13 @@ BCG's slide grammar is defined by the green rule header and the panel mini-heade
 ### Header zone (green rule)
 
 ```
-[Section label — small, dark green, bold, left-aligned]     [Status tag — right-aligned, optional]
-[Action title — large, bold, BLACK, full-sentence conclusion]
+[Section label: small, dark green, bold, left-aligned]     [Status tag: right-aligned, optional]
+[Action title: large, bold, BLACK, full-sentence conclusion]
 ──────────────────────────────────────────────────────────── (green rule, ~2pt, full content width)
 ```
 
 - **Section label** (line 1): Section name with optional Roman numeral or hierarchical number (e.g., "I. Current State", "II. Quality and Efficacy", "3.3.2"). Font: ~9–11pt, BCG dark green (`#006A4E` to `#2D6D3F`), bold. ALL CAPS or title case.
-- **Action title** (line 2): Full-sentence conclusion. Font: Arial Bold, ~16–20pt, **black** (not green — the title is always black, contrasting with the green label above). Max 2 lines.
+- **Action title** (line 2): Full-sentence conclusion. Font: Arial Bold, ~16–20pt, **black** (not green, the title is always black, contrasting with the green label above). Max 2 lines.
 - **Green rule**: BCG green (`#5CA34A` to `#6AB648`), ~2pt thick, full content width. Sits immediately below the action title with ~4–6pt gap above, ~8–12pt below. This rule is the definitive BCG header boundary marker.
 - **Status tag** (top-right, optional): "Preliminary", "Exhibit 3", "Non-exhaustive". ~8–9pt, gray or green.
 
@@ -67,9 +67,9 @@ The body is always left-aligned with generous left/right margins (~36pt each sid
 BCG's core mechanism for keeping dense multi-panel slides scannable. Each panel within the body zone gets:
 
 ```
-[Panel title — bold, ~11–13pt, dark green or black]
-[Optional local green underline — thinner than the header rule]
-[Optional unit/base line — ~9pt, gray]
+[Panel title: bold, ~11–13pt, dark green or black]
+[Optional local green underline: thinner than the header rule]
+[Optional unit/base line: ~9pt, gray]
 ```
 
 This local framing makes it possible to have 2–3 exhibits on one slide without visual collapse. If a panel lacks its mini-header, the slide feels unfinished.
@@ -85,7 +85,7 @@ Source: [citation]; Note: [context]                    THE BOSTON CONSULTING GRO
 - **Firm mark**: "THE BOSTON CONSULTING GROUP" centered or center-right. In program books, this is rendered as the full text; in modern reports, it may be the BCG logo mark.
 - **Page number**: Right-aligned, ~8–9pt, gray. Arabic numeral, no prefix.
 - **Copyright**: Optional, very small (~6–7pt), light gray. Typically on cover, dividers, and select content pages.
-- **No horizontal rule** above the footer — the footer is distinguished by position and small font alone.
+- **No horizontal rule** above the footer: the footer is distinguished by position and small font alone.
 
 ---
 
@@ -110,7 +110,7 @@ BCG action titles use two headline registers, depending on deck mode.
 ### Grammar rules
 
 - Always includes a verb.
-- Numbers appear when quantitative data is available — percentages, dollar amounts, time horizons, multiplicative phrasing (~, ranges).
+- Numbers appear when quantitative data is available: percentages, dollar amounts, time horizons, multiplicative phrasing (~, ranges).
 - Max 2 lines on slide. If longer, split the slide.
 - BCG titles include comparators or consequences more often than McKinsey titles, which tend toward decomposition.
 - No terminal period on single-line titles.
@@ -124,7 +124,7 @@ BCG action titles use two headline registers, depending on deck mode.
 - **Lead-in concept, then evidence payload.** Each bullet opens with the what, then delivers the proof.
 - **Recommendation bullets use implementation verbs.** Shift, centralize, streamline, redesign, outsource, align, instrument. Never "consider" or "explore."
 - **Explicit bases on survey and operational bullets.** Always include "Q:", "n=", period definitions, or population scope.
-- **Bold for structural emphasis.** Key terms and metrics bolded inline. Italic is rare — reserved for source labels and foreign terms.
+- **Bold for structural emphasis.** Key terms and metrics bolded inline. Italic is rare: reserved for source labels and foreign terms.
 - **ALL CAPS for structural labels only.** Panel headers like "KEY FINDINGS", "RECOMMENDATIONS", "EXHIBIT 3" may use ALL CAPS. Never in body text.
 
 ### Evidence language
@@ -149,7 +149,7 @@ Ten compositions observed across the source decks. Ratios are approximate width 
 | 4 | **Full-width table with grouped bands** | 100% | `p09-data-table` | Large data table where every row matters |
 | 5 | **Primary exhibit + sidebar callout** | 70/30 | `p03-evidence` | Main chart with pull-quote or insight box |
 | 6 | **Maturity-stage map** | 100% | custom | Framework with numbered rows and positioned callout boxes |
-| 7 | **Scorecard / evaluation matrix** | 100% | `c03-eval-grid` | RAG-coded grid — the color pattern IS the visualization |
+| 7 | **Scorecard / evaluation matrix** | 100% | `c03-eval-grid` | RAG-coded grid: the color pattern IS the visualization |
 | 8 | **Big-number equation + side cards** | 70/30 | `p04-scorecard` | Hero statistic with supporting context |
 | 9 | **Photo + text split** | 50/50 | `p11-product-showcase` (adapted) | Qualitative narrative with full-panel photography |
 | 10 | **Multi-stat grid** | equal cards (3–6) | `p04-scorecard` | 3–6 metric cards in a whitespace-delimited grid |
@@ -231,7 +231,7 @@ This contrasts with McKinsey (distinct full-bleed dividers) and Bain (dark backg
 
 ### Section numbering
 
-BCG uses hierarchical numbering as a **traceability device** — enabling facilitators to say "go to section 3.3.2" without ambiguity.
+BCG uses hierarchical numbering as a **traceability device**: enabling facilitators to say "go to section 3.3.2" without ambiguity.
 
 | Convention | Example | When |
 |---|---|---|
@@ -260,7 +260,7 @@ Numbers appear in the section label (first line of the header), not in the actio
 
 ## §8 Deck Modes
 
-BCG produces three distinct document types. Pick mode first — most quality failures come from mixing mode cues.
+BCG produces three distinct document types. Pick mode first: most quality failures come from mixing mode cues.
 
 | Dimension | Classic Program Book | Modern Impact Report | Working Binder |
 |---|---|---|---|
@@ -269,7 +269,7 @@ BCG produces three distinct document types. Pick mode first — most quality fai
 | **Footer** | Source + Note + "THE BOSTON CONSULTING GROUP" + page# | Source + BCG logo + page# (minimal) | Same as Classic + extra-long note chains + status stamps |
 | **Signature layout** | Multi-panel with mini-headers; scorecard matrices | Hero stat + full-bleed photo; stat card grids | Classic slides mixed with memo pages; heavy caveats |
 | **Color system** | Green structural + teal/gray data + RAG for scorecards | Muted, desaturated; photography-harmonized | Same as Classic |
-| **Photography** | None — data only | Heavy — 40% of pages use full-bleed or panel photos | Minimal |
+| **Photography** | None: data only | Heavy: 40% of pages use full-bleed or panel photos | Minimal |
 | **Density** | L2–L3 | L1–L2 | L2–L3 (on slide pages) |
 | **Font** | Arial | Arial (or Henderson BCG Sans) | Arial |
 | **Dividers** | Repeating agenda (green highlight) | Full-bleed photo + dark overlay + section number | Repeating agenda + status overlays |
@@ -297,11 +297,11 @@ These break the BCG illusion immediately:
 | Anti-pattern | Why it fails | Fix |
 |---|---|---|
 | **Missing panel mini-headers** | Dense slide without local framing → unreadable | Add bold title + local rule above each exhibit |
-| **Topic titles** ("Quality Assessment") | Not a conclusion — BCG titles state a finding | Rewrite as insight: "OER quality lags commercial content by 5–7 years" |
+| **Topic titles** ("Quality Assessment") | Not a conclusion: BCG titles state a finding | Rewrite as insight: "OER quality lags commercial content by 5–7 years" |
 | **Multiple competing emphasis targets** | More than one bright-colored element per exhibit → visual noise | One highlight per exhibit; demote others to gray |
 | **Comparative claims without bases** | No n, peer set, period, or source → unverifiable | Define scope and provenance explicitly |
 | **Mixed mode cues** | Hero-stat card on a Classic program book slide → visual confusion | Pick one mode and commit for the entire section |
 | **Dense slide without panel boundaries** | Bullets, charts, and tables colliding without structure | Use a composition from §5; obey panel framing |
 | **Decorative icons or clip art** | BCG uses data visualizations and framework diagrams, not clip art | Replace with structured exhibits or remove |
 | **Gradients or rounded corners on charts** | BCG is flat and institutional (rounded corners OK on framework diagram boxes) | Sharp corners, solid fills, no effects |
-| **Learning style from prose pages** | Working binders mix slide pages with memo pages — memo typography is wrong for slides | Apply the filtering rule from §8 |
+| **Learning style from prose pages** | Working binders mix slide pages with memo pages: memo typography is wrong for slides | Apply the filtering rule from §8 |

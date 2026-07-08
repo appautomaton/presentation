@@ -6,7 +6,7 @@ Practical market sizing examples across three business models with triangulation
 
 **User:** "Size the market for an AI contract management platform targeting US mid-market."
 
-## 1. B2B SaaS — AI Contract Management Platform
+## 1. B2B SaaS: AI Contract Management Platform
 
 **Target:** Mid-market companies (100-1,000 employees), U.S.
 
@@ -40,7 +40,7 @@ Practical market sizing examples across three business models with triangulation
 
 ---
 
-## 2. B2C — Premium Plant-Based Protein Bars
+## 2. B2C: Premium Plant-Based Protein Bars
 
 **Target:** Health-conscious millennials/Gen Z, U.S.
 
@@ -75,7 +75,7 @@ Practical market sizing examples across three business models with triangulation
 
 ---
 
-## 3. Marketplace — Freelance Graphic Design
+## 3. Marketplace: Freelance Graphic Design
 
 **Target:** Small businesses (<50 employees), U.S.
 
@@ -118,7 +118,7 @@ Identify 3-4 high-uncertainty assumptions, vary by reasonable range.
 | Base | $756M | $22.7M |
 | High | $1,620M | $81.0M |
 
-**Interpretation:** SOM ranges $7-81M (base $22.7M, matching bottom-up). Widest driver: penetration rate. Note: triangulation adjusts base SAM from $756M to $330M via WTP filter — applying that adjustment compresses the range further. Recommend validating through pilot before full launch.
+**Interpretation:** SOM ranges $7-81M (base $22.7M, matching bottom-up). Widest driver: penetration rate. Note: triangulation adjusts base SAM from $756M to $330M via WTP filter. Applying that adjustment compresses the range further. Recommend validating through pilot before full launch.
 
 ---
 
@@ -141,14 +141,14 @@ Identify 3-4 high-uncertainty assumptions, vary by reasonable range.
 
 **Header:** Market title, date, confidence (H/M/L)
 
-**Section 1 — Numbers (top third):**
+**Section 1: Numbers (top third):**
 - TAM / SAM / SOM with growth rates
 
-**Section 2 — Assumptions (middle):**
+**Section 2: Assumptions (middle):**
 - 4-6 critical assumptions: name, value, source, confidence
 - Highlight lowest-confidence in color
 
-**Section 3 — Sensitivity (bottom):**
+**Section 3: Sensitivity (bottom):**
 - Low/Base/High SOM range
 - Implication: "Base case supports $X ARR in Y years"
 - Risk: "Biggest uncertainty is [X]; recommend [validation]"

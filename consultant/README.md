@@ -2,25 +2,25 @@
 
 MBB-grade strategy analysis, problem structuring, and executive deliverables.
 
-Produces structured analysis and deliverable **content** (markdown). Does not produce visuals — hands off to deck-design-ppt, docx, or xlsx for production.
+Produces structured analysis and deliverable **content** (markdown). Does not produce visuals: hands off to deck-design-ppt, docx, or xlsx for production.
 
 ## Capabilities
 
-**Problem structuring** — MECE decomposition, issue trees, hypothesis generation, validation planning. Three decomposition architectures: McKinsey issue trees, BCG Strategic Prism lenses, Bain option maps.
+**Problem structuring**: MECE decomposition, issue trees, hypothesis generation, validation planning. Three decomposition architectures: McKinsey issue trees, BCG Strategic Prism lenses, Bain option maps.
 
-**Strategy analysis** — Framework selection and application with synthesis. Covers market sizing, competitive positioning, financial modeling, and 8 domain specializations (pricing, M&A, due diligence, risk, customer insights, change management, KPIs, financial analysis).
+**Strategy analysis**: Framework selection and application with synthesis. Covers market sizing, competitive positioning, financial modeling, and 8 domain specializations (pricing, M&A, due diligence, risk, customer insights, change management, KPIs, financial analysis).
 
-**Firm-specific methodology** — Full engagement processes for McKinsey (4-tier linear stack), BCG (modular lens architecture), and Bain (3-loop decision spiral). Each with quality gates, named artifacts, and deck anchor specifications.
+**Firm-specific methodology**: Full engagement processes for McKinsey (4-tier linear stack), BCG (modular lens architecture), and Bain (3-loop decision spiral). Each with quality gates, named artifacts, and deck anchor specifications.
 
-**Executive deliverables** — Executive summaries (SCR-framed), decision memos, deck storyboards, problem decompositions. Each with testable output contracts.
+**Executive deliverables**: Executive summaries (SCR-framed), decision memos, deck storyboards, problem decompositions. Each with testable output contracts.
 
-**Industry adaptation** — Analytical recalibration cues for healthcare, defense/government, financial services, SaaS, manufacturing, and energy. Targets specific traps where default methodology produces structurally wrong results.
+**Industry adaptation**: Analytical recalibration cues for healthcare, defense/government, financial services, SaaS, manufacturing, and energy. Targets specific traps where default methodology produces structurally wrong results.
 
-**Composition** — Storyboard handoff to deck-design-ppt (6-field spec), document structure handoff to docx, model structure handoff to xlsx.
+**Composition**: Storyboard handoff to deck-design-ppt (6-field spec), document structure handoff to docx, model structure handoff to xlsx.
 
 ## Architecture
 
-Progressive disclosure — load only what the task needs.
+Progressive disclosure: load only what the task needs.
 
 ```
 consultant/
@@ -72,15 +72,15 @@ consultant/
 
 ### Layer summary
 
-- **Layer 0** — SKILL.md (376 lines). Execution algorithm, behavioral instincts, routing table, firm epistemologies, output contracts, quality gates. Always loaded.
-- **Layer 1** — Method references (545 lines across 3 files). How to think, communicate, and select frameworks. Loaded for most tasks.
-- **Layer 2** — Firm process files (~1,020 lines across 3 files). Full engagement workflows with quality gates and artifacts. One firm loaded per engagement.
-- **Layer 3** — Domain references (~1,200 lines across 9 files). Specialized analytical guidance per domain. Loaded on demand.
-- **Layer 4** — Catalogs (~950 lines) and examples (~1,030 lines). Lookup and calibration. Loaded when producing specific output types.
+- **Layer 0**: SKILL.md. Execution algorithm, behavioral instincts, routing table, firm epistemologies, output contracts, quality gates. Always loaded.
+- **Layer 1**: Method references (3 files). How to think, communicate, and select frameworks. Loaded for most tasks.
+- **Layer 2**: Firm process files (one per firm). Full engagement workflows with quality gates and artifacts. One firm loaded per engagement.
+- **Layer 3**: Domain references (9 files). Specialized analytical guidance per domain. Loaded on demand.
+- **Layer 4**: Catalogs and examples. Lookup and calibration. Loaded when producing specific output types.
 
 ## Status
 
-Architecture and content are complete. Ready for live testing against real consulting tasks. Next improvement frontier is empirical — calibrate examples based on observed failure modes.
+Architecture and content are complete. Ready for live testing against real consulting tasks. Next improvement frontier is empirical: calibrate examples based on observed failure modes.
 
 ## Usage
 

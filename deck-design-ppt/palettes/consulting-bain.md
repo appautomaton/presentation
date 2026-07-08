@@ -1,4 +1,4 @@
-# Bain — Monochrome + Red Accent
+# Bain: Monochrome + Red Accent
 
 Decision-driven, facts-vs-perspectives. Red rule below action title (signature). Gray is the default; red marks the one thing that matters. "Results, not reports."
 
@@ -9,7 +9,7 @@ Monochrome baseline + one accent. Warm grays (not cool blue-gray). No pure black
 | Hex | Token | L | Use |
 |---|---|---|---|
 | `#2B2B2B` | Midnight | 17% | Section divider background |
-| `#CC0000` | Accent | — | Red rule, one focal highlight per exhibit, active agenda item |
+| `#CC0000` | Accent | none | Red rule, one focal highlight per exhibit, active agenda item |
 | `#E8E5E2` | Warm gray | 90% | Column header bands (KEY FACTS / PERSPECTIVES), alternate fills |
 | `#F5F4F2` | Canvas | 96% | Default slide background |
 
@@ -26,7 +26,7 @@ Monochrome baseline + one accent. Warm grays (not cool blue-gray). No pure black
 - On Canvas: Text headlines (bold), Text body.
 - On Midnight: `#FFFFFF` first, Warm gray second.
 - Fine for source lines and footnotes only.
-- Accent for header rule and one focal metric only — never body text.
+- Accent for header rule and one focal metric only, never body text.
 - Facts-vs-Perspectives header bands: Warm gray background, ALL CAPS bold labels in Text.
 
 ## Charts

@@ -24,7 +24,7 @@ module.exports = {
   proves: 'influence × alignment positioning to prioritize engagement strategy',
   data: 'Key stakeholders mapped by influence level and alignment to proposed change',
   sectionLabel: 'Change Management',
-  actionTitle: 'Three high-influence stakeholders are misaligned — targeted engagement can convert CFO and SVP Sales',
+  actionTitle: 'Three high-influence stakeholders are misaligned, and targeted engagement can convert CFO and SVP Sales',
   source: 'Source: Stakeholder interviews, change readiness assessment (n=12)',
   exhibitId: 'Exhibit 9.1',
 

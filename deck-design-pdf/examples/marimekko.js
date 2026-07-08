@@ -23,7 +23,7 @@ module.exports = {
   id: 'marimekko',
   title: 'Marimekko',
   tier: 4,
-  proves: 'market landscape — segment size AND competitive share in one view',
+  proves: 'market landscape: segment size AND competitive share in one view',
   data: 'Market segments by TAM (width) and competitor share (height)',
   sectionLabel: 'Market Landscape',
   actionTitle: 'Enterprise segment dominates the $86B market; Company A leads in Enterprise and Mid-Market',

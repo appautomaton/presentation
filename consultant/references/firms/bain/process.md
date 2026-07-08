@@ -1,7 +1,7 @@
 # Bain Process Reference
 
 Updated: 2026-03-03
-Companion: [catalog.md](catalog.md) — per-framework intent, inputs, outputs, and decision context.
+Companion: [catalog.md](catalog.md), per-framework intent, inputs, outputs, and decision context.
 
 ## Agentic usage contract
 
@@ -29,9 +29,9 @@ Decision gate rule:
 
 ### How Bain differs from McKinsey at the root
 
-McKinsey's Problem Statement is open-ended — "How can we improve margin?" — and does not presuppose the answer format. The downstream analysis explores broadly until a hypothesis is proved or killed.
+McKinsey's Problem Statement is open-ended: "How can we improve margin?", and does not presuppose the answer format. The downstream analysis explores broadly until a hypothesis is proved or killed.
 
-Bain's Decision Brief is closed-form — "Should we acquire Target Y at $2.4B, or build organically, or partner?" — and presupposes the answer is a discrete choice. The downstream analysis has a built-in termination condition: when evidence is sufficient for the CEO to choose confidently among the options, analysis stops. Not before, not after.
+Bain's Decision Brief is closed-form: "Should we acquire Target Y at $2.4B, or build organically, or partner?", and presupposes the answer is a discrete choice. The downstream analysis has a built-in termination condition: when evidence is sufficient for the CEO to choose confidently among the options, analysis stops. Not before, not after.
 
 This means every Bain analytical workstream exists for one reason: to validate or invalidate a specific condition in a conditional hypothesis. If a workstream can't be traced back to a condition, it shouldn't exist.
 
@@ -67,7 +67,7 @@ Decision Brief required fields:
 
 Primary artifact: Option Map
 
-**Options funnel** — generate broadly, then narrow through principled filtering:
+**Options funnel**: generate broadly, then narrow through principled filtering:
 
 1. **Multi-channel input**: gather ideas from staff submissions, data analysis, and interviews simultaneously. Cast wide.
 2. **Guiding principles filter**: establish non-negotiable principles before analysis to bound the solution space. Costs evaluated against relative value, not absolute cost. Any option that passes has pre-clearance from stakeholders.
@@ -95,11 +95,11 @@ Primary artifact: Conditional Hypothesis Map
 Hypothesis form:
 - "Option X is preferred if conditions C1..Cn hold."
 
-This is structurally different from McKinsey's assertive hypothesis format ("We believe X is true because of Y"). McKinsey hypotheses assert a belief to be tested. Bain hypotheses define the conditions under which each option wins — then design workstreams to test those conditions directly.
+This is structurally different from McKinsey's assertive hypothesis format ("We believe X is true because of Y"). McKinsey hypotheses assert a belief to be tested. Bain hypotheses define the conditions under which each option wins: then design workstreams to test those conditions directly.
 
 Traceability requirement:
 - Each condition is mapped to one named Loop 2 analytical workstream.
-- Loop 2's entire work plan is derived from these conditions — every workstream exists solely to validate or invalidate a specific condition.
+- Loop 2's entire work plan is derived from these conditions: every workstream exists solely to validate or invalidate a specific condition.
 
 ### Loop 1 quality gates
 
@@ -271,7 +271,7 @@ Sprint structure:
 
 Design principle:
 - Keep sprint dependencies minimal and autonomy high.
-- Sequence battles so early wins fund later ones — both financially and politically.
+- Sequence battles so early wins fund later ones: both financially and politically.
 
 ### L3.4 Behavioral change design
 
@@ -325,13 +325,13 @@ Dashboard requirement:
 
 Bain's signature decision-quality device. Separates observed data from the firm's interpretation on analytical slides.
 
-**Structure:** Left column (~55%): "KEY FACTS" — quantified findings with source citations. Objective. The data speaks. Right column (~45%): "PERSPECTIVES" — interpretation, implications, recommended action. Subjective. The firm's judgment.
+**Structure:** Left column (~55%): "KEY FACTS": quantified findings with source citations. Objective. The data speaks. Right column (~45%): "PERSPECTIVES": interpretation, implications, recommended action. Subjective. The firm's judgment.
 
-**Why it matters:** Forces intellectual honesty — the reader can evaluate whether the data actually supports the recommendation. Prevents the common failure mode of mixing observation with opinion until neither is trustworthy.
+**Why it matters:** Forces intellectual honesty: the reader can evaluate whether the data actually supports the recommendation. Prevents the common failure mode of mixing observation with opinion until neither is trustworthy.
 
 **When to use:** On any analytic slide where the recommended action could be contested. At L2+ density. At L1, the separation collapses into assertion-with-evidence (the action title carries the perspective, the exhibit carries the facts).
 
-**Quality test:** Cover the Perspectives column — do the facts alone suggest a different conclusion? If yes, the Perspectives column is doing real work (good). If the facts only support one conclusion, the split is theatrical (bad — just assert the conclusion).
+**Quality test:** Cover the Perspectives column: do the facts alone suggest a different conclusion? If yes, the Perspectives column is doing real work (good). If the facts only support one conclusion, the split is theatrical (bad, just assert the conclusion).
 
 ## Standalone frameworks frequently used with the three-loop model
 

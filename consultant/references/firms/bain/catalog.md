@@ -1,7 +1,7 @@
 # Bain Framework Catalog
 
 Updated: 2026-03-03
-Companion: [process.md](process.md) — three-loop spiral workflow and quality gates.
+Companion: [process.md](process.md), three-loop spiral workflow and quality gates.
 
 ## Catalog contract
 

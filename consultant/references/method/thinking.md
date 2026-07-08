@@ -1,6 +1,6 @@
 # Analytical Thinking Method
 
-Behavioral steering only. Everything below targets specific failure modes — it does not teach consulting basics.
+Behavioral steering only. Everything below targets specific failure modes: it does not teach consulting basics.
 
 ---
 
@@ -17,9 +17,9 @@ Before proceeding, answer: What happens if the client takes no action? (Quantify
 
 ## 2. MECE Anti-Patterns
 
-- **Overlapping categories**: "Organic growth" and "New products" overlap — new products ARE organic growth. Test boundaries.
+- **Overlapping categories**: "Organic growth" and "New products" overlap, new products ARE organic growth. Test boundaries.
 - **Missing categories**: "Cost reduction" and "Revenue growth" miss balance sheet optimization. Test exhaustiveness.
-- **Uneven granularity**: "North America," "Europe," "Japan" — Japan is within APAC. Pick one level.
+- **Uneven granularity**: "North America," "Europe," "Japan": Japan is within APAC. Pick one level.
 - **Residual bucket abuse**: "Other" should be <15% of the total. If larger, the structure is wrong.
 - **Lopsided split**: If one group contains 80%+ of the content, granularity is wrong. Split the dominant group.
 
@@ -46,7 +46,7 @@ Should we acquire TargetCo at $2B?
     └── If no → STOP. Deal destroys value on day one.
 ```
 
-Use when the decision is binary and the cost of a wrong positive vastly exceeds the cost of a wrong negative. Sequence branches by testability — fastest-to-falsify at top. 3-5 branches at the first level.
+Use when the decision is binary and the cost of a wrong positive vastly exceeds the cost of a wrong negative. Sequence branches by testability: fastest-to-falsify at top. 3-5 branches at the first level.
 
 ---
 
@@ -70,8 +70,8 @@ Example: "The 3pp margin decline is driven by raw material cost inflation, evide
 
 When synthesizing multiple analyses, classify each pair of findings as convergence (same direction → high confidence), contradiction (different directions → choose a position, defend it), or blind spot (what you didn't analyze that could flip the answer).
 
-Never average contradictions. Never ignore blind spots — flag them as risks.
+Never average contradictions. Never ignore blind spots: flag them as risks.
 
-**Triangulation rule.** For any finding that drives the recommendation, bring at least 3 independent evidence sources. No single source is dispositive — the synthesis across sources is where the insight lives. If you can only find one source, flag the finding as low-confidence.
+**Triangulation rule.** For any finding that drives the recommendation, bring at least 3 independent evidence sources. No single source is dispositive: the synthesis across sources is where the insight lives. If you can only find one source, flag the finding as low-confidence.
 
 For synthesis patterns with worked examples, see frameworks.md §3.

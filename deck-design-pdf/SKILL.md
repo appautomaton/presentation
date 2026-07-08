@@ -268,10 +268,10 @@ You are composing **custom HTML for each slide** based on the user's actual data
 
 **What NOT to copy from examples:**
 
-- Sample data ("$4.2B", "12.4M units"). Use the user's actual numbers.
-- Action titles and section labels. Write new ones from the ghost deck.
-- Hardcoded hex colors for palette roles. Use `var(--accent)`, `var(--text)`, etc.
-- Fixed dimensions. Adapt to the content density and slide count. Examples follow a roughly landscape aspect ratio. Your slide's body space may demand a portrait or square chart. Fill the available body height first, then constrain only if content overflows.
+- Sample data ("$4.2B", "12.4M units"): use the user's actual numbers.
+- Action titles and section labels: write new ones from the ghost deck.
+- Hardcoded hex colors for palette roles: use `var(--accent)`, `var(--text)`, etc.
+- Fixed dimensions: adapt to the content density and slide count. Examples follow a roughly landscape aspect ratio. Your slide's body space may demand a portrait or square chart. Fill the available body height first, then constrain only if content overflows.
 
 **Fill-first orientation.** When sizing a chart or visual exhibit, start from the body height (≈ 600px), subtract any labels, gaps, or card rows above/below the chart, and set the chart to that remaining height. Do not start from an example's hardcoded height and stretch slightly. A chart that fills the body zone vertically eliminates blank space structurally. No bottom padding hack required. Portrait charts (height > width) are valid and preferred over leaving empty space at the slide bottom.
 

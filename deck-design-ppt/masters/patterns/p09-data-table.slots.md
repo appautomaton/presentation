@@ -1,7 +1,7 @@
-# P09 — Data Table — Slot Budgets
+# P09 Data Table: Slot Budgets
 
 **Styles:** consulting · founder · sequoia
-**For:** Structured numeric comparison — financials/benchmarks (consulting), pricing/cohorts (founder), burn/runway (sequoia).
+**For:** Structured numeric comparison: financials/benchmarks (consulting), pricing/cohorts (founder), burn/runway (sequoia).
 
 **Slots:**
 - `.section-tag`: <= 40 chars. Uppercase exhibit label (e.g., "EXHIBIT 3 | FINANCIAL ANALYSIS").
@@ -15,7 +15,7 @@
 - Callout headline (`.callout-headline`): <= 100 chars. Bold insight.
 - Callout detail (`.callout-detail`): <= 170 chars. Supporting evidence.
 
-**Layout:** Flex-based columns (`t-label` / `t-data` / `t-delta`). Add or remove data columns freely — widths rebalance automatically.
+**Layout:** Flex-based columns (`t-label` / `t-data` / `t-delta`). Add or remove data columns freely: widths rebalance automatically.
 
 **Data schema:**
 ```js

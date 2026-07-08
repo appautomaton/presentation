@@ -1,4 +1,4 @@
-# Build Reference — Slide Construction
+# Build Reference: Slide Construction
 
 > Load this reference during **Phase 2 (Build)** when writing slide HTML, configuring ECharts, or structuring the build script. Not needed during planning or ghost deck construction.
 
@@ -53,19 +53,19 @@ createDeck({
 
 Run: `node build-{slug}.js` → produces the PDF directly.
 
-`<this-skill>` = this skill's base directory path (provided in context when the skill loads). Node resolves `playwright` and all assets from the skill's own `node_modules/` and `vendor/` — no install needed in the user's project.
+`<this-skill>` = this skill's base directory path (provided in context when the skill loads). Node resolves `playwright` and all assets from the skill's own `node_modules/` and `vendor/`, no install needed in the user's project.
 
 **Why `headExtra` CSS classes over inline Tailwind for the shell:**
-- One change to `.deck-title` fixes all 20+ slides — vs editing each slide's `text-3xl font-semibold leading-snug tracking-tight`
+- One change to `.deck-title` fixes all 20+ slides: vs editing each slide's `text-3xl font-semibold leading-snug tracking-tight`
 - The grid shell guarantees footer placement structurally
 - Token-efficient: a class name is ~15 chars vs ~80 chars of Tailwind utilities per slide
-- Tailwind is still used for body content layout (grids, gaps, cards) — only the shell is CSS classes
+- Tailwind is still used for body content layout (grids, gaps, cards): only the shell is CSS classes
 
 **ECharts formatter warning:** Inside JavaScript template literals (backtick strings), `'${value}'` is interpreted as JS interpolation. Use `function(v) { return '$' + v + 'B'; }` instead. This applies to all `formatter`, `axisLabel.formatter`, and `label.formatter` properties.
 
 ## Modular authoring for large decks
 
-For decks with more than ~10 slides, consider authoring each slide as a separate module file. The `createDeck()` API is unchanged — the convention only affects how the slide strings are assembled.
+For decks with more than ~10 slides, consider authoring each slide as a separate module file. The `createDeck()` API is unchanged: the convention only affects how the slide strings are assembled.
 
 **Recommended structure:**
 
@@ -105,16 +105,16 @@ createDeck({
 ```
 
 **Why this matters for quality:**
-- Each slide file is 80–120 lines — readable in one pass; the agent can fix S11 without scrolling through 1,500 lines
+- Each slide file is 80–120 lines: readable in one pass; the agent can fix S11 without scrolling through 1,500 lines
 - Slide-level isolation: changing S11's chart height cannot accidentally touch S14
 - The space budget comment at the top of each module makes sizing decisions auditable
-- One file = one argument = one layout decision — matches the ghost deck's one-slide-one-claim rule
+- One file = one argument = one layout decision: matches the ghost deck's one-slide-one-claim rule
 
 This is a convention, not a requirement. For decks under 10 slides, a single build script is fine.
 
 ## Slide shell
 
-The shell uses **CSS Grid with fixed row heights** — this structurally prevents footer overflow, which is the most common layout failure in deck production.
+The shell uses **CSS Grid with fixed row heights**: this structurally prevents footer overflow, which is the most common layout failure in deck production.
 
 ```html
 <div style="height: 100%; display: grid; grid-template-rows: auto minmax(0, 1fr) 48px;">
@@ -149,7 +149,7 @@ The shell uses **CSS Grid with fixed row heights** — this structurally prevent
 2. Body fills remaining space but **cannot push the footer off-slide** (`minmax(0, 1fr)`)
 3. Footer is always exactly 48px from the bottom, regardless of body content
 
-The older `flex flex-col h-full` + `flex-1` approach allowed body overflow to push the footer off the slide — a failure that required manual QA to catch.
+The older `flex flex-col h-full` + `flex-1` approach allowed body overflow to push the footer off the slide: a failure that required manual QA to catch.
 
 Cover slides and dividers replace this shell with a full-bleed layout (see [Layout primitives](#layout-primitives) below).
 
@@ -173,13 +173,13 @@ The reusable production unit is the **atomic exhibit**: graph/table/visual only,
 }
 ```
 
-Every example is **self-contained** — there is no shared helper module. Each template marks three edit zones in its source:
+Every example is **self-contained**: there is no shared helper module. Each template marks three edit zones in its source:
 
-1. **Brand variables** — font + colors to swap from the palette config
-2. **Data** — sample categories and values to replace with real data
-3. **Sizing limits** — `[min, max]` ranges that the responsive formulas interpolate between
+1. **Brand variables**: font + colors to swap from the palette config
+2. **Data**: sample categories and values to replace with real data
+3. **Sizing limits**: `[min, max]` ranges that the responsive formulas interpolate between
 
-Below the edit zones sits a computed sizing block (font size, bar width, wrap thresholds derived from `tokens.width` / `tokens.height`), and the header comment records the ECharts gotchas that pattern already solved. Keep exhibit geometry, data mapping, label placement, and one-off visual emphasis inside each template — do not invent a shared abstraction layer.
+Below the edit zones sits a computed sizing block (font size, bar width, wrap thresholds derived from `tokens.width` / `tokens.height`), and the header comment records the ECharts gotchas that pattern already solved. Keep exhibit geometry, data mapping, label placement, and one-off visual emphasis inside each template: do not invent a shared abstraction layer.
 
 ## Layout anti-patterns
 
@@ -195,7 +195,7 @@ Common failures in deck production. Avoid these:
 | **Rounded corners everywhere** | Excessive `rounded-xl` creates a product/SaaS aesthetic, not consulting. | Use `rounded-lg` (8px) max. MBB decks prefer `rounded` (4px) or sharp corners. |
 | **`align-items:center` on mismatched columns** | Unequal content heights float to vertical midpoint, leaving blank space. | Use `align-items:start` when columns differ in height. |
 | **Landscape-only chart sizing** | Copying example heights (200–300px) on a 600px body zone leaves 300+px blank. | Start from body height, subtract surrounding elements, set chart to remainder. Portrait is valid. |
-| **Newline characters inside ECharts script blocks** | Literal `\n` in single-quoted JS strings causes SyntaxError — chart renders blank, no visible error. | Use `\n` escape sequences. Wrap ECharts init in an IIFE `(function(){ ... })();`. |
+| **Newline characters inside ECharts script blocks** | Literal `\n` in single-quoted JS strings causes SyntaxError: chart renders blank, no visible error. | Use `\n` escape sequences. Wrap ECharts init in an IIFE `(function(){ ... })();`. |
 
 ## Design tokens
 
@@ -219,30 +219,30 @@ Every palette provides these CSS custom properties. Use via Tailwind arbitrary v
 
 ## Typography scale
 
-Two systems exist for typography sizing. They serve different contexts — don't mix them.
+Two systems exist for typography sizing. They serve different contexts: don't mix them.
 
-1. **Slide HTML** — use the Tailwind class table below. Pick a role, use its class. No programmatic tokens.
-2. **ECharts exhibits** — compute sizes from the chart's target width and height (see § ECharts exhibit sizing). ECharts takes `fontSize` as a JS number, so Tailwind classes don't apply inside chart config.
+1. **Slide HTML**: use the Tailwind class table below. Pick a role, use its class. No programmatic tokens.
+2. **ECharts exhibits**: compute sizes from the chart's target width and height (see § ECharts exhibit sizing). ECharts takes `fontSize` as a JS number, so Tailwind classes don't apply inside chart config.
 
-### Tailwind type roles — slide HTML
+### Tailwind type roles: slide HTML
 
-Every text element in slide HTML must use one of these roles. All roles use native Tailwind classes — no arbitrary pixel values except tag/badge.
+Every text element in slide HTML must use one of these roles. All roles use native Tailwind classes, no arbitrary pixel values except tag/badge.
 
 | Role | Tailwind class | Rendered | Weight | Extras | Use for |
 |---|---|---|---|---|---|
 | **Cover title** | `text-5xl` | 48px / 36pt | `font-bold` | `tracking-tight` | Title slide headline |
 | **Action title** | `text-3xl` | 30px / 22.5pt | `font-semibold` | `tracking-tight leading-snug` | Slide conclusion sentence |
 | **Card metric** | `text-2xl` | 24px / 18pt | `font-bold` | `tracking-tight leading-none` | "$240B", "200%+", large KPI numbers |
-| **Subtitle** | `text-lg` | 18px / 13.5pt | `font-normal` | — | Cover subtitle, context line |
+| **Subtitle** | `text-lg` | 18px / 13.5pt | `font-normal` | none | Cover subtitle, context line |
 | **Body** | `text-base` | 16px / 12pt | `font-normal` | `leading-relaxed` | Paragraphs, bullet descriptions, card body text |
 | **Body small** | `text-sm` | 14px / 10.5pt | `font-normal` | `leading-relaxed` | Secondary descriptions, table cells, annotations |
-| **Card label** | `text-sm` | 14px / 10.5pt | `font-semibold` | — | Metric name below the number |
+| **Card label** | `text-sm` | 14px / 10.5pt | `font-semibold` | none | Metric name below the number |
 | **Callout body** | `text-sm` | 14px / 10.5pt | `font-normal` | `leading-relaxed` | Text inside insight/callout boxes |
-| **Card detail** | `text-xs` | 12px / 9pt | `font-normal` | — | Trend indicators, supplementary data |
+| **Card detail** | `text-xs` | 12px / 9pt | `font-normal` | none | Trend indicators, supplementary data |
 | **Section label** | `text-xs` | 12px / 9pt | `font-semibold` | `tracking-widest uppercase` | "MOMENTUM DIAGNOSTIC" above title |
-| **Panel header** | `text-xs` | 12px / 9pt | `font-bold` | `tracking-widest uppercase` | "KEY METRICS" — mini-headers |
-| **Data label** | `text-xs` | 12px / 9pt | `font-medium` | — | Chart annotations, axis labels in HTML |
-| **Footer / source** | `text-xs` | 12px / 9pt | `font-normal` | — | Source line, confidentiality notice |
+| **Panel header** | `text-xs` | 12px / 9pt | `font-bold` | `tracking-widest uppercase` | "KEY METRICS": mini-headers |
+| **Data label** | `text-xs` | 12px / 9pt | `font-medium` | none | Chart annotations, axis labels in HTML |
+| **Footer / source** | `text-xs` | 12px / 9pt | `font-normal` | none | Source line, confidentiality notice |
 | **Tag / badge** | `text-[10px]` | 10px / 7.5pt | `font-medium` | `px-2 py-0.5 rounded-full` | Pill labels inside cards |
 
 **Legibility floor:** No text below `text-xs` (12px) except tags/badges. Body-readable text must be ≥`text-sm` (14px).
@@ -266,7 +266,7 @@ Every text element in slide HTML must use one of these roles. All roles use nati
 
 ### ECharts exhibit sizing
 
-Chart config takes JS numbers, so responsiveness is computed, not CSS. Follow the pattern every example uses — declare tunable limits, then interpolate on the actual canvas size:
+Chart config takes JS numbers, so responsiveness is computed, not CSS. Follow the pattern every example uses: declare tunable limits, then interpolate on the actual canvas size:
 
 ```javascript
 const fontSizeRange = [14, 20];                     // [min, max] px, the tunable knob
@@ -282,7 +282,7 @@ const wrapLabels = width < 400;                     // structural switch below a
 
 - Interpolate text linearly across the supported width range (300–1120px), clamped to a declared `[min, max]`.
 - Derive bar/row thickness from the vertical budget: height ÷ item count × fill ratio, clamped.
-- Use width thresholds for structural switches (label wrapping, legend position) — never for font sizes.
+- Use width thresholds for structural switches (label wrapping, legend position), never for font sizes.
 - Keep all sizing local to the chart: declared limits at the top, computed values below, nothing shared across exhibits.
 
 ## Spatial constants
@@ -298,7 +298,7 @@ const wrapLabels = width < 400;                     // structural switch below a
 | Card border radius | `rounded-lg` | Consistent card rounding |
 | Footer height | `py-2` (~40px) | Compact, fine text |
 
-## Icons — Font Awesome 6
+## Icons: Font Awesome 6
 
 Font Awesome 6 Free is vendored locally. Use `<i>` tags inline with text or as standalone decorators only when the glyph is render-stable in PDF output.
 
@@ -333,9 +333,9 @@ Font Awesome 6 Free is vendored locally. Use `<i>` tags inline with text or as s
 
 Icons work best as visual anchors on KPI cards, process steps, and list items. Do not over-decorate.
 
-## Data Visualization — ECharts 6
+## Data Visualization: ECharts 6
 
-ECharts 6 is vendored locally with **SVG renderer** (mandatory — `<canvas>` blanks in Playwright PDF). For exhibit selection, use [chart-taxonomy.md](chart-taxonomy.md).
+ECharts 6 is vendored locally with **SVG renderer** (mandatory: `<canvas>` blanks in Playwright PDF). For exhibit selection, use [chart-taxonomy.md](chart-taxonomy.md).
 
 **Chart container pattern:**
 ```html
@@ -356,7 +356,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 **Important:** The `<script>` block goes **inside the slide HTML string** (after the layout HTML but before the closing backtick). For **multi-chart slides**, use unique IDs and initialize all charts in a single `<script>` block.
 
-**MBB chart aesthetics — the configuration that makes charts look consulting-quality:**
+**MBB chart aesthetics: the configuration that makes charts look consulting-quality:**
 
 ```javascript
 {
@@ -382,7 +382,7 @@ document.addEventListener('DOMContentLoaded', () => {
 | Trend over time | `type: 'line'` | `smooth: false` for MBB, `areaStyle` for area |
 | Market share / composition | `type: 'pie'` | `radius: ['40%', '70%']` for donut |
 | Scatter / positioning | `type: 'scatter'` | `symbolSize` by value for bubble |
-| Revenue bridge / delta | `type: 'bar'` (stacked) | Invisible base + colored delta — waterfall |
+| Revenue bridge / delta | `type: 'bar'` (stacked) | Invisible base + colored delta: waterfall |
 | Performance meter | `type: 'gauge'` | `detail.formatter`, clean arc |
 | Flow / allocation | `type: 'sankey'` | `orient: 'horizontal'`, `nodeWidth: 20` |
 | Hierarchy / budget | `type: 'treemap'` | `visibleMin: 300`, `label.fontSize: 12` |
@@ -410,7 +410,7 @@ series: [
 
 **Color discipline for charts:**
 - Primary series: `var(--chart-primary)` or the hex value from the palette
-- Secondary series: `var(--chart-secondary)` — always gray
+- Secondary series: `var(--chart-secondary)`, always gray
 - Positive delta: accent color or `#2E9E5A` (green)
 - Negative delta: `#CC4444` (red)
 - Never more than 4 colors in one chart. MBB charts are restrained.
@@ -434,9 +434,9 @@ Do not author examples against hardwired `sm/md/lg` buckets. The reference canva
 
 Each template declares its own limits inline:
 
-- **`minSize`** (optional module export) — the smallest canvas width the pattern supports; the preview bench skips smaller render sizes.
-- **Sizing limits** at the top of `renderExhibit` — `[min, max]` ranges that the computed sizing block interpolates between (see § ECharts exhibit sizing).
-- **Structural switches** — width thresholds where the template changes shape (wrap labels, drop a legend, stack columns).
+- **`minSize`** (optional module export): the smallest canvas width the pattern supports; the preview bench skips smaller render sizes.
+- **Sizing limits** at the top of `renderExhibit`: `[min, max]` ranges that the computed sizing block interpolates between (see § ECharts exhibit sizing).
+- **Structural switches**: width thresholds where the template changes shape (wrap labels, drop a legend, stack columns).
 
 Declared ranges are validated visually, not by contract metadata: `generate-previews.js` (repo root) renders every example at 540×540, plus 300×300 and 720×720 with `--all`.
 
@@ -451,7 +451,7 @@ Six layout structures for the body zone. Combine with the [slide shell](#slide-s
 | **Asymmetric split** | `grid grid-cols-[3fr_2fr] gap-8` | Main exhibit + sidebar (55/45) |
 | **Three-column** | `grid grid-cols-3 gap-6` | KPI cards, feature comparison, triple evidence |
 | **Card grid** | `grid grid-cols-3 gap-4` (or 2/4) | Scorecards, team, feature tiles |
-| **Full bleed** | No shell — direct child of `<section>` | Cover, divider, hero image |
+| **Full bleed** | No shell: direct child of `<section>` | Cover, divider, hero image |
 
 ## Content primitives
 
@@ -522,7 +522,7 @@ Map each slide's communication move to a layout composition.
 
 | User intent / data shape | Layout | Content primitives | Notes |
 |---|---|---|---|
-| Cover / title page | Full bleed | Centered title + subtitle on dark surface | No shell — full `h-full` |
+| Cover / title page | Full bleed | Centered title + subtitle on dark surface | No shell: full `h-full` |
 | Section divider | Full bleed | Section number (large) + title on dark | Page break rhythm |
 | Agenda / TOC | Single column | Numbered list items, active item highlighted | Accent color on active |
 | 4–6 KPIs / metrics | Card grid (3-col or 2×3) | KPI metric cards | Icons + trend indicators |

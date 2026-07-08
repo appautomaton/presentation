@@ -1,6 +1,6 @@
 # SCR Worked Examples
 
-Four Situation-Complication-Resolution frames across different case types. Use these to calibrate SCR construction — match the density, specificity, and tension level.
+Four Situation-Complication-Resolution frames across different case types. Use these to calibrate SCR construction: match the density, specificity, and tension level.
 
 ---
 
@@ -14,7 +14,7 @@ Four Situation-Complication-Resolution frames across different case types. Use t
 
 **Resolution:** Acquire a mid-size European distributor ($30-50M revenue) to leverage MedTech's existing product portfolio and regulatory capabilities, targeting $100M in European revenue within 5 years.
 
-**Why this works:** S establishes the company's strengths (what they have to work with). C creates urgency with a specific timeline and names the mechanism of decline (competitor scale). R is specific enough to be debatable — a board member could argue for organic entry or partnership instead.
+**Why this works:** S establishes the company's strengths (what they have to work with). C creates urgency with a specific timeline and names the mechanism of decline (competitor scale). R is specific enough to be debatable: a board member could argue for organic entry or partnership instead.
 
 ---
 
@@ -26,7 +26,7 @@ Four Situation-Complication-Resolution frames across different case types. Use t
 
 **Resolution:** Execute a three-phase cost transformation targeting $120M in annual savings: labor optimization via scheduling technology ($45M), supply chain consolidation ($50M), and portfolio rationalization of underperforming stores ($25M).
 
-**Why this works:** S anchors scale and recent context. C quantifies the margin compression AND the deadline (EBITDA-negative in 18 months) — this is what drives the "why now." R breaks the number into three clear workstreams with dollar values, making it immediately actionable.
+**Why this works:** S anchors scale and recent context. C quantifies the margin compression AND the deadline (EBITDA-negative in 18 months): this is what drives the "why now." R breaks the number into three clear workstreams with dollar values, making it immediately actionable.
 
 ---
 
@@ -50,14 +50,14 @@ Four Situation-Complication-Resolution frames across different case types. Use t
 
 **Resolution:** Pursue a platform expansion strategy combining upmarket enterprise migration ($50M ARR opportunity) with adjacent product launches in resource management and financial planning ($70M ARR opportunity), targeting re-acceleration to 30%+ growth within 24 months.
 
-**Why this works:** S establishes market position and the metrics that matter for SaaS (ARR, retention, penetration). C names three converging threats (saturation, competition, valuation risk) — any one alone might not demand action, but together they do. R offers a specific growth target with a timeline and two concrete vectors.
+**Why this works:** S establishes market position and the metrics that matter for SaaS (ARR, retention, penetration). C names three converging threats (saturation, competition, valuation risk): any one alone might not demand action, but together they do. R offers a specific growth target with a timeline and two concrete vectors.
 
 ---
 
 ## Pattern Notes
 
 Across all four examples:
-- **S is always <2 sentences.** It reminds — it doesn't educate.
-- **C always names a specific mechanism** — not just "things are bad" but WHY things are bad and WHAT happens if nothing changes.
+- **S is always <2 sentences.** It reminds: it doesn't educate.
+- **C always names a specific mechanism**: not just "things are bad" but WHY things are bad and WHAT happens if nothing changes.
 - **R always includes a number and a timeframe.** "Improve operations" is not a resolution. "$120M savings in 18 months" is.
-- **R is always debatable.** A reasonable executive could prefer a different path — which is exactly what makes it a real recommendation rather than a truism.
+- **R is always debatable.** A reasonable executive could prefer a different path: which is exactly what makes it a real recommendation rather than a truism.

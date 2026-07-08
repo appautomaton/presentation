@@ -1,8 +1,8 @@
-# Deck Design PDF — Web-Native Slide Builder
+# Deck Design PDF: Web-Native Slide Builder
 
 High-fidelity PDF slide decks built with HTML/CSS and rendered via Playwright. Same palette system as `deck-design-ppt`, but with the full expressiveness of web layout (CSS Grid, Tailwind utilities, web fonts).
 
-**Entry point:** `SKILL.md` — operational playbook (agent reads this first).
+**Entry point:** `SKILL.md`: operational playbook (agent reads this first).
 
 ## Structure
 
@@ -77,10 +77,10 @@ createDeck({
 
 - metadata: `id`, `title`, `tier`, `proves`, `data`
 - shell metadata: `sectionLabel`, `actionTitle`, `source`, `exhibitId`
-- optional `minSize` — smallest canvas width the pattern supports
-- `renderExhibit({ tokens })` — `tokens = { width, height }`; returns a full HTML string (markup + inline ECharts init script)
+- optional `minSize`: smallest canvas width the pattern supports
+- `renderExhibit({ tokens })`: `tokens = { width, height }`; returns a full HTML string (markup + inline ECharts init script)
 
-Every module is **self-contained** — there is no shared helper module. Each template marks three edit zones (brand variables, data, sizing limits), computes its responsive sizing inline from the actual width and height, and records the ECharts gotchas it already solved in its header comment. Layout geometry, data mapping, label placement, and one-off emphasis stay local to each template by design.
+Every module is **self-contained**: there is no shared helper module. Each template marks three edit zones (brand variables, data, sizing limits), computes its responsive sizing inline from the actual width and height, and records the ECharts gotchas it already solved in its header comment. Layout geometry, data mapping, label placement, and one-off emphasis stay local to each template by design.
 
 ## Responsive Support Model
 
@@ -90,4 +90,4 @@ The reference canvas is `1280x720`, but each exhibit adapts to the actual target
 - Bar/row thickness derives from the vertical budget: height ÷ item count × fill ratio, clamped.
 - Width thresholds drive structural switches (label wrapping, legend position).
 
-`generate-previews.js` (repo root) renders every example at 540×540 for visual QA — plus 300×300 and 720×720 with `--all`.
+`generate-previews.js` (repo root) renders every example at 540×540 for visual QA: plus 300×300 and 720×720 with `--all`.

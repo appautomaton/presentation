@@ -2,7 +2,7 @@
 
 Eight recurring engagement types with pillar architectures, kill conditions, and governing thought templates. Load after ROUTE classifies the engagement. Cross-references point to existing firm/domain files for analytical depth.
 
-**Composing archetypes.** Real engagements often span two archetypes. When they do: one leads (governs the GT and pillar structure), the other supports (contributes analysis to specific pillars). The lead archetype is whichever answers the primary decision. Kill conditions from both archetypes apply — a supporting archetype's kill condition can terminate the lead engagement.
+**Composing archetypes.** Real engagements often span two archetypes. When they do: one leads (governs the GT and pillar structure), the other supports (contributes analysis to specific pillars). The lead archetype is whichever answers the primary decision. Kill conditions from both archetypes apply, a supporting archetype's kill condition can terminate the lead engagement.
 
 ---
 
@@ -100,7 +100,7 @@ Eight recurring engagement types with pillar architectures, kill conditions, and
 
 ### Digital / AI Transformation
 
-**GT+:** "[Company] should invest $[X]M over [timeframe] in [N] digital capabilities, prioritized by impact × feasibility, to capture $[Y]M annual value — starting with [top 2-3 use cases]."
+**GT+:** "[Company] should invest $[X]M over [timeframe] in [N] digital capabilities, prioritized by impact × feasibility, to capture $[Y]M annual value: starting with [top 2-3 use cases]."
 **GT−:** "[Company] should not pursue enterprise transformation because [foundational blocker]. Instead, invest $[X]M in [prerequisite] first."
 
 | # | Pillar | Must-Be-True |
@@ -119,7 +119,7 @@ Eight recurring engagement types with pillar architectures, kill conditions, and
 ### Org Restructuring
 
 **GT+:** "[Company] should restructure from [current model] to [target model], reducing [X] layers, achieving $[Y]M savings and [Z]% decision speed improvement, while preserving [critical capability]."
-**GT−:** "[Company]'s decline is not structural — [root cause] is the constraint. Restructuring would destroy [capability]. Instead, [alternative]."
+**GT−:** "[Company]'s decline is not structural: [root cause] is the constraint. Restructuring would destroy [capability]. Instead, [alternative]."
 
 | # | Pillar | Must-Be-True |
 |---|--------|-------------|
@@ -130,7 +130,7 @@ Eight recurring engagement types with pillar architectures, kill conditions, and
 
 **Key devices:** RAPID Decision Maps (→ Bain process.md Loop 3), Span-of-control analysis, Decision audit (10-15 decisions, cycle time), SARS capability-preservation test (MANDATORY: map end-to-end processes that work well → preserve list)
 **Kill conditions:** Root cause is leadership/strategy/culture, not structure → different intervention | Capability preservation test fails → hybrid model | Key talent attrition >20% projected → retention-first | CEO using restructuring to remove opponents → de-scope to performance management
-**Quality gates:** [critical capability] MANDATORY in GT — must name what new model could destroy; negative variant prepared even if not presented; spans/layers benchmarked against ≥5 comparable orgs; RAPID maps show before AND after
+**Quality gates:** [critical capability] MANDATORY in GT: must name what new model could destroy; negative variant prepared even if not presented; spans/layers benchmarked against ≥5 comparable orgs; RAPID maps show before AND after
 
 ---
 

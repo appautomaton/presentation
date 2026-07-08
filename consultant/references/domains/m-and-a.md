@@ -117,7 +117,7 @@ The degree of integration depends on two factors: strategic interdependence (how
 | **Preservation** (standalone) | Low interdependence, high autonomy value | Synergies limited to financial; no operational integration |
 | **Symbiosis** (selective integration) | High interdependence AND high autonomy value | Most complex; requires granular decisions on what to integrate vs preserve |
 
-Default to symbiosis when unsure — it forces explicit choices per function. Absorption and preservation are edge cases that sound simpler but often fail by ignoring the dimension they de-prioritize.
+Default to symbiosis when unsure: it forces explicit choices per function. Absorption and preservation are edge cases that sound simpler but often fail by ignoring the dimension they de-prioritize.
 
 ---
 
@@ -172,7 +172,7 @@ Integration planning starts during diligence, not after close. The first 100 day
 | Cost synergies captured | $0 | $ | $ | $ |
 | Key talent retained (%) | 100% | % | % | % |
 | Customer retention (%) | baseline | % | % | % |
-| Integration milestones on track | — | % | % | % |
+| Integration milestones on track | none | % | % | % |
 | Employee engagement score | baseline | score | score | score |
 
 Track against the deal thesis. If the thesis was "capability acquisition," talent retention is the lead indicator. If the thesis was "scale consolidation," cost synergy capture rate is the lead indicator. A deal that hits its financial targets but loses the people or customers it was built on has failed.

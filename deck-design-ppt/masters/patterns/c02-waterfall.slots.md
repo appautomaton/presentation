@@ -1,4 +1,4 @@
-# C02 — Waterfall/Bridge — Slot Budgets (Consulting-only)
+# C02 Waterfall/Bridge: Slot Budgets (Consulting-only)
 
 - **For:** start/end bridge with intermediate deltas.
 - **Slots (budgets):**

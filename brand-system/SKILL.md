@@ -7,7 +7,7 @@ description: >
   engagements, product pitches, personal brands, or any context requiring a unified
   visual language. Produces a markdown design brief, a JS config, and a preview PDF.
 metadata:
-  short-description: Visual identity systems. Palettes, fonts, style direction, preview PDFs
+  short-description: "Visual identity systems: palettes, fonts, style direction, preview PDFs"
 ---
 
 # Brand System

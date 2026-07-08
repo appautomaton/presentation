@@ -26,7 +26,7 @@ module.exports = {
   proves: 'separation of observed data from consultants\' interpretation',
   data: 'Diagnostic synthesis with quantified facts and recommended actions',
   sectionLabel: 'Diagnostic Synthesis',
-  actionTitle: 'Margin compression is structural, not cyclical — pricing power exists but volume strategy needs reset',
+  actionTitle: 'Margin compression is structural, not cyclical: pricing power exists but volume strategy needs reset',
   source: 'Source: Team analysis, FY2023–FY2025 financials',
   exhibitId: 'Exhibit 5.1',
 

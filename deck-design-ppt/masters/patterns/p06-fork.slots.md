@@ -1,4 +1,4 @@
-# P06 — Fork — Slot Budgets
+# P06 Fork: Slot Budgets
 
 ## Consulting
 
@@ -12,7 +12,7 @@
     - `.crit-text` <= 22 chars.
     - `.val-text` <= 48 chars (1 line preferred). Use `.val-weak` / `.val-strong` for emphasis.
   - Recommendation band `.reco-text`: <= 140 chars.
-  - **Layout:** Criteria column fixed (150pt), option columns flex equally. Add options by duplicating `.opt-head` + `.cell-a`/`.cell-b` — widths rebalance.
+  - **Layout:** Criteria column fixed (150pt), option columns flex equally. Add options by duplicating `.opt-head` + `.cell-a`/`.cell-b`: widths rebalance.
 
 ## Founder
 

@@ -1,6 +1,6 @@
 # Risk Assessment
 
-Consulting-specific judgment for identifying, sizing, and communicating risk. Claude already knows risk frameworks, registers, and quantification methods — this file adds the heuristics that separate useful risk analysis from theater.
+Consulting-specific judgment for identifying, sizing, and communicating risk. Claude already knows risk frameworks, registers, and quantification methods: this file adds the heuristics that separate useful risk analysis from theater.
 
 ## Risk Tolerance Calibration
 
@@ -11,7 +11,7 @@ Consulting-specific judgment for identifying, sizing, and communicating risk. Cl
 | Financial | Debt/EBITDA <3.0x |
 | Compliance | No material regulatory findings |
 
-**Stated vs. revealed appetite.** The CEO's stated risk tolerance and their revealed tolerance (what they actually funded, approved, or killed in the last 2 years) often diverge. Test both. The gap is diagnostic — it tells you where the organization is self-deceiving.
+**Stated vs. revealed appetite.** The CEO's stated risk tolerance and their revealed tolerance (what they actually funded, approved, or killed in the last 2 years) often diverge. Test both. The gap is diagnostic: it tells you where the organization is self-deceiving.
 
 For specific tolerance benchmarks by industry, use web search for current-year data.
 

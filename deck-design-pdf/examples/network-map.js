@@ -24,10 +24,10 @@ module.exports = {
   id: 'network-map',
   title: 'Network / Collaboration Map',
   tier: 3,
-  proves: 'formal vs. informal collaboration structure — who actually works with whom',
+  proves: 'formal vs. informal collaboration structure: who actually works with whom',
   data: 'Collaboration network across 8 teams based on meeting frequency and shared deliverables',
   sectionLabel: 'Organizational Analysis',
-  actionTitle: 'Engineering and Product collaborate 4x more than the formal structure predicts — Data and Sales are isolated despite shared KPIs',
+  actionTitle: 'Engineering and Product collaborate 4x more than the formal structure predicts, while Data and Sales are isolated despite shared KPIs',
   source: 'Source: Collaboration analytics (calendar, Slack, shared docs), Q1 2026',
   exhibitId: 'Exhibit 17.1',
 

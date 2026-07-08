@@ -1,7 +1,7 @@
 # BCG Process Reference
 
 Updated: 2026-03-03
-Companion: [catalog.md](catalog.md) — per-framework intent, inputs, outputs, and decision context.
+Companion: [catalog.md](catalog.md), per-framework intent, inputs, outputs, and decision context.
 
 ## Agentic usage contract
 
@@ -30,7 +30,7 @@ Design rule:
 
 McKinsey says "we analyzed deeper than you could." Bain says "we'll get you to a decision faster." BCG says "we'll show you a perspective you wouldn't have seen."
 
-This manifests in deliverable style: BCG decks are framework-heavy and annotation-layered. Charts carry not just data but explicit interpretation — callout boxes, annotation arrows, "so-what" narrative paragraphs. The viewer sees the analytical machinery, not just its output. Where McKinsey values structured bullets and Bain values action directives, BCG values written narrative that connects the dots between frameworks.
+This manifests in deliverable style: BCG decks are framework-heavy and annotation-layered. Charts carry not just data but explicit interpretation, callout boxes, annotation arrows, "so-what" narrative paragraphs. The viewer sees the analytical machinery, not just its output. Where McKinsey values structured bullets and Bain values action directives, BCG values written narrative that connects the dots between frameworks.
 
 The lens architecture reflects this: BCG's lenses are modular (can be added, removed, or invented per engagement), while McKinsey's four tiers are architecturally fixed and Bain's three loops are structurally mandatory. BCG internally calls this "intellectual flexibility." It trades process discipline for analytical originality.
 
@@ -46,11 +46,11 @@ Before selecting lenses, BCG classifies the strategic environment to determine t
 | **Shaping** | Engage, orchestrate, evolve. Ecosystem orchestration wins. |
 | **Renewal** | Economize, pivot, grow. Survival then transformation. |
 
-The palette determines lens selection: a classical environment emphasizes the Advantage Mapping lens; an adaptive environment foregrounds experimentation velocity; a shaping environment activates ecosystem and platform lenses. Mismatching approach to environment — running a classical playbook in an adaptive market, or vice versa — is the most common strategic error BCG diagnoses.
+The palette determines lens selection: a classical environment emphasizes the Advantage Mapping lens; an adaptive environment foregrounds experimentation velocity; a shaping environment activates ecosystem and platform lenses. Mismatching approach to environment (running a classical playbook in an adaptive market, or vice versa) is the most common strategic error BCG diagnoses.
 
 ### De-averaging as analytical principle
 
-BCG distrusts aggregate metrics. An average margin of 10% may conceal a segment earning 40% cross-subsidizing one losing 20%. The reflex is always to decompose: by micro-segment, by customer cohort, by geography, by product — until the variance within groups is smaller than the variance between groups. Only then does the data reveal where value is created and where it is destroyed. This principle runs through every lens and every analysis BCG produces.
+BCG distrusts aggregate metrics. An average margin of 10% may conceal a segment earning 40% cross-subsidizing one losing 20%. The reflex is always to decompose: by micro-segment, by customer cohort, by geography, by product, until the variance within groups is smaller than the variance between groups. Only then does the data reveal where value is created and where it is destroyed. This principle runs through every lens and every analysis BCG produces.
 
 ## Strategic Prism model
 
@@ -59,8 +59,8 @@ Default structure:
 1. Advantage Mapping Lens.
 2. Digital and AI Transformation Lens.
 3. Organizational and Capabilities Lens.
-4. Additional context-specific lens — select based on the strategic question. Common choices: sustainability/ESG lens, talent/culture lens, ecosystem/platform lens, regulatory/geopolitical lens. Or define a custom lens specific to the engagement.
-5. Additional context-specific lens — same as above. Add a second lens when the strategic question spans two additional domains beyond the default three.
+4. Additional context-specific lens: select based on the strategic question. Common choices: sustainability/ESG lens, talent/culture lens, ecosystem/platform lens, regulatory/geopolitical lens. Or define a custom lens specific to the engagement.
+5. Additional context-specific lens: same as above. Add a second lens when the strategic question spans two additional domains beyond the default three.
 
 Modularity policy:
 - Lens set is configurable per engagement.
@@ -121,13 +121,13 @@ Trajectory archetypes:
 
 Projection inputs:
 
-1. Replication speed — how fast can competitors copy this advantage? (Estimated from R&D investment patterns, hiring patterns, patent filings, strategic announcements.)
-2. Innovation refresh rate — how fast can the client upgrade this advantage to stay ahead of replication? (Estimated from innovation pipeline and R&D productivity.)
-3. Environmental shift probability — how likely are exogenous changes (regulation, technology disruption, macro shifts) to render this advantage irrelevant regardless of competitive dynamics?
+1. Replication speed: how fast can competitors copy this advantage? (Estimated from R&D investment patterns, hiring patterns, patent filings, strategic announcements.)
+2. Innovation refresh rate: how fast can the client upgrade this advantage to stay ahead of replication? (Estimated from innovation pipeline and R&D productivity.)
+3. Environmental shift probability: how likely are exogenous changes (regulation, technology disruption, macro shifts) to render this advantage irrelevant regardless of competitive dynamics?
 
 Analytical backbone: Competitive Decay Model.
 - These three variables feed a modified exponential decay function: advantage evolves as a function of refresh rate (positive), competitive decay rate derived from replication speed (negative), and exogenous shock arrivals (negative step function).
-- The model is deliberately simplified — the goal is trajectory shape classification (which archetype?), not point-estimate precision.
+- The model is deliberately simplified: the goal is trajectory shape classification (which archetype?), not point-estimate precision.
 - Uncertainty bands on projected trajectories reflect parameter uncertainty in all three inputs.
 
 Primary artifact:
@@ -149,7 +149,7 @@ Criticality policy:
 Primary artifact:
 - Strategic Gap Matrix with narrative so-what section.
 
-Note on so-what narrative: BCG's cultural preference for written prose (not bullet points) shows most clearly here. The gap matrix occupies the upper two-thirds of the slide; the lower third contains 3-4 sentences of hand-crafted narrative explaining WHY these gaps matter strategically, not just quantitatively. This "so-what paragraph" is a BCG signature — where McKinsey would use structured bullets and Bain would use an action directive.
+Note on so-what narrative: BCG's cultural preference for written prose (not bullet points) shows most clearly here. The gap matrix occupies the upper two-thirds of the slide; the lower third contains 3-4 sentences of hand-crafted narrative explaining WHY these gaps matter strategically, not just quantitatively. This "so-what paragraph" is a BCG signature, where McKinsey would use structured bullets and Bain would use an action directive.
 
 ### L1.4 Advantage strategy formulation
 
@@ -316,11 +316,11 @@ Primary artifact:
 
 **The positive-sum reframe.** BCG's most powerful move: refuse to accept the problem as stated. Expand the value pool until every stakeholder wins. Three layers: reframe the PROBLEM (from obligation to opportunity), reframe the METRIC (from cost to investment return), reframe the STAKEHOLDER POSITION (from zero-sum to positive-sum). Apply when the presenting problem appears zero-sum or politically deadlocked.
 
-**Self-financing proof.** Construct recommendations that pay for themselves within the planning horizon, eliminating the political question of "who bears the cost." This requires building a financial model where investment returns exceed costs — transforming the recommendation from "spend X" to "invest X, get back X+Y."
+**Self-financing proof.** Construct recommendations that pay for themselves within the planning horizon, eliminating the political question of "who bears the cost." This requires building a financial model where investment returns exceed costs: transforming the recommendation from "spend X" to "invest X, get back X+Y."
 
 **Optionality as decision criterion.** Unlike McKinsey's drive toward a single best answer, BCG explicitly values the path that preserves the most future choices. When uncertainty is high, prefer strategies that retain optionality over strategies that optimize for a single outcome. The argument: "we don't know the future, so choose the path that gives you the most options."
 
-**Phased incrementalism.** Break transformational change into named phases with clear transition criteria. Each phase allows stakeholders to commit to the next step without confronting the full scope. Incrementalism in service of radical change — make the politically impossible feel managerially routine.
+**Phased incrementalism.** Break transformational change into named phases with clear transition criteria. Each phase allows stakeholders to commit to the next step without confronting the full scope. Incrementalism in service of radical change: make the politically impossible feel managerially routine.
 
 ---
 

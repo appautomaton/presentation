@@ -1,22 +1,22 @@
-# McKinsey Reference — Firm-Specific Conventions
+# McKinsey Reference: Firm-Specific Conventions
 
 > Loaded when the brief specifies McKinsey philosophy or consulting style at L2+.
-> Use alongside [craft.md](craft.md) — this file covers only what is **McKinsey-specific**.
+> Use alongside [craft.md](craft.md): this file covers only what is **McKinsey-specific**.
 > General density rules, exhibit threading, annotation budgets, and callout quality live in craft.md.
 
-**Design disposition:** Conclusion-driven. Every slide exists to prove one governing thought stated in the title — read just the titles and you get the full argument (the "helicopter test"). Charts are clean and self-evident; the data speaks for itself without annotation layers. Formatting consistency is itself a trust signal: the institutional look is so rigid that even a draft reads as authoritative. McKinsey's ego is in the pixels — "we don't need to show our work because our conclusions are that good."
+**Design disposition:** Conclusion-driven. Every slide exists to prove one governing thought stated in the title: read just the titles and you get the full argument (the "helicopter test"). Charts are clean and self-evident; the data speaks for itself without annotation layers. Formatting consistency is itself a trust signal: the institutional look is so rigid that even a draft reads as authoritative. McKinsey's ego is in the pixels: "we don't need to show our work because our conclusions are that good."
 
 ## Contents
 
-- [§1 The Reader Contract](#1-the-reader-contract) — five promises every McKinsey deck makes
-- [§2 Slide Grammar](#2-slide-grammar) — two-tier header, body zones, footer system
-- [§3 Action Title Templates](#3-action-title-templates) — five sentence patterns with examples
-- [§4 Body Text Rules](#4-body-text-rules) — prose style, bullet grammar, evidence language
-- [§5 Composition Patterns](#5-composition-patterns) — 10 multi-panel layouts with ratios
-- [§6 Exhibit Conventions](#6-exhibit-conventions) — waterfall grammar, color semantics, annotation devices
-- [§7 Navigation System](#7-navigation-system) — section numbering, contents/agenda formats, dividers
-- [§8 Deck Modes](#8-deck-modes) — working vs polished vs presentation
-- [§9 Anti-Patterns](#9-anti-patterns) — what breaks the illusion
+- [§1 The Reader Contract](#1-the-reader-contract): five promises every McKinsey deck makes
+- [§2 Slide Grammar](#2-slide-grammar): two-tier header, body zones, footer system
+- [§3 Action Title Templates](#3-action-title-templates): five sentence patterns with examples
+- [§4 Body Text Rules](#4-body-text-rules): prose style, bullet grammar, evidence language
+- [§5 Composition Patterns](#5-composition-patterns): 10 multi-panel layouts with ratios
+- [§6 Exhibit Conventions](#6-exhibit-conventions): waterfall grammar, color semantics, annotation devices
+- [§7 Navigation System](#7-navigation-system): section numbering, contents/agenda formats, dividers
+- [§8 Deck Modes](#8-deck-modes): working vs polished vs presentation
+- [§9 Anti-Patterns](#9-anti-patterns): what breaks the illusion
 
 Sourced from 6 McKinsey decks: USPS Envisioning Future (2010), USPS Future Business Model (2010), AI & Automation (2017), UNCTAD Investment Policy (2018), NCDOT Review (2019), Transportation DC (2020).
 
@@ -27,10 +27,10 @@ Sourced from 6 McKinsey decks: USPS Envisioning Future (2010), USPS Future Busin
 Every McKinsey deck implicitly promises five things. If any fail, the output stops reading as McKinsey regardless of typography.
 
 1. **Verdict-first.** The slide title states the conclusion. The body proves it. BCG layers interpretation onto charts; Bain separates facts from perspectives in columns. McKinsey puts the conclusion in the title and lets the evidence below be clean and self-evident.
-2. **Evidence over ornament.** Visuals exist to support a claim, not to decorate. Charts are minimal — no annotation callout boxes cluttering the data. The data speaks for itself.
-3. **Executive scan works.** Read only titles (+ section dividers) and you still get the whole argument — the "helicopter test." This is the defining quality test: if the title sequence doesn't tell a complete story, the deck is broken.
+2. **Evidence over ornament.** Visuals exist to support a claim, not to decorate. Charts are minimal, no annotation callout boxes cluttering the data. The data speaks for itself.
+3. **Executive scan works.** Read only titles (+ section dividers) and you still get the whole argument: the "helicopter test." This is the defining quality test: if the title sequence doesn't tell a complete story, the deck is broken.
 4. **Self-contained slides.** Units, time windows, definitions, and sources appear on-slide when they matter. No chasing appendices.
-5. **Institutional formatting consistency.** Every slide looks like it came from the same machine regardless of author, time zone, or deadline pressure. This rigidity is itself a trust signal — "we don't need to show our work because our quality filter is that good."
+5. **Institutional formatting consistency.** Every slide looks like it came from the same machine regardless of author, time zone, or deadline pressure. This rigidity is itself a trust signal: "we don't need to show our work because our quality filter is that good."
 
 Document-control signals shape the vibe and should appear when contextually appropriate:
 
@@ -42,24 +42,24 @@ Document-control signals shape the vibe and should appear when contextually appr
 
 ## §2 Slide Grammar
 
-Every analytic slide follows the same four-zone structure. The header system — specifically the two-tier title — is the single most reproducible McKinsey convention.
+Every analytic slide follows the same four-zone structure. The header system (specifically the two-tier title) is the single most reproducible McKinsey convention.
 
 ### Header zone (two-tier)
 
 ```
-[Section tag — small, muted or colored]     [Status tag — right-aligned, optional]
-[Action title — large, bold, dark, full sentence conclusion]
-[Subtitle — metric, unit, time window, or exhibit label — optional]
+[Section tag: small, muted or colored]     [Status tag: right-aligned, optional]
+[Action title: large, bold, dark, full sentence conclusion]
+[Subtitle: metric, unit, time window, or exhibit label (optional)]
 ```
 
-- **Section tag** (line 1): Section name, optionally with a hierarchical number (`2a`, `2b`). Font: ~10–12pt, muted gray or accent color. Purpose: orientation — tells the reader where they are in the story.
+- **Section tag** (line 1): Section name, optionally with a hierarchical number (`2a`, `2b`). Font: ~10–12pt, muted gray or accent color. Purpose: orientation, tells the reader where they are in the story.
 - **Status tag** (top-right, optional): "Preliminary, proprietary, pre-decisional" or "Non-exhaustive". Font: ~8–9pt italic.
 - **Action title** (line 2): Full-sentence conclusion. Font: Arial Bold, ~16–20pt. This IS the argument. If the title is a topic label ("Overview"), the slide fails.
-- **Subtitle** (line 3, optional): Sets the exhibit context — what is measured, over what period, in what unit. Font: ~10–12pt, muted. Example: "Net income bridge, FY2006–FY2009, $ billions"
+- **Subtitle** (line 3, optional): Sets the exhibit context, what is measured, over what period, in what unit. Font: ~10–12pt, muted. Example: "Net income bridge, FY2006–FY2009, $ billions"
 
 ### Body zone
 
-The exhibit area occupies ~60–70% of the slide height. Composition varies by data shape — see §5 for the 10 observed patterns.
+The exhibit area occupies ~60–70% of the slide height. Composition varies by data shape, see §5 for the 10 observed patterns.
 
 ### Interpretation zone
 
@@ -71,13 +71,13 @@ A **boxed callout** carrying the inference. Appears as a horizontal band below t
 ### Footer zone
 
 ```
-[Footnotes — numbered, left-aligned]
+[Footnotes: numbered, left-aligned]
 SOURCE: [Organization]; [Dataset/Report]              McKinsey & Company | [page#]
 ```
 
 - Footnotes: numbered superscripts in text, matching numbers in footer. Up to 4 per slide.
 - Source format: caps "SOURCE:" followed by organization and dataset. Always present on analytic exhibits.
-- Firm mark: `McKinsey & Company | [page#]` — ampersand (not "and"), pipe separator.
+- Firm mark: `McKinsey & Company | [page#]`, ampersand (not "and"), pipe separator.
 - Layout: source far-left, firm mark far-right.
 - Font: Arial, ~8pt, gray.
 
@@ -85,7 +85,7 @@ SOURCE: [Organization]; [Dataset/Report]              McKinsey & Company | [page
 
 ## §3 Action Title Templates
 
-McKinsey action titles follow five recurring sentence patterns. Each is a full sentence — comparative, quantified, and causal.
+McKinsey action titles follow five recurring sentence patterns. Each is a full sentence: comparative, quantified, and causal.
 
 | Pattern | Template | Example |
 |---|---|---|
@@ -98,9 +98,9 @@ McKinsey action titles follow five recurring sentence patterns. Each is a full s
 ### Grammar rules
 
 - Always includes a verb (is/are/has/declines/increases/requires/represents).
-- Numbers appear when quantitative data is available — percentages, multiples, dollar amounts, time horizons.
+- Numbers appear when quantitative data is available: percentages, multiples, dollar amounts, time horizons.
 - Causality is explicit (because/driven by/therefore) or implied through decomposition.
-- Max 2 lines on slide (~25 words). If longer, the title is trying to do too much — split the slide.
+- Max 2 lines on slide (~25 words). If longer, the title is trying to do too much: split the slide.
 
 ---
 
@@ -142,7 +142,7 @@ Ten multi-panel compositions observed across the source decks. Ratios are approx
 
 ### When to use multi-panel
 
-At L2, compositions 1 and 6 are most common. At L3, all 10 are available — slides should average 2–3 panels. If a slide has only one element and the deck is targeting L3, the slide is under-built.
+At L2, compositions 1 and 6 are most common. At L3, all 10 are available: slides should average 2–3 panels. If a slide has only one element and the deck is targeting L3, the slide is under-built.
 
 ---
 
@@ -150,20 +150,20 @@ At L2, compositions 1 and 6 are most common. At L3, all 10 are available — sli
 
 ### The waterfall is a first-class pattern
 
-The waterfall chart appears on ~30% of analytic slides in the USPS deck. It is McKinsey's primary variance decomposition device — not just "a chart type."
+The waterfall chart appears on ~30% of analytic slides in the USPS deck. It is McKinsey's primary variance decomposition device, not just "a chart type."
 
 Waterfall grammar:
 - **Start bar**: baseline value + year label (e.g., "FY2006: $0.9B")
 - **Step bars**: each labeled with delta value; negative bars in a contrasting color
 - **End bar**: result value + year label (e.g., "FY2009: –$3.8B")
-- **Below-chart callout boxes**: positioned explanation blocks connected to specific steps — each box explains WHY that step happened
+- **Below-chart callout boxes**: positioned explanation blocks connected to specific steps, each box explains WHY that step happened
 - **Variance share row** (optional): percentage row beneath showing each step's share of total absolute variance
 - **Right sidebar**: 2–3 interpretation bullets
 - **"Deep dive to follow"** tag on exhibits that preview deeper analysis in later sections
 
 ### Color semantics
 
-McKinsey assigns ROLES to colors — not just "one accent." The specific palette varies by deck, but the role structure is constant:
+McKinsey assigns ROLES to colors, not just "one accent." The specific palette varies by deck, but the role structure is constant:
 
 | Role | Purpose | Typical rendering |
 |---|---|---|
@@ -194,7 +194,7 @@ Beyond craft.md's general annotation types, McKinsey decks use these signature d
 
 ### Section numbering
 
-McKinsey uses hierarchical section numbers as **traceability devices** — they let the audience cross-reference in discussion ("On slide 2b, you showed...").
+McKinsey uses hierarchical section numbers as **traceability devices**: they let the audience cross-reference in discussion ("On slide 2b, you showed...").
 
 | Convention | Example | When |
 |---|---|---|
@@ -208,19 +208,19 @@ Numbers appear in the section tag (first line of the two-tier header), not in th
 
 Three formats observed, correlated with deck mode:
 
-**Format A — Polished deliverable** (USPS 2010):
+**Format A: Polished deliverable** (USPS 2010):
 - Left-aligned bullet list, "Contents" title
 - Active section: light-blue background band
 - Decorative left color stripe
 - Statement-style items ("Recent context", "Base case", "Addressing the challenge")
 
-**Format B — Working discussion** (NCDOT 2019):
+**Format B: Working discussion** (NCDOT 2019):
 - "Contents for discussion today" title
 - Items phrased as QUESTIONS with key verb bolded
 - Filled numbered circles (dark accent)
 - Inquiry framing: "How do NCDOT's **spending patterns** compare to peers?"
 
-**Format C — Modern presentation** (Transportation DC 2020):
+**Format C: Modern presentation** (Transportation DC 2020):
 - Full-bleed bright aqua (#00B0F0), white text
 - Active section boxed or outlined
 - Minimal text, large negative space
@@ -228,7 +228,7 @@ Three formats observed, correlated with deck mode:
 
 ### Section dividers
 
-Full-bleed color or image. Minimal text — section name only. Resets attention between major arguments. In modern decks (2018+), dividers use the navigation accent color at full saturation.
+Full-bleed color or image. Minimal text: section name only. Resets attention between major arguments. In modern decks (2018+), dividers use the navigation accent color at full saturation.
 
 ---
 
@@ -260,7 +260,7 @@ These break the McKinsey illusion immediately:
 
 | Anti-pattern | Why it fails | Fix |
 |---|---|---|
-| **Topic titles** ("Automation Overview") | Not a conclusion — it's a section label | Rewrite as verdict: "Automation could add $X to GDP by Y" |
+| **Topic titles** ("Automation Overview") | Not a conclusion: it's a section label | Rewrite as verdict: "Automation could add $X to GDP by Y" |
 | **Charts without bounds** | No unit, time window, base, or source → unverifiable | Add subtitle with metric + window; add source line |
 | **Rainbow palettes** | Multiple saturated colors with no semantic meaning | One accent for focus, gray for everything else |
 | **Bullets that restate the title** | Adds zero information; wastes reader's time | Each bullet must add a NEW fact, number, or logic step |

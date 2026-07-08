@@ -34,10 +34,10 @@ module.exports = {
   id: 'screening-funnel',
   title: 'Screening Funnel',
   tier: 3,
-  proves: 'systematic elimination logic — why options were cut at each filter stage',
+  proves: 'systematic elimination logic: why options were cut at each filter stage',
   data: 'Acquisition target screening from 47 candidates to 3 finalists',
   sectionLabel: 'Target Screening',
-  actionTitle: 'Of 47 candidates evaluated, 3 survive all four screens — strategic fit and deal readiness are the binding constraints',
+  actionTitle: 'Of 47 candidates evaluated, 3 survive all four screens: strategic fit and deal readiness are the binding constraints',
   source: 'Source: Target universe analysis, M&A team (March 2026)',
   exhibitId: 'Exhibit 12.1',
 

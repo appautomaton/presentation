@@ -1,4 +1,4 @@
-# Organizational Restructuring — Skeleton
+# Organizational Restructuring: Skeleton
 
 ## Governing Thought
 
@@ -11,12 +11,12 @@
 
 **Negative:**
 ```
-"[Company]'s performance decline is not an organizational problem — [root cause]
+"[Company]'s performance decline is not an organizational problem: [root cause]
  is the binding constraint. Restructuring would destroy [critical capability]
  without addressing the underlying issue."
 ```
 
-**CRITICAL — Capability Preservation Test:** Every restructuring must answer: "What visibility, capability, or institutional knowledge is LOST in the new model?" Before approving any target model, test what breaks.
+**CRITICAL: Capability Preservation Test:** Every restructuring must answer: "What visibility, capability, or institutional knowledge is LOST in the new model?" Before approving any target model, test what breaks.
 
 ## Pillar Architecture
 
@@ -31,8 +31,8 @@
 
 | # | Title Template | Recipe |
 |---|---|---|
-| 1 | "[Company]'s organizational structure is misaligned with strategy — [X] layers, [Y] spans" | KPI Cards |
-| 2 | "Restructure to [target model] — saving $[X]M and cutting decision time [Y]%" | Facts vs. Perspectives |
+| 1 | "[Company]'s organizational structure is misaligned with strategy: [X] layers, [Y] spans" | KPI Cards |
+| 2 | "Restructure to [target model]: saving $[X]M and cutting decision time [Y]%" | Facts vs. Perspectives |
 | **P1** | | |
 | 3 | "[N] performance signals indicate structural misalignment, not execution failure" | KPI Scorecard (RAG) |
 | 4 | "Spans and layers analysis: [X] layers vs. peer benchmark [Y]; average span [Z]" | Dumbbell Benchmark |
@@ -42,16 +42,16 @@
 | **P2** | | |
 | 8 | "[N] design options evaluated against [criteria]: speed, cost, capability preservation" | Eval Grid |
 | 9 | "[Target model]: product-aligned BUs with centralized shared services" | Org Model |
-| 10 | "Target RAPID consolidates Decide authority — [X] decision types affected" | RAPID Map (target) |
-| 11 | "Capability preservation test: [N] critical capabilities at risk — [mitigation required]" | Capability Matrix |
-| 12 | "Recommended: Option [X] — decision required by [date]" | Decision Gate transition |
+| 10 | "Target RAPID consolidates Decide authority: [X] decision types affected" | RAPID Map (target) |
+| 11 | "Capability preservation test: [N] critical capabilities at risk, [mitigation required]" | Capability Matrix |
+| 12 | "Recommended: Option [X], decision required by [date]" | Decision Gate transition |
 | **P3** | | |
-| 13 | "Transition in [N] phases over [X] months — Phase 1 restructures top 2 layers" | Timeline |
+| 13 | "Transition in [N] phases over [X] months: Phase 1 restructures top 2 layers" | Timeline |
 | 14 | "Workstream plan: [N] streams with owners, milestones, dependencies" | Swimlane |
 | 15 | "Transition cost: $[X]M (severance, reskilling, systems, communication)" | Waterfall Bridge |
 | **P4** | | |
 | 16 | "Communication cascade: ExCo → SVP → Directors → Managers → frontline in [X] weeks" | Communication Cascade |
-| 17 | "[N] high-influence stakeholders misaligned — targeted engagement plan" | Stakeholder Map |
+| 17 | "[N] high-influence stakeholders misaligned: targeted engagement plan" | Stakeholder Map |
 | 18 | "Recommendation: approve [target model]; first announcement [date]; sprint 1 starts [date]" | Next steps |
 
 ## Kill Conditions
@@ -59,7 +59,7 @@
 | # | Trigger | Pivot To |
 |---|---------|---------|
 | KC-1 | Performance decline caused by market/product, not org structure | Strategy or product intervention |
-| KC-2 | Capability preservation test fails — critical knowledge destroyed | Hybrid model preserving critical teams |
+| KC-2 | Capability preservation test fails: critical knowledge destroyed | Hybrid model preserving critical teams |
 | KC-3 | Key talent attrition >20% during restructuring | Retention-first program before structural change |
 | KC-4 | Union/works council blocks required changes | Negotiated restructuring with extended timeline |
 | KC-5 | CEO using restructuring to remove political opponents (not performance-driven) | De-scope to performance management only |

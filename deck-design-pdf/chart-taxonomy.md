@@ -1,4 +1,4 @@
-# Exhibit Design — Practitioner Playbook
+# Exhibit Design: Practitioner Playbook
 
 > The chart is never the point. The argument is the point. The chart is proof.
 >
@@ -13,18 +13,18 @@ An exhibit is NOT a chart. An exhibit is a visual argument:
 |---|---|---|
 | **Action title** | The conclusion you want believed | "Revenue grew 12% driven entirely by pricing power" |
 | **Exhibit body** | The evidence (chart, table, visual) | Waterfall: price +14%, volume −2%, mix 0% |
-| **Annotation** | The interpretation — what the data means | Callout: "Volume was flat — all growth was price" |
+| **Annotation** | The interpretation: what the data means | Callout: "Volume was flat, all growth was price" |
 | **Source line** | The credibility | "Source: Company financials, team analysis" |
 
 A chart without an action title is data. A title without evidence is assertion. Together they form proof.
 
 ---
 
-## Exhibit Selection — Decision Tree
+## Exhibit Selection: Decision Tree
 
 Given the slide's claim, follow the path to the right exhibit.
 
-### "How big is it?" — Sizing, Comparison, Benchmarking
+### "How big is it?": Sizing, Comparison, Benchmarking
 
 | You need to... | Use | Config |
 |---|---|---|
@@ -37,7 +37,7 @@ Given the slide's claim, follow the path to the right exhibit.
 
 **Practitioner note:** A single large number ($4.2B, 44px bold, centered) often hits harder than any chart. If the number is surprising, let it land alone.
 
-### "Why did it happen?" — Decomposition, Drivers
+### "Why did it happen?": Decomposition, Drivers
 
 | You need to... | Use | Config |
 |---|---|---|
@@ -51,7 +51,7 @@ Given the slide's claim, follow the path to the right exhibit.
 
 **Practitioner note:** The waterfall is consulting's default exhibit for any delta question. Sort deltas by magnitude (largest positive first → largest negative last) unless chronological order matters more.
 
-### "What should we do?" — Positioning, Prioritization
+### "What should we do?": Positioning, Prioritization
 
 | You need to... | Use | Config |
 |---|---|---|
@@ -70,7 +70,7 @@ Given the slide's claim, follow the path to the right exhibit.
 
 Grouped by when you need them, not by abstract categories. Build templates in this order.
 
-### Tier 1 — Foundation
+### Tier 1: Foundation
 
 Every consulting deck draws from these. Master these first.
 
@@ -80,10 +80,10 @@ Every consulting deck draws from these. Master these first.
 | Waterfall / bridge | What drove the delta | ECharts stacked bar (invisible base + colored delta) |
 | Line chart | Trend over time | ECharts `line`, `smooth: false`, label endpoints directly |
 | Stacked bar | Composition | ECharts `bar`, `stack: 'total'`, max 5 segments |
-| KPI cards | Headline metrics at a glance | CSS — large number + trend indicator + context label |
+| KPI cards | Headline metrics at a glance | CSS: large number + trend indicator + context label |
 | Data table | Structured evidence | HTML `<table>` with styled headers, aligned columns |
 
-### Tier 2 — Strategic
+### Tier 2: Strategic
 
 Strategy, recommendation, positioning, and evaluation decks.
 
@@ -97,7 +97,7 @@ Strategy, recommendation, positioning, and evaluation decks.
 | 100% stacked bar | Share comparison across categories | ECharts `bar`, stacked, values as % |
 | Scenario lines | Multiple forecast paths | ECharts `line`, dashed for scenario variants |
 
-### Tier 3 — Operational
+### Tier 3: Operational
 
 Transformation, implementation, and monitoring decks.
 
@@ -110,7 +110,7 @@ Transformation, implementation, and monitoring decks.
 | Burndown line | Progress toward target over time | ECharts `line` + target `markLine` |
 | Before/after bars | Impact of intervention | Paired bars or split comparison |
 
-### Tier 4 — Specialist
+### Tier 4: Specialist
 
 Specific analytical needs. Used when the analysis demands it, not routine.
 
@@ -118,7 +118,7 @@ Specific analytical needs. Used when the analysis demands it, not routine.
 |---|---|---|
 | Tornado / sensitivity | Which variables have most impact | ECharts horizontal diverging bars from center |
 | Pareto | Cumulative contribution (80/20 rule) | ECharts `bar` + `line` combo, dual axis |
-| Marimekko | Market landscape — size AND composition | ECharts `custom` series, variable-width rects |
+| Marimekko | Market landscape: size AND composition | ECharts `custom` series, variable-width rects |
 | Sankey | How value/material/flow distributes | ECharts `sankey`, max 8 nodes |
 | Radar | Multi-dimensional profile (5–8 dims) | ECharts `radar` with indicator array |
 | Funnel | Pipeline conversion by stage | ECharts `funnel`, label conversion rates |
@@ -149,17 +149,17 @@ Specific analytical needs. Used when the analysis demands it, not routine.
 
 ## Firm Visual Identity
 
-### Documented — What Each Firm Actually Invented
+### Documented: What Each Firm Actually Invented
 
 Historical facts that shape each firm's visual DNA.
 
-**McKinsey:** Barbara Minto developed the Pyramid Principle at McKinsey (1960s–70s) — structured communication where the conclusion leads and evidence follows. This is why McKinsey-style slides open with the verdict in the action title. Every slide proves one conclusion stated upfront.
+**McKinsey:** Barbara Minto developed the Pyramid Principle at McKinsey (1960s–70s): structured communication where the conclusion leads and evidence follows. This is why McKinsey-style slides open with the verdict in the action title. Every slide proves one conclusion stated upfront.
 
-**BCG:** Bruce Henderson created the Growth-Share Matrix in 1970 — the original 2×2 matrix (Stars, Cash Cows, Dogs, Question Marks). This established two-dimensional strategic positioning as a fundamental consulting tool. BCG's analytical framework tradition descends from this: process-transparent, framework-anchored arguments.
+**BCG:** Bruce Henderson created the Growth-Share Matrix in 1970: the original 2×2 matrix (Stars, Cash Cows, Dogs, Question Marks). This established two-dimensional strategic positioning as a fundamental consulting tool. BCG's analytical framework tradition descends from this: process-transparent, framework-anchored arguments.
 
-**Bain:** Fred Reichheld (Bain Fellow) created the Net Promoter Score in 2003. Bain positions around "Results Delivery" — every analysis connects to a specific decision and measurable outcome. This action-orientation shapes their visual language: always tie the exhibit to "what should the CEO do?"
+**Bain:** Fred Reichheld (Bain Fellow) created the Net Promoter Score in 2003. Bain positions around "Results Delivery": every analysis connects to a specific decision and measurable outcome. This action-orientation shapes their visual language: always tie the exhibit to "what should the CEO do?"
 
-### Observable — What's Visible in Public Materials
+### Observable: What's Visible in Public Materials
 
 From published reports, brand guidelines, and public presentations:
 
@@ -169,11 +169,11 @@ From published reports, brand guidelines, and public presentations:
 | BCG | Green / teal | Framework-rich | More framework-heavy layouts, green accent system, analytical transparency |
 | Bain | Red accent | Concise, direct | Red as focal accent, shorter documents, decision-oriented framing |
 
-### Practitioner Conventions — Honest Assessment
+### Practitioner Conventions: Honest Assessment
 
 These are real patterns but they vary by partner, office, and engagement. Treat as useful defaults, not hard rules.
 
-**Communication style is the real differentiator — more than chart selection:**
+**Communication style is the real differentiator: more than chart selection:**
 
 | Firm | Slide structure | Action title style |
 |---|---|---|
@@ -182,18 +182,18 @@ These are real patterns but they vary by partner, office, and engagement. Treat 
 | Bain | **Decision-first.** Facts separated from interpretation. Data vs. judgment is always explicit. | Decision-oriented: "Cost structure supports 15% price reduction without margin erosion" |
 
 **What's universal (NOT firm-specific):**
-- Waterfalls, bars, lines, stacked bars — foundational exhibits used identically across all three firms
-- Marimekko charts for market landscape — used across firms, not proprietary to any one
-- 2×2 matrices — universal despite BCG's historical association
-- Data tables, KPI cards — universal
+- Waterfalls, bars, lines, stacked bars: foundational exhibits used identically across all three firms
+- Marimekko charts for market landscape: used across firms, not proprietary to any one
+- 2×2 matrices: universal despite BCG's historical association
+- Data tables, KPI cards: universal
 
 **What's genuinely firm-specific:**
-- Bain's **Facts-vs-Perspectives layout** — slides split into facts (left, ~55%, data/evidence) and perspectives (right, ~45%, interpretation/recommendation). This separates what the data shows from what the firm recommends. I've not seen this used systematically at McKinsey or BCG. This is the ONE clearly differentiating visual convention.
+- Bain's **Facts-vs-Perspectives layout**: slides split into facts (left, ~55%, data/evidence) and perspectives (right, ~45%, interpretation/recommendation). This separates what the data shows from what the firm recommends. I've not seen this used systematically at McKinsey or BCG. This is the ONE clearly differentiating visual convention.
 
 **What varies by partner more than by firm:**
-- Annotation density (minimal vs. liberal) — some partners at any firm want callout boxes, some kill them
-- Chart type tolerance (radar love/hate, pie chart acceptance) — partner-specific
-- Color accent system details — each firm has brand colors, but individual engagements vary
+- Annotation density (minimal vs. liberal): some partners at any firm want callout boxes, some kill them
+- Chart type tolerance (radar love/hate, pie chart acceptance): partner-specific
+- Color accent system details: each firm has brand colors, but individual engagements vary
 
 **Practical guidance for the skill:**
 - McKinsey palette → navy primary, minimal annotation, two-tier header (section label + action title), clean exhibits that prove the title without additional interpretation
@@ -204,7 +204,7 @@ These are real patterns but they vary by partner, office, and engagement. Treat 
 
 ## Deck Archetypes
 
-By what the deck needs to DO. Exhibit mixes below are approximate guidelines — actual decks vary.
+By what the deck needs to DO. Exhibit mixes below are approximate guidelines: actual decks vary.
 
 ### Diagnostic / Current State
 
@@ -307,9 +307,9 @@ Annotations turn data into insight. The chart shows what happened; annotations s
 ### Annotation Rules
 
 1. **Every data point gets a direct label.** Never force the reader to estimate from an axis. Most common correction in deck reviews.
-2. **Reference lines get text ON the line.** "Target: $4.2B" sitting on the line — not in a legend.
-3. **One callout per exhibit.** Two means the exhibit is trying to say two things — split it.
-4. **Callout = interpretation, not description.** Wrong: "Revenue grew 12%." Right: "Growth was entirely price-driven — volume was flat."
+2. **Reference lines get text ON the line.** "Target: $4.2B" sitting on the line, not in a legend.
+3. **One callout per exhibit.** Two means the exhibit is trying to say two things: split it.
+4. **Callout = interpretation, not description.** Wrong: "Revenue grew 12%." Right: "Growth was entirely price-driven, volume was flat."
 5. **Number formatting:** "$4.2B" not "$4,234M". "23%" not "0.23". "3.2×" not "320%". Use the unit that makes comparison intuitive.
 6. **Delta formatting:** Always include sign. "+12%" green, "−8%" red. Exception: when positive is bad (cost growth → red "+12%").
 
@@ -319,11 +319,11 @@ Annotations turn data into insight. The chart shows what happened; annotations s
 <!-- Position relative to chart container -->
 <div class="relative">
   <div id="chart-1" style="width: 100%; height: 340px;"></div>
-  <!-- Callout — positioned over chart area -->
+  <!-- Callout: positioned over chart area -->
   <div class="absolute top-4 right-4 max-w-[200px] bg-white border border-[var(--accent)]
               rounded px-3 py-2 text-xs text-[var(--text)] shadow-sm">
     <span class="font-semibold text-[var(--accent)]">Key insight:</span>
-    Growth was entirely price-driven — volume was flat
+    Growth was entirely price-driven: volume was flat
   </div>
 </div>
 ```
@@ -332,7 +332,7 @@ Annotations turn data into insight. The chart shows what happened; annotations s
 
 ## Consulting Compositions
 
-These are NOT charts — they are structural layouts that no charting library produces. They answer organizational, governance, and synthesis questions where the visual is a system, not a data series.
+These are NOT charts: they are structural layouts that no charting library produces. They answer organizational, governance, and synthesis questions where the visual is a system, not a data series.
 
 ### When to use a composition instead of a chart
 
@@ -379,4 +379,4 @@ Apply regardless of chart type, firm, or archetype.
 7. **Y-axis gridlines only.** Dashed, light. No X gridlines.
 8. **Axis labels:** Muted color, 11–12px. Reference, not content.
 9. **Color discipline:** Use palette tokens. Primary accent + gray + 1–2 semantic colors max.
-10. **Spend visual budget on interpretation.** If you can afford one extra element, make it a callout — not a gradient.
+10. **Spend visual budget on interpretation.** If you can afford one extra element, make it a callout, not a gradient.

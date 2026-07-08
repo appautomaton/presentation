@@ -1,4 +1,4 @@
-# C05 — Section Divider — Slot Budgets (Consulting-only)
+# C05 Section Divider: Slot Budgets (Consulting-only)
 
 - **For:** section breaks in consulting decks.
 - **Slots (budgets):**

@@ -1,4 +1,4 @@
-# C06 Workplan — Slot Budgets
+# C06 Workplan: Slot Budgets
 
 ## Title zone
 - **Section tag**: ≤ 40 chars

@@ -1,4 +1,4 @@
-# Founder — Modern Blue
+# Founder: Modern Blue
 
 Clean, friendly, modern. For startup pitches, board updates, product narratives, growth stories. One blue hue with cyan accent. Light canvas.
 
@@ -24,17 +24,17 @@ For KPI cards, metrics, and data visualization.
 
 | Swatch | Hex | Token |
 |---|---|---|
-| | `#0992C2` | Blue — primary data series (= Accent) |
-| | `#2AADAD` | Teal — secondary data series |
-| | `#6651B8` | Violet — third data series |
+| | `#0992C2` | Blue: primary data series (= Accent) |
+| | `#2AADAD` | Teal: secondary data series |
+| | `#6651B8` | Violet: third data series |
 
 For status indicators (scorecard cards, health checks):
 
 | Swatch | Hex | Token |
 |---|---|---|
-| | `#2E9E5A` | Green — positive, on-track |
-| | `#E8A317` | Amber — caution, mixed |
-| | `#D04545` | Red — risk, off-track |
+| | `#2E9E5A` | Green: positive, on-track |
+| | `#E8A317` | Amber: caution, mixed |
+| | `#D04545` | Red: risk, off-track |
 
 ## Text Pairing
 
@@ -47,5 +47,5 @@ For status indicators (scorecard cards, health checks):
 
 | Font | Role | Use | Avoid |
 |---|---|---|---|
-| Arial | Display | Headlines, section titles, metrics | — |
-| Arial | Body | Body copy, bullets, tables, source lines | — |
+| Arial | Display | Headlines, section titles, metrics | none |
+| Arial | Body | Body copy, bullets, tables, source lines | none |

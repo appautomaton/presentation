@@ -1,8 +1,8 @@
-# Deck Design — Native PPTX Builder
+# Deck Design: Native PPTX Builder
 
-A modular JS build kit that generates professional slide decks as native editable PowerPoint files. Five style families (McKinsey, BCG, Bain, Founder, Sequoia) share one set of pattern functions — the palette controls the visual identity.
+A modular JS build kit that generates professional slide decks as native editable PowerPoint files. Five style families (McKinsey, BCG, Bain, Founder, Sequoia) share one set of pattern functions: the palette controls the visual identity.
 
-**Entry point:** `SKILL.md` — routing, composition rules, algorithm.
+**Entry point:** `SKILL.md`: routing, composition rules, algorithm.
 
 ## Structure
 
@@ -35,7 +35,7 @@ deck-design-ppt/
 │   ├── mckinsey.md
 │   ├── bcg.md
 │   └── bain.md
-├── composite-reference-decks/         ← 3 worked example decks (HTML — narrative arc reference only, not used at runtime)
+├── composite-reference-decks/         ← 3 worked example decks (HTML: narrative arc reference only, not used at runtime)
 │   ├── bain-spatial-defense/
 │   ├── bcg-spatial-intelligence-command/
 │   └── mckinsey-visual-reasoning/
@@ -56,18 +56,18 @@ createDeck('consulting-mckinsey', [
 ], 'output/deck.pptx');
 ```
 
-Change `'consulting-mckinsey'` to `'consulting-bcg'`, `'consulting-bain'`, `'founder'`, or `'sequoia'` — same patterns, different visual identity.
+Change `'consulting-mckinsey'` to `'consulting-bcg'`, `'consulting-bain'`, `'founder'`, or `'sequoia'`: same patterns, different visual identity.
 
 ## Prerequisites
 
-- Node.js (deps vendored in skill-local `node_modules/` — run `npm install` inside this folder if missing)
+- Node.js (deps vendored in skill-local `node_modules/`: run `npm install` inside this folder if missing)
 - Python + `Pillow` + `python-pptx` (for thumbnail QA only, via `uv`)
 
 ## Key Concepts
 
 - **Pattern**: a named communication move (p01–p15) or consulting composition (c01–c06)
 - **Palette**: color + typography system that controls the visual identity
-- **Theme**: runtime object derived from palette — passed to masters and pattern functions
-- **Grid**: shared spatial constants — all 21 patterns use the same margins and body zone
+- **Theme**: runtime object derived from palette, passed to masters and pattern functions
+- **Grid**: shared spatial constants, all 21 patterns use the same margins and body zone
 - **Slot budget**: character limits per text element in a pattern (loaded just-in-time)
 - **Density level**: L1 Narrative → L2 Structured → L3 Dense (governs composition rules)

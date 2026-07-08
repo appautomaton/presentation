@@ -1,7 +1,7 @@
-# P02 — Matrix — Slot Budgets
+# P02 Matrix: Slot Budgets
 
 **Styles:** consulting · founder · sequoia
-**For:** 2×2 positioning — strategic (consulting), product (founder), "what survives" (sequoia).
+**For:** 2×2 positioning: strategic (consulting), product (founder), "what survives" (sequoia).
 
 **Slots:**
 - `h2`: <= 120 chars; 1 sentence.

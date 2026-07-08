@@ -91,7 +91,7 @@ Build a reported-to-adjusted bridge for revenue, EBITDA, and net income. Key adj
 
 ### Working capital
 
-Normalize for seasonality. Track AR days, AP days, and inventory days as trends, not snapshots. Identify whether the business is a net generator or consumer of working capital as it grows — this drives the cash need at close.
+Normalize for seasonality. Track AR days, AP days, and inventory days as trends, not snapshots. Identify whether the business is a net generator or consumer of working capital as it grows: this drives the cash need at close.
 
 ### Cash flow
 

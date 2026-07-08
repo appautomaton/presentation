@@ -10,7 +10,7 @@ Before WTP analysis or architecture design, run these three diagnostics to quant
 
 **Price-Volume-Mix (PVM) decomposition.** Isolate how much of margin change is price-driven vs volume vs mix. If margin declined 400bps: was it price erosion (−200bps), volume loss (−150bps), or mix shift (−50bps)? This determines whether the fix is pricing, commercial, or portfolio.
 
-**Pocket margin waterfall.** List price → contractual discounts → off-invoice rebates → freight/terms → pocket price. The gap between list price and pocket price is leakage. A wide price band (large variance in actual transaction prices) signals pricing chaos — inconsistent discounting, no governance. Pocket margin waterfall is the single most diagnostic device for leakage.
+**Pocket margin waterfall.** List price → contractual discounts → off-invoice rebates → freight/terms → pocket price. The gap between list price and pocket price is leakage. A wide price band (large variance in actual transaction prices) signals pricing chaos: inconsistent discounting, no governance. Pocket margin waterfall is the single most diagnostic device for leakage.
 
 **Discount governance audit.** Map: who approves discounts, at what thresholds, and what's the override rate? If >30% of deals exceed approval thresholds, governance exists on paper but not in practice. Fix governance before architecture.
 
@@ -22,9 +22,9 @@ Price against the value you create, not the cost you incur.
 
 ### Economic Value Estimation (EVE)
 
-**Step 1 — Reference value.** What does the customer's next-best alternative cost? Include total cost of ownership, not sticker price alone. This is the floor the customer is already willing to pay.
+**Step 1: Reference value.** What does the customer's next-best alternative cost? Include total cost of ownership, not sticker price alone. This is the floor the customer is already willing to pay.
 
-**Step 2 — Differentiation value.** Map every dimension where your offering differs from the reference. Assign dollar values:
+**Step 2: Differentiation value.** Map every dimension where your offering differs from the reference. Assign dollar values:
 
 | Factor | Direction | Value |
 |---|---|---|
@@ -34,9 +34,9 @@ Price against the value you create, not the cost you incur.
 | Missing features vs. reference | − | $X |
 | Switching costs the customer incurs | − | $X |
 
-**Step 3 — Total Economic Value** = Reference Value + Net Differentiation Value.
+**Step 3: Total Economic Value** = Reference Value + Net Differentiation Value.
 
-**Step 4 — Set price within the value range.**
+**Step 4: Set price within the value range.**
 - Price floor: your cost + minimum acceptable margin.
 - Price ceiling: Total Economic Value to the customer.
 - Target price: 50-80% of TEV. The remainder is the customer's incentive to switch.
@@ -57,7 +57,7 @@ Price against the value you create, not the cost you incur.
 | Conjoint analysis | Multi-attribute trade-off, tier design | 300-1,000 | High |
 | A/B price testing | Validation of specific price points | 1,000+ per variant | High |
 
-**Conjoint** decomposes total value into component features. Use it when designing tiers or bundles — it reveals which features drive willingness-to-pay and which are table stakes.
+**Conjoint** decomposes total value into component features. Use it when designing tiers or bundles: it reveals which features drive willingness-to-pay and which are table stakes.
 
 ---
 
@@ -91,13 +91,13 @@ Three tiers is the standard. Each tier serves a different buyer:
 | Best | Margin maximizer, captures high-WTP buyers | Full feature set, premium positioning |
 
 **Design rules:**
-- The gap between Good and Better should feel like a bargain — the incremental value clearly exceeds the incremental price.
+- The gap between Good and Better should feel like a bargain: the incremental value clearly exceeds the incremental price.
 - The gap between Better and Best should feel aspirational but justifiable for power users.
 - Good should not be so attractive that it cannibalizes Better. If >40% of customers choose Good, the tier boundary is wrong.
 
 ### Usage-based pricing
 
-Charge per unit of consumption (API calls, seats, compute hours, transactions). Works when usage correlates with value received. Risky when customers can't predict their spend — they under-commit or churn when the bill surprises them.
+Charge per unit of consumption (API calls, seats, compute hours, transactions). Works when usage correlates with value received. Risky when customers can't predict their spend: they under-commit or churn when the bill surprises them.
 
 **Hybrid model**: base platform fee (predictable) + usage overage (scales with value). Reduces budget uncertainty while preserving upside capture.
 

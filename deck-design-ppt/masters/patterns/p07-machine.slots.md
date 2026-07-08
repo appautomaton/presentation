@@ -1,7 +1,7 @@
-# P07 — Machine — Slot Budgets
+# P07 Machine: Slot Budgets
 
 **Styles:** consulting · founder · sequoia
-**For:** Mechanism / process — causal chain (consulting), growth flywheel (founder), crisis transmission (sequoia).
+**For:** Mechanism / process: causal chain (consulting), growth flywheel (founder), crisis transmission (sequoia).
 
 **Slots:**
 - `h2`: <= 110 chars.

@@ -34,10 +34,10 @@ module.exports = {
   id: 'communication-cascade',
   title: 'Communication Cascade',
   tier: 3,
-  proves: 'who hears what, when, from whom — sequenced stakeholder messaging plan',
+  proves: 'who hears what, when, from whom: a sequenced stakeholder messaging plan',
   data: 'Change communication plan across 5 audience tiers over 4 weeks',
   sectionLabel: 'Change Management',
-  actionTitle: 'Communication must cascade from ExCo to frontline in 4 weeks — each tier hears from the tier above, not from corporate',
+  actionTitle: 'Communication must cascade from ExCo to frontline in 4 weeks, with each tier hearing from the tier above, not from corporate',
   source: 'Source: Change management office, communication plan v2',
   exhibitId: 'Exhibit 14.1',
 

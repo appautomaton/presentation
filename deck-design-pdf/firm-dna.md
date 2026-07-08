@@ -1,4 +1,4 @@
-# Firm DNA — Visual Signatures
+# Firm DNA: Visual Signatures
 
 How each firm's communication style shapes deck structure and layout. For firm epistemology and analytical methodology, see the consultant skill.
 
@@ -30,22 +30,22 @@ How each firm's communication style shapes deck structure and layout. For firm e
 
 ## Communication Signatures
 
-### McKinsey — Verdict-First
+### McKinsey: Verdict-First
 - Action titles are full-sentence conclusions: "Revenue grew 12% driven by pricing power in mid-tier"
-- Analytical machinery lives in the appendix — the main deck is clean narrative
+- Analytical machinery lives in the appendix: the main deck is clean narrative
 - Waterfall bridges are signature (~30% of analytical slides)
 - Exhibit numbering creates formal reference system ("Exhibit 1.2")
 
-### BCG — Framework-First
-- The framework IS the product — analytical structure is visible, not hidden
+### BCG: Framework-First
+- The framework IS the product: analytical structure is visible, not hidden
 - 2×2 matrices appear 2–3× more than in other firms' decks
-- Panel mini-headers on multi-panel slides — BCG never drops these, even at L1
+- Panel mini-headers on multi-panel slides: BCG never drops these, even at L1
 - Self-financing proof: every recommendation must show how it pays for itself
 
-### Bain — Decision-First
+### Bain: Decision-First
 - **Facts vs. Perspectives** is the signature composition: left (data), right (interpretation)
 - Decks read like court briefs: decision stated on page 1, evidence organized for/against
-- 90-day sprint plans close every deck — "what happens Monday"
+- 90-day sprint plans close every deck: "what happens Monday"
 
 ## Density × Firm
 

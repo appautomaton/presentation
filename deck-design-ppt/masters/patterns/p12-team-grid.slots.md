@@ -1,7 +1,7 @@
-# P12 — Team Grid — Slot Budgets
+# P12 Team Grid: Slot Budgets
 
 **Styles:** consulting · founder · sequoia
-**For:** Team introduction — engagement team (consulting), founding team (founder), wartime leaders (sequoia).
+**For:** Team introduction: engagement team (consulting), founding team (founder), wartime leaders (sequoia).
 
 **Slots:**
 - `h2`: <= 110 chars.

@@ -1,4 +1,4 @@
-# McKinsey — Institutional Blue-Gray
+# McKinsey: Institutional Blue-Gray
 
 Verdict-first, evidence-over-ornament. Navy header bar at top of every content slide. Clean charts, minimal annotation. One blue hue (HSL ~210°) at different lightness levels. No pure black.
 
@@ -28,11 +28,11 @@ Verdict-first, evidence-over-ornament. Navy header bar at top of every content s
 
 ## Charts
 
-Navy bars by default. Gray (`#999999`) for secondary/comparator series. Data speaks for itself — minimal annotation. Green and red appear only when the data has an explicit good/bad semantic (e.g., variance waterfall steps). Do not add color for decoration.
+Navy bars by default. Gray (`#999999`) for secondary/comparator series. Data speaks for itself: minimal annotation. Green and red appear only when the data has an explicit good/bad semantic (e.g., variance waterfall steps). Do not add color for decoration.
 
 ## Typography
 
-Arial for everything — display and body. No second font. This rigidity is intentional; institutional consistency IS the brand signal.
+Arial for everything: display and body. No second font. This rigidity is intentional; institutional consistency IS the brand signal.
 
 ## Mode Variations
 
@@ -40,6 +40,6 @@ Arial for everything — display and body. No second font. This rigidity is inte
 |---|---|
 | **Working** | Add "DRAFT AND CONFIDENTIAL" footer. Section questions in subtitle. L2 density. |
 | **Semi-polished** | Add "PRELIMINARY" tag top-right. High density (L3). Exhibit threading. |
-| **Polished** | Clean — no working signals. L2–L3. Full institutional formatting. |
+| **Polished** | Clean, no working signals. L2–L3. Full institutional formatting. |
 
 Colors and typography are the same across all modes.

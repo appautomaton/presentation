@@ -1,7 +1,7 @@
-# P10 — Agenda — Slot Budgets
+# P10 Agenda: Slot Budgets
 
 **Styles:** consulting · founder · sequoia
-**For:** Navigation / orientation — section map (consulting), pitch outline (founder), ominous chaptering (sequoia).
+**For:** Navigation / orientation: section map (consulting), pitch outline (founder), ominous chaptering (sequoia).
 
 **Slots:**
 - `h2`: <= 20 chars. Usually "Agenda" or equivalent.

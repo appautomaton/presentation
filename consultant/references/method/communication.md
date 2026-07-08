@@ -6,7 +6,7 @@ Behavioral steering only. Targets the specific patterns that differentiate consu
 
 ## 1. Vertical Logic
 
-Children must PROVE the parent — not just relate to it.
+Children must PROVE the parent, not just relate to it.
 
 **Test**: Cover the parent and read only the children. Do they independently force the parent conclusion? If they merely "discuss the topic," the vertical logic is broken.
 
@@ -21,7 +21,7 @@ Children must PROVE the parent — not just relate to it.
 - Child 2: "Acquisition delivers market access in 12 months vs. 5 years organic, at lower total cost."
 - Child 3: "EuroDistributor: 12-country network, 15% EBITDA, $45M valuation (6x)."
 
-**Anti-pattern — circular logic**: Parent: "The acquisition is attractive." Child: "The deal offers significant value." This restates the parent, it doesn't prove it. Each child must add new, independent information.
+**Anti-pattern: circular logic**: Parent: "The acquisition is attractive." Child: "The deal offers significant value." This restates the parent, it doesn't prove it. Each child must add new, independent information.
 
 ---
 
@@ -49,7 +49,7 @@ Every slide/section title is a complete sentence stating the conclusion, not the
 | "Employee Headcount Trend" | "Headcount grew 25% while revenue grew 8%, widening the productivity gap" |
 | "Technology Spend Overview" | "70% of IT budget goes to maintenance, leaving insufficient investment for growth" |
 
-**Flow test**: Read all action titles in sequence. Do they tell a complete story? If not, the argument structure is wrong — fix the structure, not the titles.
+**Flow test**: Read all action titles in sequence. Do they tell a complete story? If not, the argument structure is wrong, fix the structure, not the titles.
 
 ---
 
@@ -66,30 +66,30 @@ Starting from data produces data-driven decks. Starting from the answer produces
 
 ---
 
-## 5. Narrative Arc — Pillar Transitions
+## 5. Narrative Arc: Pillar Transitions
 
-Individual slides can be perfect and the deck still fails. The failure point is between MECE pillars — where the argument hands off from one section to the next.
+Individual slides can be perfect and the deck still fails. The failure point is between MECE pillars: where the argument hands off from one section to the next.
 
 **The "therefore" vs. "and" test.** Read your pillar summaries in sequence. Do they connect with "therefore" (deductive chain) or merely "and" (list of topics)?
 
 - **Bad**: The market is attractive AND here are entry modes AND here is a target AND here are the financials.
 - **Good**: The market is attractive, THEREFORE entry mode is the critical choice, THEREFORE we evaluated targets against [criteria derived from market analysis], THEREFORE this specific deal creates value.
 
-**Pivot slides.** Between each pillar, the audience needs a bridge that converts their state of mind. After "the market is attractive," they're thinking "interesting." Before "three entry modes exist," they need to feel "the HOW matters more than the WHETHER." A pivot slide does this: "Given regulatory complexity and distribution requirements, the entry mode choice is the critical strategic variable — the wrong entry mode is more dangerous than no entry at all."
+**Pivot slides.** Between each pillar, the audience needs a bridge that converts their state of mind. After "the market is attractive," they're thinking "interesting." Before "three entry modes exist," they need to feel "the HOW matters more than the WHETHER." A pivot slide does this: "Given regulatory complexity and distribution requirements, the entry mode choice is the critical strategic variable, the wrong entry mode is more dangerous than no entry at all."
 
-**Rising stakes.** A great deck escalates — the audience should feel increasing conviction as they progress. The first pillar establishes the opportunity. The second narrows the path. The third proves the economics. The fourth locks in the action plan. Each pillar raises the bar from "worth considering" to "we must act."
+**Rising stakes.** A great deck escalates: the audience should feel increasing conviction as they progress. The first pillar establishes the opportunity. The second narrows the path. The third proves the economics. The fourth locks in the action plan. Each pillar raises the bar from "worth considering" to "we must act."
 
 ---
 
 ## 6. Document Type Determines Argument Architecture
 
-The argument structure changes fundamentally by deliverable type — not just the visual template.
+The argument structure changes fundamentally by deliverable type, not just the visual template.
 
-**Show decks** assert conclusions. Each slide exists to prove its action title. Evidence is curated to support a single point per slide. The analytical machinery is hidden — the audience receives the answer, not the process.
+**Show decks** assert conclusions. Each slide exists to prove its action title. Evidence is curated to support a single point per slide. The analytical machinery is hidden: the audience receives the answer, not the process.
 
 **Working decks** expose the analytical machinery. Model architecture diagrams, methodology disclaimers, and data distributions come first. Slide titles are topic-descriptive, not assertive. The audience is expected to interrogate the analysis, not just receive it.
 
-**Reports** build evidence chains. Structure: methodology statement → evidence collection → findings (organized by source) → recommendations (each traced to a finding). Every recommendation must trace back to evidence. Reports include "by way of contrast" patterns — presenting both sides before concluding.
+**Reports** build evidence chains. Structure: methodology statement → evidence collection → findings (organized by source) → recommendations (each traced to a finding). Every recommendation must trace back to evidence. Reports include "by way of contrast" patterns, presenting both sides before concluding.
 
 **The implication for storyboarding:** An L1 storyboard has action titles that tell the complete story. An L2 storyboard has topic titles on the agenda but action titles on analytical slides. An L3 appendix needs only descriptive labels. Choosing the wrong architecture for the audience degrades the work regardless of analytical quality.
 
@@ -99,15 +99,15 @@ The argument structure changes fundamentally by deliverable type — not just th
 
 How to take a governing thought + pillars and produce the slide-level argument for deck handoff (see SKILL.md §10, Composition with Delivery Skills).
 
-**Layer 3 — Slide sequence.** Write an action title for every slide BEFORE selecting any exhibit. Each title is a full-sentence conclusion: "[Segment] [verb] [quantified finding], [implication]." Read all titles in sequence — they must tell the complete recommendation in 2 minutes (helicopter test). If the test fails, fix the pillars (Layer 2), not the titles.
+**Layer 3: Slide sequence.** Write an action title for every slide BEFORE selecting any exhibit. Each title is a full-sentence conclusion: "[Segment] [verb] [quantified finding], [implication]." Read all titles in sequence, they must tell the complete recommendation in 2 minutes (helicopter test). If the test fails, fix the pillars (Layer 2), not the titles.
 
-**Layer 4 — Transitions.** Every pillar boundary needs one of five transition types:
-- **Pivot** — diagnostic → opportunity: "Given [finding], the [opportunity/risk] is [quantified] — [implication]"
-- **Narrowing** — broad → focused: "Of [N] options, [M] pass [criteria] — question shifts to [specific]"
-- **Escalation** — confirmed → risk: "The [opportunity] is confirmed at [value]. Binding constraint is [risk]"
-- **Synthesis** — multiple analyses → unified: "[Analysis 1] shows X, [Analysis 2] confirms Y — together they point to [Z]"
-- **Decision Gate** — evaluation → choose: "Analysis narrows to [N] paths — decision turns on [differentiator]"
+**Layer 4: Transitions.** Every pillar boundary needs one of five transition types:
+- **Pivot**: diagnostic → opportunity: "Given [finding], the [opportunity/risk] is [quantified], [implication]"
+- **Narrowing**: broad → focused: "Of [N] options, [M] pass [criteria], question shifts to [specific]"
+- **Escalation**: confirmed → risk: "The [opportunity] is confirmed at [value]. Binding constraint is [risk]"
+- **Synthesis**: multiple analyses → unified: "[Analysis 1] shows X, [Analysis 2] confirms Y, together they point to [Z]"
+- **Decision Gate**: evaluation → choose: "Analysis narrows to [N] paths, decision turns on [differentiator]"
 
 Rising-stakes progression: Recognition → Clarity → Conviction → Urgency. Each pillar must escalate. Flat stakes = dead deck.
 
-**Layer 5 — Evidence composition.** Assigned last. For each slide: what evidence proves the title's claim? One evidence layer at L1, 1-2 at L2, 2-4 at L3. Describe the analytical question (compare, decompose, rank, evaluate) — the delivery skill selects the visual form.
+**Layer 5: Evidence composition.** Assigned last. For each slide: what evidence proves the title's claim? One evidence layer at L1, 1-2 at L2, 2-4 at L3. Describe the analytical question (compare, decompose, rank, evaluate), the delivery skill selects the visual form.

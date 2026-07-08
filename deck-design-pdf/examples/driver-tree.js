@@ -22,7 +22,7 @@ module.exports = {
   proves: 'value-driver decomposition with algebraic relationships (×, +, =)',
   data: 'Revenue decomposition: Total → Volume × Price → leaf drivers with variance',
   sectionLabel: 'Profitability Decomposition',
-  actionTitle: 'Margin decline is driven by volume erosion in mid-tier, not pricing — market share loss is the root cause',
+  actionTitle: 'Margin decline is driven by volume erosion in mid-tier, not pricing: market share loss is the root cause',
   source: 'Source: Financial model, team analysis',
   exhibitId: 'Exhibit 3.1',
   renderExhibit({ tokens }) {

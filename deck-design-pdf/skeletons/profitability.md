@@ -1,4 +1,4 @@
-# Profitability / Cost Transformation — Skeleton
+# Profitability / Cost Transformation: Skeleton
 
 ## Governing Thought
 
@@ -29,7 +29,7 @@
 
 | # | Title Template | Recipe |
 |---|---|---|
-| 1 | "[Company] faces [X]bps margin gap to peers — structural, not cyclical" | Benchmark Comparison |
+| 1 | "[Company] faces [X]bps margin gap to peers: structural, not cyclical" | Benchmark Comparison |
 | 2 | "Margin improvement of [X]bps ($[Y]M) is achievable through [N] levers over [timeframe]" | Facts vs. Perspectives |
 | 3 | "Analysis decomposed costs across [N] categories using [methodology]" | Process Diagram |
 | **P1** | | |
@@ -37,13 +37,13 @@
 | 5 | "Gap is concentrated in [category 1] ([X]bps) and [category 2] ([Y]bps)" | Waterfall Bridge |
 | 6 | "Adjusting for scale, mix, and geography, [X]bps of the gap is 'true' operational underperformance" | Waterfall Bridge |
 | **P2** | | |
-| 7 | "[Root cause 1] drives [X]% of addressable gap — [mechanism explanation]" | Driver Tree |
-| 8 | "[Root cause 2] adds [Y]bps — [evidence from value driver decomposition]" | Waterfall Bridge |
-| 9 | "Root causes are structural, not cyclical — peer evidence shows [X]bps closure is sustained" | Benchmark + trend |
+| 7 | "[Root cause 1] drives [X]% of addressable gap: [mechanism explanation]" | Driver Tree |
+| 8 | "[Root cause 2] adds [Y]bps: [evidence from value driver decomposition]" | Waterfall Bridge |
+| 9 | "Root causes are structural, not cyclical: peer evidence shows [X]bps closure is sustained" | Benchmark + trend |
 | **P3** | | |
 | 10 | "Total addressable opportunity is $[X]M across [N] levers, with [top lever] at $[Y]M" | Waterfall Bridge |
 | 11 | "[N] initiatives screened on impact × feasibility; [M] pass both thresholds" | Priority Matrix |
-| 12 | "Top [M] initiatives deliver [X]% of total value — remaining are Phase 2 candidates" | Eval Grid |
+| 12 | "Top [M] initiatives deliver [X]% of total value: remaining are Phase 2 candidates" | Eval Grid |
 | **P4** | | |
 | 13 | "Initiative [1] targets $[X]M through [mechanism] in [timeline]" | KPI Cards + detail |
 | 14 | "Implementation requires [N] workstreams over [X] months with [Y] FTE investment" | Gantt / Timeline |
@@ -53,7 +53,7 @@
 | 17 | "Base case [X]bps improvement; downside [Y]bps still exceeds peer median" | Scenario Fan |
 | 18 | "Initiative tracking: [N] KPIs across [M] workstreams with [cadence] governance" | KPI Cascade |
 | 19 | "Recommendation: proceed with [N] initiatives; first decision by [date]" | Timeline + next steps |
-| 20 | "Appendix index" | — |
+| 20 | "Appendix index" | none |
 
 ## Kill Conditions
 

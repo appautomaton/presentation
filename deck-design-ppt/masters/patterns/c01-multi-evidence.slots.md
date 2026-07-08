@@ -1,4 +1,4 @@
-# C01 — Multi-evidence — Slot Budgets (Consulting-only)
+# C01 Multi-evidence: Slot Budgets (Consulting-only)
 
 - **For:** dense "exhibit + metrics + sidebar" consulting page.
 - **Slots (budgets):**

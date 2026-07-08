@@ -16,4 +16,4 @@ For current-year benchmarks, use web search. Preferred sources by domain:
 - **HR**: SHRM, Mercer, BLS
 - **Finance**: Deloitte CFO Survey, McKinsey Global Institute
 
-Static benchmark numbers go stale — always verify against current-year data when specific numbers matter for the analysis.
+Static benchmark numbers go stale: always verify against current-year data when specific numbers matter for the analysis.

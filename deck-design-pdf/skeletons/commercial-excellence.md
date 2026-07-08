@@ -1,4 +1,4 @@
-# Commercial Excellence — Skeleton
+# Commercial Excellence: Skeleton
 
 ## Governing Thought
 
@@ -31,25 +31,25 @@
 
 | # | Title Template | Recipe |
 |---|---|---|
-| 1 | Cover | — |
+| 1 | Cover | none |
 | 2 | "[Company] can unlock $[Y]M by addressing [N] gaps across [scope]" | Facts vs. Perspectives |
-| 3 | Agenda (4 pillars) | — |
+| 3 | Agenda (4 pillars) | none |
 | **P1** | | |
-| 4 | "Commercial productivity trails peer median by [X]% — gap in [area]" | Benchmark Comparison |
+| 4 | "Commercial productivity trails peer median by [X]%: gap in [area]" | Benchmark Comparison |
 | 5 | "Funnel decomposition: [stage] is the primary value leak, [X]% of gap" | Waterfall / Funnel |
 | 6 | "[N] of [M] segments account for [X]% of value but receive [Y]% of resources" | Bubble scatter |
-| 7 | "Channel cost-to-serve varies [X]× — [channel] delivers highest ROI" | Horizontal bars |
-| 8 | "Win rate declined [X]% to [Y]% — [root cause] accounts for [Z]% of losses" | Waterfall |
-| 9 | "Commercial gap = $[X]M unrealized — [Y]% addressable through reallocation" | Pivot |
+| 7 | "Channel cost-to-serve varies [X]×: [channel] delivers highest ROI" | Horizontal bars |
+| 8 | "Win rate declined [X]% to [Y]%: [root cause] accounts for [Z]% of losses" | Waterfall |
+| 9 | "Commercial gap = $[X]M unrealized: [Y]% addressable through reallocation" | Pivot |
 | **P2** | | |
 | 10 | "Prioritizing [N] segments by attractiveness × fit concentrates [X]% of growth" | Priority Matrix |
 | 11 | "Realigning channel coverage shifts $[X]M capacity from [low-ROI] to [high-ROI]" | Coverage Matrix |
-| 12 | "Of [N] levers, [M] require new capabilities — question shifts to 'what to build'" | Narrowing |
+| 12 | "Of [N] levers, [M] require new capabilities: question shifts to 'what to build'" | Narrowing |
 | **P3** | | |
-| 13 | "[Company] trails best-in-class by [X] dimensions — [cap 1] and [cap 2] are binding" | KPI Scorecard |
-| 14 | "Top-quartile reps generate [X]× bottom-quartile — closing gap = $[Y]M without hiring" | Distribution |
-| 15 | "[N] capability investments totaling $[X]M — [investment 1] has highest near-term ROI" | Priority Matrix |
-| 16 | "Capability building without measurement fails — [X]% show <50% value realization" | Escalation |
+| 13 | "[Company] trails best-in-class by [X] dimensions: [cap 1] and [cap 2] are binding" | KPI Scorecard |
+| 14 | "Top-quartile reps generate [X]× bottom-quartile: closing gap = $[Y]M without hiring" | Distribution |
+| 15 | "[N] capability investments totaling $[X]M: [investment 1] has highest near-term ROI" | Priority Matrix |
+| 16 | "Capability building without measurement fails: [X]% show <50% value realization" | Escalation |
 | **P4** | | |
 | 17 | "[N]-metric system linking leading indicators to lagging outcomes" | KPI Cascade |
 | 18 | "[N]-phase transformation: quick wins (1-3mo) → capability (4-9mo) → system (10-12mo)" | Timeline |
@@ -63,7 +63,7 @@
 | KC-1 | >50% of losses from product gaps, confirmed by customer interviews | Product-market fit intervention |
 | KC-2 | Top-2 players >60% share with network effects | Strategic options (consolidate, niche, exit) |
 | KC-3 | >40% of complaints from channel conflict | Channel conflict resolution before optimization |
-| KC-4 | Rep performance variance is tight (<1.5×) — not a sales execution problem | Demand generation / marketing pivot |
+| KC-4 | Rep performance variance is tight (<1.5×), not a sales execution problem | Demand generation / marketing pivot |
 | KC-5 | CRM data unreliable or absent | Data foundation before diagnostic |
 
 ## Quality Gates

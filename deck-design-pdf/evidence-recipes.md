@@ -1,4 +1,4 @@
-# Evidence Recipes — Data-Shape Compositions
+# Evidence Recipes: Data-Shape Compositions
 
 Standard exhibit compositions for consulting slides. Each recipe answers: "When I need to prove [X], what chart combination should I use?"
 
@@ -69,8 +69,8 @@ One evidence layer = one distinct visual element (chart, table, metric cards, ca
 
 ### 7. Facts vs. Perspectives
 **Proves:** "Here's what we know (facts) and what we recommend (perspectives)."
-- Left column (~57%): "KEY FACTS & DATA" — 3–6 quantified bullets + optional mini-exhibit
-- Right column (~43%): "PERSPECTIVES" — action-oriented recommendation bullets
+- Left column (~57%): "KEY FACTS & DATA", 3–6 quantified bullets + optional mini-exhibit
+- Right column (~43%): "PERSPECTIVES", action-oriented recommendation bullets
 - Annotation: implication callout band at bottom
 
 ### 8. Scenario Fan

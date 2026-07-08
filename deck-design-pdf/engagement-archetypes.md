@@ -23,11 +23,11 @@ Every pillar boundary needs a transition. These are the five canonical patterns:
 
 | Type | Converts | Template |
 |---|---|---|
-| **Pivot** | Diagnostic → opportunity | "Given [finding], the [opportunity/risk] is [quantified] — [implication]" |
-| **Narrowing** | Open exploration → focused evaluation | "Of [N] options, [M] pass [criteria] — question shifts to [specific]" |
+| **Pivot** | Diagnostic → opportunity | "Given [finding], the [opportunity/risk] is [quantified]: [implication]" |
+| **Narrowing** | Open exploration → focused evaluation | "Of [N] options, [M] pass [criteria]: question shifts to [specific]" |
 | **Escalation** | Analytical confidence → implementation realism | "The [opportunity] is confirmed at [value]. Binding constraint is [risk]" |
-| **Synthesis** | Multi-lens analysis → unified recommendation | "[Analysis 1] shows X, [Analysis 2] confirms Y — together they point to [Z]" |
-| **Decision Gate** | Evaluation → decision mode | "Analysis narrows to [N] paths — decision turns on [differentiator]" |
+| **Synthesis** | Multi-lens analysis → unified recommendation | "[Analysis 1] shows X, [Analysis 2] confirms Y: together they point to [Z]" |
+| **Decision Gate** | Evaluation → decision mode | "Analysis narrows to [N] paths: decision turns on [differentiator]" |
 
 ## Rising-Stakes Progression
 
@@ -68,4 +68,4 @@ Which example modules each archetype typically uses. Use this to auto-route from
 | **Org Restructuring** | `org-model`, `rapid-map`, `process-flow` | `rag-status`, `data-table`, `timeline` | `facts-perspectives`, `swimlane`, `stakeholder-map`, `capability-matrix`, `communication-cascade`, `decision-flow`, `network-map` |
 | **Commercial Excellence** | `dumbbell-benchmark`, `kpi-cards`, `funnel` | `bar-horizontal`, `clustered-bars`, `line-chart` | `facts-perspectives`, `kpi-cascade`, `coverage-matrix`, `cohort-retention` |
 
-**How to use this table:** After classifying the archetype, scan the signature and supporting columns to select exhibits. The action titles determine what's needed — not every deck uses every exhibit listed.
+**How to use this table:** After classifying the archetype, scan the signature and supporting columns to select exhibits. The action titles determine what's needed, not every deck uses every exhibit listed.

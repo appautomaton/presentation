@@ -1,4 +1,4 @@
-# P13 Stacked Bar — Slot Budgets
+# P13 Stacked Bar: Slot Budgets
 
 ## Title zone
 - **Section tag**: ≤ 40 chars (e.g., "EXHIBIT 5 | ATTRITION ANALYSIS")

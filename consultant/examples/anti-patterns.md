@@ -17,16 +17,16 @@ Incorrect outputs with diagnosis and correction. Load this file to calibrate aga
 ### Diagnosis
 
 - **Situation** is too long and buries the relevant context in background noise. The reader doesn't know which facts matter.
-- **Complication** is vague — "various challenges" and "some headwinds" name nothing specific. The reader can't assess severity.
+- **Complication** is vague: "various challenges" and "some headwinds" name nothing specific. The reader can't assess severity.
 - **Resolution** is a recommendation to do more work, not an answer. "Conduct a strategic review" is a process step, not a strategy.
 
 ### Corrected
 
-> **Situation:** Enterprise revenue grew 4% in FY25, but the core mid-market segment — 60% of revenue — declined 8% as two competitors launched lower-priced alternatives.
+> **Situation:** Enterprise revenue grew 4% in FY25, but the core mid-market segment (60% of revenue) declined 8% as two competitors launched lower-priced alternatives.
 >
 > **Complication:** At current trajectory, mid-market share erosion will reduce total revenue by $45-60M within 18 months, eliminating the growth from the enterprise segment and compressing EBITDA margin by 3-4 pp.
 >
-> **Resolution:** Defend mid-market through a targeted pricing restructure (Good/Better/Best tiers) and accelerate enterprise expansion to shift revenue mix — expected to recover $30-40M of the at-risk revenue within 12 months at an investment of $8M.
+> **Resolution:** Defend mid-market through a targeted pricing restructure (Good/Better/Best tiers) and accelerate enterprise expansion to shift revenue mix: expected to recover $30-40M of the at-risk revenue within 12 months at an investment of $8M.
 
 ### Why the correction works
 
@@ -51,7 +51,7 @@ Why is customer satisfaction declining?
 
 ### Diagnosis
 
-- "Product quality" and "technical bugs" overlap — bugs ARE a quality issue. Items are not mutually exclusive.
+- "Product quality" and "technical bugs" overlap: bugs ARE a quality issue. Items are not mutually exclusive.
 - "Poor user experience" overlaps with both product quality and customer service. Where does a confusing onboarding flow go?
 - "Competitor offerings are better" is an external explanation mixed into an internal decomposition. It's a different cut of the problem.
 - Missing: pricing/value perception, expectation-setting gaps (marketing over-promises).
@@ -123,7 +123,7 @@ A full issue tree decomposition with five branches (Real Estate Strategy, Financ
 
 ### Why it fails
 
-This is a bounded decision with clear parameters — not an ambiguous strategic problem. The decision-maker needs a direct answer with supporting logic, not an analytical architecture. Over-decomposition signals that the consultant doesn't know how to match analytical intensity to problem complexity.
+This is a bounded decision with clear parameters, not an ambiguous strategic problem. The decision-maker needs a direct answer with supporting logic, not an analytical architecture. Over-decomposition signals that the consultant doesn't know how to match analytical intensity to problem complexity.
 
 ### Correct response
 
@@ -145,7 +145,7 @@ Not every question needs an issue tree. Match the tool to the problem. A direct 
 
 ### Incorrect response
 
-Applies Porter's Five Forces, then SWOT, then PESTEL, then VRIO, then Value Chain Analysis — presenting each framework sequentially with full write-ups, producing 3,000 words of analysis that restates commonly available information about cloud markets.
+Applies Porter's Five Forces, then SWOT, then PESTEL, then VRIO, then Value Chain Analysis: presenting each framework sequentially with full write-ups, producing 3,000 words of analysis that restates commonly available information about cloud markets.
 
 ### Why it fails
 
@@ -159,12 +159,12 @@ Five frameworks applied to one question violates the maximum of 4 (§2 of framew
 
 **Integrated assessment:**
 
-> Our competitive position is bifurcating. In pure compute, we hold no VRIO-qualifying advantages — AWS matches our scale, Azure matches our enterprise relationships, and both are integrating adjacent services faster than we are. Our position here will continue to erode 2-3pp share annually.
+> Our competitive position is bifurcating. In pure compute, we hold no VRIO-qualifying advantages: AWS matches our scale, Azure matches our enterprise relationships, and both are integrating adjacent services faster than we are. Our position here will continue to erode 2-3pp share annually.
 >
-> However, in hybrid/multi-cloud orchestration, we hold a sustained advantage: our orchestration IP is valuable, rare, and costly to imitate (VRIO-qualifying), and we are the only vendor positioned as cloud-neutral on the competitive map. This is the dimension enterprise buyers increasingly weight — 68% of enterprise RFPs now require multi-cloud support.
+> However, in hybrid/multi-cloud orchestration, we hold a sustained advantage: our orchestration IP is valuable, rare, and costly to imitate (VRIO-qualifying), and we are the only vendor positioned as cloud-neutral on the competitive map. This is the dimension enterprise buyers increasingly weight, 68% of enterprise RFPs now require multi-cloud support.
 >
 > **The implication:** Stop defending pure compute share (losing battle). Double down on hybrid orchestration where we have a structural advantage competitors cannot replicate without abandoning their own cloud platforms. Shift 60% of R&D budget from compute to orchestration within 12 months.
 
 ### Why the correction works
 
-No sentence is attributed to a single framework. Each insight integrates VRIO evidence with competitive positioning evidence. The synthesis product — "bifurcating position with one defensible segment" — could not come from either framework alone. VRIO alone would say "we have one advantage." Competitive positioning alone would say "we're losing share." Together they reveal: lose where you can't win, double down where you can't be followed.
+No sentence is attributed to a single framework. Each insight integrates VRIO evidence with competitive positioning evidence. The synthesis product ("bifurcating position with one defensible segment") could not come from either framework alone. VRIO alone would say "we have one advantage." Competitive positioning alone would say "we're losing share." Together they reveal: lose where you can't win, double down where you can't be followed.

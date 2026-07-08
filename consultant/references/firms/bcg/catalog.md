@@ -1,7 +1,7 @@
 # BCG Framework Catalog
 
 Updated: 2026-03-03
-Companion: [process.md](process.md) — Strategic Prism workflow and quality gates.
+Companion: [process.md](process.md), Strategic Prism workflow and quality gates.
 
 ## Catalog contract
 

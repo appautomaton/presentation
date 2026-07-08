@@ -1,24 +1,24 @@
-# Bain Reference — Firm-Specific Conventions
+# Bain Reference: Firm-Specific Conventions
 
 > Loaded when the brief specifies Bain philosophy or consulting style at L2+.
-> Use alongside [craft.md](craft.md) — this file covers only what is **Bain-specific**.
+> Use alongside [craft.md](craft.md): this file covers only what is **Bain-specific**.
 > General density rules, exhibit threading, annotation budgets, and callout quality live in craft.md.
 
-**Design disposition:** Decision-driven. Every slide — or module — exists to help the client make a specific yes/no decision. Bain separates facts from perspectives so the client knows what's ground truth vs. what's Bain's judgment. Visual restraint (monochrome + one accent) keeps attention on the data, not the design. Working decks are modular: a case team builds a library of 100+ slides organized by workstream, then the partner pulls and recombines modules for different audiences. Show decks are the cleaned-up, linearized artifact; working decks are the LEGO set. Speed of insight delivery beats formatting beauty — "results, not reports."
+**Design disposition:** Decision-driven. Every slide (or module) exists to help the client make a specific yes/no decision. Bain separates facts from perspectives so the client knows what's ground truth vs. what's Bain's judgment. Visual restraint (monochrome + one accent) keeps attention on the data, not the design. Working decks are modular: a case team builds a library of 100+ slides organized by workstream, then the partner pulls and recombines modules for different audiences. Show decks are the cleaned-up, linearized artifact; working decks are the LEGO set. Speed of insight delivery beats formatting beauty: "results, not reports."
 
 > **Source note:** The visual conventions below are derived from published Bain show decks. Working decks follow the same color system and header grammar but run denser, with looser formatting and higher tolerance for mixed fonts. The structural principles (modularity, facts-vs-perspectives separation, decision-utility test) apply to both.
 
 ## Contents
 
-- [§1 The Reader Contract](#1-the-reader-contract) — five promises every Bain deck makes
-- [§2 Slide Grammar](#2-slide-grammar) — red rule header, facts-vs-perspectives frame, footer system
-- [§3 Action Title Templates](#3-action-title-templates) — four sentence patterns with examples
-- [§4 Body Text Rules](#4-body-text-rules) — benchmark language, bullet grammar, evidence style
-- [§5 Composition Patterns](#5-composition-patterns) — 10 layouts with ratios
-- [§6 Exhibit Conventions](#6-exhibit-conventions) — monochrome-plus-one-accent color system, annotation devices
-- [§7 Navigation System](#7-navigation-system) — recurring agenda, section dividers
-- [§8 Deck Modes](#8-deck-modes) — diagnostic vs publication vs legacy
-- [§9 Anti-Patterns](#9-anti-patterns) — what breaks the illusion
+- [§1 The Reader Contract](#1-the-reader-contract): five promises every Bain deck makes
+- [§2 Slide Grammar](#2-slide-grammar): red rule header, facts-vs-perspectives frame, footer system
+- [§3 Action Title Templates](#3-action-title-templates): four sentence patterns with examples
+- [§4 Body Text Rules](#4-body-text-rules): benchmark language, bullet grammar, evidence style
+- [§5 Composition Patterns](#5-composition-patterns): 10 layouts with ratios
+- [§6 Exhibit Conventions](#6-exhibit-conventions): monochrome-plus-one-accent color system, annotation devices
+- [§7 Navigation System](#7-navigation-system): recurring agenda, section dividers
+- [§8 Deck Modes](#8-deck-modes): diagnostic vs publication vs legacy
+- [§9 Anti-Patterns](#9-anti-patterns): what breaks the illusion
 
 Sourced from 3 Bain decks: Global PE Report 2023 (17pp, publication chart-run), Syracuse Innovation Diagnostic 2014 (38pp, diagnostic program book), UNC Cost Diagnostic 2009 (15pp, legacy option summary).
 
@@ -28,10 +28,10 @@ Sourced from 3 Bain decks: Global PE Report 2023 (17pp, publication chart-run), 
 
 Every Bain deck implicitly promises five things. If any fail, the output stops reading as Bain regardless of typography.
 
-1. **Fact base separated from interpretation.** The reader can always tell which content is observed data and which is Bain's perspective. In diagnostic decks this is literal — left column vs. right column. This is an epistemological commitment, not just a layout.
+1. **Fact base separated from interpretation.** The reader can always tell which content is observed data and which is Bain's perspective. In diagnostic decks this is literal: left column vs. right column. This is an epistemological commitment, not just a layout.
 2. **Decision utility.** Every module answers a specific question the client's leadership needs to decide. If a slide can't pass the "so what should the CEO do differently on Monday morning?" test, it gets reworked or cut.
-3. **Benchmark-relative judgment.** Metrics are positioned against peers, averages, or targets — never presented in isolation. "Trails peers by 12%" not just "scored 68."
-4. **Visual restraint with deliberate emphasis.** The baseline is monochrome. Color draws the eye to exactly one thing per exhibit. The restraint is intentional — the container doesn't compete with the contents.
+3. **Benchmark-relative judgment.** Metrics are positioned against peers, averages, or targets, never presented in isolation. "Trails peers by 12%" not just "scored 68."
+4. **Visual restraint with deliberate emphasis.** The baseline is monochrome. Color draws the eye to exactly one thing per exhibit. The restraint is intentional: the container doesn't compete with the contents.
 5. **Modular composability.** Slides (and slide groups) are designed to work as independent modules. A diagnostic section can be pulled from the master deck and handed to a different audience without losing coherence. This is why Bain page numbers are sometimes non-sequential in excerpted materials.
 
 Document-control signals (when contextually appropriate):
@@ -47,24 +47,24 @@ Bain's slide grammar varies by mode (see §8), but the diagnostic program book i
 
 ### Typography
 
-Bain's brand typeface is **Graphik** (Christian Schwartz, Commercial Type) — a paid neo-grotesque used on bain.com and internal brand materials. In practice, Bain slide decks embed system fonts (Arial, Verdana) because Graphik is not universally installed on client machines.
+Bain's brand typeface is **Graphik** (Christian Schwartz, Commercial Type): a paid neo-grotesque used on bain.com and internal brand materials. In practice, Bain slide decks embed system fonts (Arial, Verdana) because Graphik is not universally installed on client machines.
 
-For this skill, use **Source Sans 3** consistently across all Bain-style slides. It is a professional humanist sans-serif with a large x-height, low stroke contrast, and generous weight range (200–900 variable) — a step up from Arial while remaining free and embeddable.
+For this skill, use **Source Sans 3** consistently across all Bain-style slides. It is a professional humanist sans-serif with a large x-height, low stroke contrast, and generous weight range (200–900 variable): a step up from Arial while remaining free and embeddable.
 
 The theme sets `font: 'Source Sans 3'` with `fontFallback: 'Arial'`. Variable TTF files (weights 200–900, normal + italic) are vendored at `libs/source-sans-3/`.
 
 ### Header zone (red rule)
 
 ```
-[Action title — bold, black, full sentence conclusion, 18–20pt]
+[Action title: bold, black, full sentence conclusion, 18–20pt]
 ──────────────────────────────────────────────────────────── (red rule, ~2–3pt, full content width)
 ```
 
-- **Action title**: Full-sentence conclusion in bold black, 18–20pt. States the "so what" — not a topic label. Sentence case. Max 2 lines.
+- **Action title**: Full-sentence conclusion in bold black, 18–20pt. States the "so what", not a topic label. Sentence case. Max 2 lines.
 - **Red rule**: Bain red (`#CC0000`), ~2–3pt thick, spans the full content width (margin to margin). Sits immediately below the action title with ~8–10pt gap above, ~12–16pt below.
 - **No section tag above the title** (contrast with McKinsey's two-tier header). Section identity is carried by agenda interstitials, not by per-slide tags.
 
-Publication mode (Global PE) omits the red rule and uses a lighter, magazine-style header — see §8.
+Publication mode (Global PE) omits the red rule and uses a lighter, magazine-style header, see §8.
 
 ### Body zone
 
@@ -94,7 +94,7 @@ Two dominant patterns:
 - **Callout band** (diagnostic): Full-width horizontal band at bottom of body area.
   - Red variant: Bain red fill, white bold text. For the primary takeaway.
   - Gray variant: light gray fill with 4pt red left border. For secondary implications or next steps.
-- **Callout text** (publication): Sparse — the title carries most of the argument.
+- **Callout text** (publication): Sparse, the title carries most of the argument.
 
 ### Footer zone
 
@@ -106,14 +106,14 @@ Note: [methodological context]
 - **Source/Note**: Left-aligned, ~8–9pt, medium gray. "Source:" in italic, citation in regular.
 - **Bain logo**: Small wordmark, bottom-center or bottom-right. Grayscale in publication mode, red in diagnostic mode. ~60–80pt wide.
 - **Page number**: Right-aligned, ~8–9pt, gray. Plain Arabic numeral.
-- **No horizontal rule** above the footer — position and small font separate it from body content.
+- **No horizontal rule** above the footer: position and small font separate it from body content.
 - Source attribution is never skipped on analytic slides.
 
 ---
 
 ## §3 Action Title Templates
 
-Bain action titles are assertion-based — like McKinsey, they state a conclusion. But Bain titles are typically shorter and more direct, often leading with the metric.
+Bain action titles are assertion-based: like McKinsey, they state a conclusion. But Bain titles are typically shorter and more direct, often leading with the metric.
 
 | Pattern | Template | Example |
 |---|---|---|
@@ -126,7 +126,7 @@ Bain action titles are assertion-based — like McKinsey, they state a conclusio
 
 - Always a complete sentence with a verb.
 - Numbers and comparators appear whenever data supports them.
-- Shorter than McKinsey — typically 10–20 words. Bain trusts the exhibit to carry detail.
+- Shorter than McKinsey: typically 10–20 words. Bain trusts the exhibit to carry detail.
 - No terminal period on single-line titles.
 - Causality is direct ("fell 35%", "trails by 23%") rather than elaborated ("driven primarily by X, Y, and Z").
 
@@ -136,8 +136,8 @@ Bain action titles are assertion-based — like McKinsey, they state a conclusio
 
 ### Prose style
 
-- **Benchmark-first.** Every claim positions the subject relative to a comparator — peers, averages, targets, or prior periods.
-- **Observation → comparator → implication.** Bullet logic follows this three-beat rhythm. Example: "Research expenditure is $32M (observation) — bottom third among peers (comparator) — limiting competitiveness for federal grants (implication)."
+- **Benchmark-first.** Every claim positions the subject relative to a comparator: peers, averages, targets, or prior periods.
+- **Observation → comparator → implication.** Bullet logic follows this three-beat rhythm. Example: "Research expenditure is $32M (observation), bottom third among peers (comparator), limiting competitiveness for federal grants (implication)."
 - **Implementation verbs for recommendations.** Restructure, centralize, streamline, gate, instrument, outsource, align. Never abstract ("consider", "explore", "leverage").
 - **Bold for emphasis.** Key terms and numbers are bolded inline. Italic is reserved for "Source:" and "Note:" labels.
 
@@ -183,7 +183,7 @@ This is Bain's most distinctive visual trait. The baseline palette is monochrome
 | Mode | Accent | Baseline | Chart palette |
 |---|---|---|---|
 | **Diagnostic** | Bain red (`#CC0000`) | Gray bars, gray text, white backgrounds | Primary bars in red, secondary in gray, tertiary in dark charcoal |
-| **Publication** | Bain red (`#CC0000`) | Gray bars, gray text, white backgrounds | Same — but even more restrained. Entire pages may be gray-only with one red bar |
+| **Publication** | Bain red (`#CC0000`) | Gray bars, gray text, white backgrounds | Same, but even more restrained. Entire pages may be gray-only with one red bar |
 | **Legacy** | Institutional blue (`#4A7FB5`) | Same gray/white baseline | Blue replaces red as the structural color (client-branded) |
 
 Key rule: **one red emphasis target per exhibit.** If a slide has two red elements competing for attention, one must be demoted to gray.
@@ -215,7 +215,7 @@ Key rule: **one red emphasis target per exhibit.** If a slide has two red elemen
 
 ### Recurring agenda
 
-Bain's primary navigation device is the **repeating agenda interstitial** — the same agenda slide reappears before each section with the active item highlighted.
+Bain's primary navigation device is the **repeating agenda interstitial**: the same agenda slide reappears before each section with the active item highlighted.
 
 **Agenda slide structure:**
 - Title "Agenda" with red rule below (diagnostic) or dark charcoal background (publication).
@@ -232,7 +232,7 @@ Bain's primary navigation device is the **repeating agenda interstitial** — th
 - White centered title text, 24–28pt bold.
 - Optional thin red horizontal rule centered below the title (~40–50% of slide width).
 - No body content, no footer.
-- Minimal — the divider is a visual rest, not a content carrier.
+- Minimal: the divider is a visual rest, not a content carrier.
 
 ### No breadcrumbs
 
@@ -250,10 +250,10 @@ Bain produces three distinct document types. Choose based on the deck's purpose 
 | **Header** | Bold black title + red rule | Short headline, no rule | Blue filled band, white text |
 | **Signature layout** | Facts-vs-Perspectives (60/40) | Single chart per slide | Option rollout table (repeated) |
 | **Color system** | Red accent on gray/white | Red accent on gray/white (more restrained) | Blue structural, yellow emphasis |
-| **Body density** | High — two columns, 3–6 bullets per column | Low — chart dominates, minimal prose | Medium — table rows with bullets |
+| **Body density** | High: two columns, 3–6 bullets per column | Low: chart dominates, minimal prose | Medium: table rows with bullets |
 | **Navigation** | Recurring agenda with red active item | Photo-style dividers or title sequence | Sequence markers "(1 of 4)" in header |
 | **Footer** | Source + Note + Bain logo + page# | Source + Bain logo + page# (minimal) | Source + legal disclaimer + page# |
-| **Branding** | Bain red rule and identity visible | Subtle — small Bain wordmark only | Client-branded (no Bain identity) |
+| **Branding** | Bain red rule and identity visible | Subtle: small Bain wordmark only | Client-branded (no Bain identity) |
 | **Density level** | L2–L3 | L1–L2 | L2 |
 | **Font** | Source Sans 3 (fallback: Arial) | Source Sans 3 (fallback: Arial / Helvetica Neue) | Verdana |
 
@@ -273,10 +273,10 @@ These break the Bain illusion immediately:
 | Anti-pattern | Why it fails | Fix |
 |---|---|---|
 | **Multiple red highlights per exhibit** | Violates the one-accent-target rule; reader can't find the focus | Demote all but one to gray |
-| **Topic titles** ("Investment Overview") | Not a conclusion — Bain titles are assertions | Rewrite as verdict: "Deal value fell 35% in 2022" |
+| **Topic titles** ("Investment Overview") | Not a conclusion: Bain titles are assertions | Rewrite as verdict: "Deal value fell 35% in 2022" |
 | **Benchmark claims without peer set** | Bain's credibility rests on transparent comparisons | Define n, peer set, period, and source |
 | **Mixed registers on one slide** | Facts-vs-perspectives box inside a publication chart → visual collision | Pick one register and commit |
 | **Colorful chart palettes** | Bain uses gray + one accent. Rainbow bars read as generic | Gray baseline, single red highlight |
 | **Perspectives without fact base** | Recommendations must be earned by data in the left column | Pair every perspective with supporting evidence |
 | **Rounded corners, gradients, shadows** | Bain's aesthetic is flat, crisp, and institutional | Square corners, solid fills, no effects |
-| **Verbose titles** (>25 words) | Bain titles are shorter than McKinsey — trust the exhibit | Compress to 10–20 words |
+| **Verbose titles** (>25 words) | Bain titles are shorter than McKinsey: trust the exhibit | Compress to 10–20 words |

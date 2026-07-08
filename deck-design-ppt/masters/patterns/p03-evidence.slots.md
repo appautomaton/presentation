@@ -1,7 +1,7 @@
-# P03 — Evidence — Slot Budgets
+# P03 Evidence: Slot Budgets
 
 **Styles:** consulting · founder · sequoia
-**For:** Claim + chart proof — exhibit-driven (consulting), traction proof (founder), macro deterioration (sequoia).
+**For:** Claim + chart proof: exhibit-driven (consulting), traction proof (founder), macro deterioration (sequoia).
 
 **Slots:**
 - `h2`: <= 120 chars.

@@ -7,7 +7,7 @@ How to choose and pair fonts for a visual identity system.
 1. Identify the subject's typeface family from research (geometric, humanist, serif, mono)
 2. Find the closest Google Font that echoes that DNA
 3. Decide whether heading and body should be the same family or different
-4. Select weights: 400 (regular), 600 (semibold), 700 (bold) — load only what you need
+4. Select weights: 400 (regular), 600 (semibold), 700 (bold), load only what you need
 5. Optionally add a monospace for data and metrics
 
 ## Pairing lookup table
@@ -16,7 +16,7 @@ From the subject's brand typeface to a Google Fonts recommendation:
 
 | Their typeface feels like... | Google Fonts to try | Why this pairing works |
 |---|---|---|
-| **Geometric sans** (Product Sans, Roboto, Circular, Futura) | Inter, Manrope | Same geometric DNA — circular 'o', even stroke width, neutral personality |
+| **Geometric sans** (Product Sans, Roboto, Circular, Futura) | Inter, Manrope | Same geometric DNA: circular 'o', even stroke width, neutral personality |
 | **Humanist sans** (Söhne, Helvetica Now, Gill Sans, Frutiger) | DM Sans, Source Sans 3 | Warmer, more approachable. Open apertures, slight stroke contrast |
 | **Neo-grotesque** (Suisse, Aktiv Grotesk, SF Pro) | Inter, Plus Jakarta Sans | Clean, contemporary, slightly geometric. Good at many weights. |
 | **Slab serif** (Roboto Slab, Zilla Slab) | Roboto Slab + Inter | Authoritative headlines with clean body text |
@@ -30,7 +30,7 @@ From the subject's brand typeface to a Google Fonts recommendation:
 |---|---|---|
 | **Heading** | Cover titles, action titles, section headers, card metric values | 600 (semibold) for action titles, 700 (bold) for cover titles and big metrics |
 | **Body** | Paragraphs, bullet text, table cells, callout content, card labels | 400 (regular) for body copy, 600 (semibold) for emphasis and labels |
-| **Mono** (optional) | Data tables, KPI numbers, code blocks, technical annotations | 400 or 500 (medium). Used sparingly — only when tabular alignment or technical tone matters. |
+| **Mono** (optional) | Data tables, KPI numbers, code blocks, technical annotations | 400 or 500 (medium). Used sparingly: only when tabular alignment or technical tone matters. |
 
 ## Heading + body: same or different?
 
@@ -43,7 +43,7 @@ From the subject's brand typeface to a Google Fonts recommendation:
 **Different families** (e.g., Instrument Serif heading + DM Sans body):
 - More distinctive, more editorial
 - Creates stronger visual hierarchy through typographic contrast
-- Requires careful pairing — the families must share proportions (x-height, cap height)
+- Requires careful pairing: the families must share proportions (x-height, cap height)
 - Works for: premium advisory, annual reports, thought leadership, brand-forward decks
 
 **Rule of thumb:** start with one family. Add a second only if the project needs more personality than size/weight variation can provide.

@@ -25,7 +25,7 @@ module.exports = {
   proves: 'growth initiatives mapped across time horizons with investment and expected return',
   data: 'Growth portfolio across 3 horizons with 9 initiatives',
   sectionLabel: 'Growth Strategy',
-  actionTitle: 'Portfolio is skewed toward H1 — H2 and H3 pipeline needs $45M incremental investment to close the 2028 growth gap',
+  actionTitle: 'Portfolio is skewed toward H1: H2 and H3 pipeline needs $45M incremental investment to close the 2028 growth gap',
   source: 'Source: Strategy team, growth initiative portfolio review',
   exhibitId: 'Exhibit 20.1',
 

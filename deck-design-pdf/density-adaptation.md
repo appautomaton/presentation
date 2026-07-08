@@ -1,4 +1,4 @@
-# Density Adaptation — L1 / L2 / L3
+# Density Adaptation: L1 / L2 / L3
 
 How the same argument structure compresses or expands across density levels.
 
@@ -12,26 +12,26 @@ How the same argument structure compresses or expands across density levels.
 | **Action titles** | Conversational claim | Quantified claim | Chained claim with exhibit refs |
 | **Evidence layers** | 1 | 1–2 | 2–4 |
 | **Transitions** | Full pivot slides (dedicated, no data) | Embedded in section openers | In title chains only |
-| **Methodology** | Hidden — appendix only | Architecture + key assumptions | Full model specification |
+| **Methodology** | Hidden: appendix only | Architecture + key assumptions | Full model specification |
 | **Annotations per chart** | 0 | 1–2 | 2–4 (required) |
 
 ## L2 → L1 Compression (Show Deck)
 
 1. **Collapse methodology slides** → move to appendix. Show deck shows WHAT, not how.
-2. **Merge diagnostic detail** — 3 analytical slides building one insight → 1 slide stating the insight with supporting evidence.
-3. **Promote action titles** — title alone must carry the argument. If you need to read the chart, the title is too weak.
-4. **Add explicit pivot slides** — between pillars, insert a transition slide (no data). Net effect: remove analytical slides, add transitions. Count drops 30–40%.
-5. **Curate evidence** — each slide gets ONE layer. Choose strongest proof point.
+2. **Merge diagnostic detail**: 3 analytical slides building one insight → 1 slide stating the insight with supporting evidence.
+3. **Promote action titles**: title alone must carry the argument. If you need to read the chart, the title is too weak.
+4. **Add explicit pivot slides**: between pillars, insert a transition slide (no data). Net effect: remove analytical slides, add transitions. Count drops 30–40%.
+5. **Curate evidence**: each slide gets ONE layer. Choose strongest proof point.
 
 > L1 compression is NOT "delete slides." It is "restructure the argument for an audience that spends 3 seconds per slide."
 
 ## L2 → L3 Expansion (Dense / Appendix)
 
-1. **Expose model architecture** — value driver tree structure, assumption tables, data source maps.
-2. **Add sensitivity analysis** — for every quantified claim, show how conclusions change under different assumptions.
-3. **Chain exhibit references** — number every exhibit. Titles reference prior exhibits.
-4. **Expand data tables** — complete data, not curated subsets. Segment-level, time-series, statistical confidence.
-5. **Remove transition slides** — transitions happen in title chains only.
+1. **Expose model architecture**: value driver tree structure, assumption tables, data source maps.
+2. **Add sensitivity analysis**: for every quantified claim, show how conclusions change under different assumptions.
+3. **Chain exhibit references**: number every exhibit. Titles reference prior exhibits.
+4. **Expand data tables**: complete data, not curated subsets. Segment-level, time-series, statistical confidence.
+5. **Remove transition slides**: transitions happen in title chains only.
 
 ## Selection Heuristic
 
@@ -72,12 +72,12 @@ Density and typography tier are related but distinct:
 | Density | Typical `tier` | Rationale |
 |---|---|---|
 | L1 | `'presentation'` | Room-safe, projection-safe. Body ≥15pt, axis ≥14pt. |
-| L2 | `'document'` or `'presentation'` | Depends on venue — working session vs. conference room. |
+| L2 | `'document'` or `'presentation'` | Depends on venue: working session vs. conference room. |
 | L3 | `'document'` | Dense content needs smaller baselines. Body ≥12pt, axis ≥11pt. |
 
-## L1 Sizing — Fill, Don't Float
+## L1 Sizing: Fill, Don't Float
 
-L1 means fewer elements per slide, not smaller content floating in empty space. Each element should scale up to fill the ~600px body zone. The fill-first rule applies at every density level — L1 achieves it with larger fonts and more breathing room between fewer items, not by leaving blank space at the bottom.
+L1 means fewer elements per slide, not smaller content floating in empty space. Each element should scale up to fill the ~600px body zone. The fill-first rule applies at every density level: L1 achieves it with larger fonts and more breathing room between fewer items, not by leaving blank space at the bottom.
 
 **L1 typography rule:** Bump each role up one native Tailwind step from the L2 baseline. Footer stays at the floor (`text-xs`).
 
@@ -97,6 +97,6 @@ L1 means fewer elements per slide, not smaller content floating in empty space. 
 | **Data label / axis** | `text-xs` (12px) | `text-sm` | 14px / 10.5pt |
 | **Footer** | `text-xs` (12px) | `text-xs` | 12px / 9pt (floor) |
 
-The hierarchy holds at both levels: cover > action > metric > subtitle > body > labels > fine print. No ranges to decide — one class per role per density.
+The hierarchy holds at both levels: cover > action > metric > subtitle > body > labels > fine print. No ranges to decide, one class per role per density.
 
 **L1 chart sizing:** Charts at L1 still follow the fill-first rule. A chart that is the sole exhibit on a slide should fill the body zone (≈ 540–580px after title and gap), not sit at 300px with whitespace below. L1 charts tend to be simpler (fewer series, fewer data points) but physically larger.
