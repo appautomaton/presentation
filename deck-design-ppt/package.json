@@ -2,8 +2,8 @@
   "name": "deck-design-ppt",
   "private": true,
   "dependencies": {
-    "playwright-core": "^1.52.0",
+    "playwright-core": "^1.61.1",
     "pptxgenjs": "^4.0.1",
-    "sharp": "^0.33.5"
+    "sharp": "^0.35.3"
   }
 }

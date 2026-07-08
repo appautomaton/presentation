@@ -1,13 +1,18 @@
 /**
  * Generate JPG previews for all deck-design-pdf example exhibits.
  *
- * For each example, renders two images:
+ * Each example is self-contained: it exports renderExhibit({ tokens }) where
+ * tokens = { width, height }, and returns a full HTML string (markup + inline
+ * ECharts init script). No shared token module is required.
+ *
+ * For each example, renders:
  *   {id}.jpg       — at reference size (540×540)
- *   {id}-min.jpg   — at floor size (300×300)
+ *   {id}-min.jpg   — at floor size (300×300)      (--all only)
+ *   {id}-large.jpg — at 720×720                    (--all only)
  *
  * Output goes next to the .js files in the skill's examples/ folder.
  *
- * Usage: node presentation/generate-previews.js [--all] [example-id]
+ * Usage: node generate-previews.js [--all] [example-id]
  *   No args       = all examples at reference size (540×540)
  *   --all         = generate all sizes (720, 540, 300)
  *   example-id    = regenerate one example only
@@ -22,17 +27,7 @@ const { chromium } = require(path.join(SKILL_ROOT, 'node_modules', 'playwright')
 const EXAMPLES_DIR = path.join(SKILL_ROOT, 'examples');
 const ENGINE_ROOT = path.join(SKILL_ROOT, 'engine');
 const VENDOR_DIR = path.join(SKILL_ROOT, 'vendor');
-const PALETTES_DIR = path.join(SKILL_ROOT, 'palettes');
-const FONTS_DIR = path.join(VENDOR_DIR, 'fonts');
-const FA_DIR = path.join(VENDOR_DIR, 'fontawesome');
 const PREVIEW_DIR = EXAMPLES_DIR;
-
-const {
-  DEFAULT_CHART_RANGE,
-  REFERENCE_EXHIBIT,
-  getSizeTokens,
-  renderStandaloneExhibit,
-} = require(path.join(EXAMPLES_DIR, '_shared'));
 
 // ── Asset loading (mirrors engine/index.js) ──────────────────────────
 
@@ -61,69 +56,63 @@ function buildPreviewHTML(exhibitHTML, width, height) {
 </html>`;
 }
 
-// ── Render to JPG ────────────────────────────────────────────────────
-
-async function renderJPG(html, outputPath, width, height) {
-  const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'deck-preview-'));
-  const tmpFile = path.join(tmpDir, 'preview.html');
-  fs.writeFileSync(tmpFile, html, 'utf8');
-
-  const browser = await chromium.launch();
-  try {
-    const page = await browser.newPage();
-    await page.setViewportSize({ width, height });
-    await page.emulateMedia({ media: 'screen' });
-    await page.goto(`file://${tmpFile}`, { waitUntil: 'networkidle' });
-    await page.evaluate(() => document.fonts.ready);
-    await page.screenshot({
-      path: outputPath,
-      type: 'jpeg',
-      quality: 80,
-      clip: { x: 0, y: 0, width, height },
-    });
-  } finally {
-    await browser.close();
-  }
-
-  try { fs.unlinkSync(tmpFile); } catch {}
-  try { fs.rmdirSync(tmpDir); } catch {}
-}
-
 // ── Main ─────────────────────────────────────────────────────────────
 
 async function generatePreviews(filterId, generateAll) {
-  // Discover all example files
   const exampleFiles = fs.readdirSync(EXAMPLES_DIR)
-    .filter(f => f.endsWith('.js') && f !== '_shared.js')
+    .filter(f => f.endsWith('.js'))
     .sort();
 
   const allSizes = [
-    { suffix: '-large', width: 720, height: 720 },      // 720×720
-    { suffix: '',     ...REFERENCE_EXHIBIT },            // 540×540
-    { suffix: '-min', ...DEFAULT_CHART_RANGE.floor },    // 300×300
+    { suffix: '-large', width: 720, height: 720 },
+    { suffix: '', width: 540, height: 540 },
+    { suffix: '-min', width: 300, height: 300 },
   ];
   const defaultSizes = [
-    { suffix: '',     ...REFERENCE_EXHIBIT },            // 540×540
+    { suffix: '', width: 540, height: 540 },
   ];
   const sizes = generateAll ? allSizes : defaultSizes;
 
+  const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'deck-preview-'));
+  const browser = await chromium.launch();
   let count = 0;
-  for (const file of exampleFiles) {
-    const example = require(path.join(EXAMPLES_DIR, file));
-    if (filterId && example.id !== filterId) continue;
 
-    const effectiveSizes = sizes.filter(s => !example.minSize || s.width >= example.minSize);
-    for (const size of effectiveSizes) {
-      const tier = example.tier === 1 ? 'presentation' : 'document';
-      const tokens = getSizeTokens(size.width, size.height, tier);
-      const context = { checkpoint: size.suffix ? 'floor' : 'reference', width: size.width, height: size.height, tokens };
-      const exhibitHTML = renderStandaloneExhibit(example, context);
-      const html = buildPreviewHTML(exhibitHTML, size.width, size.height);
-      const outFile = path.join(PREVIEW_DIR, `${example.id}${size.suffix}.jpg`);
-      await renderJPG(html, outFile, size.width, size.height);
-      count++;
-      process.stdout.write(`  ${example.id}${size.suffix}.jpg\n`);
+  try {
+    const page = await browser.newPage();
+    await page.emulateMedia({ media: 'screen' });
+
+    for (const file of exampleFiles) {
+      const example = require(path.join(EXAMPLES_DIR, file));
+      if (filterId && example.id !== filterId) continue;
+      if (typeof example.renderExhibit !== 'function') continue;
+
+      const effectiveSizes = sizes.filter(s => !example.minSize || s.width >= example.minSize);
+      for (const size of effectiveSizes) {
+        const tokens = { width: size.width, height: size.height };
+        const exhibitHTML = example.renderExhibit({ tokens });
+        const html = buildPreviewHTML(exhibitHTML, size.width, size.height);
+
+        const tmpFile = path.join(tmpDir, 'preview.html');
+        fs.writeFileSync(tmpFile, html, 'utf8');
+
+        await page.setViewportSize({ width: size.width, height: size.height });
+        await page.goto(`file://${tmpFile}`, { waitUntil: 'networkidle' });
+        await page.evaluate(() => document.fonts.ready);
+
+        const outFile = path.join(PREVIEW_DIR, `${example.id}${size.suffix}.jpg`);
+        await page.screenshot({
+          path: outFile,
+          type: 'jpeg',
+          quality: 80,
+          clip: { x: 0, y: 0, width: size.width, height: size.height },
+        });
+        count++;
+        process.stdout.write(`  ${example.id}${size.suffix}.jpg\n`);
+      }
     }
+  } finally {
+    await browser.close();
+    try { fs.rmSync(tmpDir, { recursive: true, force: true }); } catch {}
   }
 
   console.log(`\nGenerated ${count} previews in ${PREVIEW_DIR}`);

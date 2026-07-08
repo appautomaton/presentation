@@ -2,6 +2,6 @@
   "name": "deck-design-pdf",
   "private": true,
   "dependencies": {
-    "playwright": "^1.52.0"
+    "playwright": "^1.61.1"
   }
 }
