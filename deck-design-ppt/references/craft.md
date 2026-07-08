@@ -32,7 +32,7 @@ Pick one level before generating. It constrains every downstream decision.
 | Template scope | P-series only | P + selective C-series | Full library; C-series expected |
 | Typography profile | Projected | Document | Document |
 
-**L1 Narrative** — each slide stands alone. One message per slide. Generous whitespace. The title carries the argument; the body just anchors it.
+**L1 Narrative** — each slide stands alone. One message per slide. Few elements, each scaled up to fill the body zone — breathing room comes from having fewer elements, not from shrinking content. The title carries the argument; the body just anchors it.
 
 **L2 Structured** — slides build on each other loosely. Occasional exhibit references. Moderate evidence density. The body supports the title with data.
 

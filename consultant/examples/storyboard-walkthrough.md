@@ -85,7 +85,7 @@ The story is complete. No gaps. No jumps. A partner reading only the titles unde
 
 ## Handoff Artifact for Deck-Design
 
-This is the format consultant produces when handing off to a delivery skill (deck-design-pdf, deck-design-ppt, etc.) for slide rendering. The delivery skill reads this artifact, selects exhibit types and visual patterns using its own taxonomy, applies firm visual identity, and builds the final output.
+This is the format consultant produces when handing off to a delivery skill for slide rendering. The delivery skill reads this artifact, selects exhibit types and visual patterns using its own taxonomy, applies firm visual identity, and builds the final output.
 
 ```markdown
 # Storyboard: European Market Entry Strategy for MedTech Corp

@@ -97,16 +97,16 @@ The argument structure changes fundamentally by deliverable type — not just th
 
 ## Ghost Deck Bridge
 
-How to take a governing thought + pillars and produce the slide-level argument for deck handoff (see §10).
+How to take a governing thought + pillars and produce the slide-level argument for deck handoff (see SKILL.md §10 — Composition with Delivery Skills).
 
 **Layer 3 — Slide sequence.** Write an action title for every slide BEFORE selecting any exhibit. Each title is a full-sentence conclusion: "[Segment] [verb] [quantified finding], [implication]." Read all titles in sequence — they must tell the complete recommendation in 2 minutes (helicopter test). If the test fails, fix the pillars (Layer 2), not the titles.
 
 **Layer 4 — Transitions.** Every pillar boundary needs one of five transition types:
-- **Pivot** — diagnostic → opportunity: "Given [finding], the prize is [quantified]"
-- **Narrowing** — broad → focused: "Of [N] options, [M] pass [criteria]"
-- **Escalation** — confirmed → risk: "Opportunity is real; binding constraint is [risk]"
-- **Synthesis** — multiple analyses → unified: "[A1] shows X, [A2] confirms Y → together [Z]"
-- **Decision Gate** — evaluation → choose: "Analysis narrows to [N] paths; decision turns on [factor]"
+- **Pivot** — diagnostic → opportunity: "Given [finding], the [opportunity/risk] is [quantified] — [implication]"
+- **Narrowing** — broad → focused: "Of [N] options, [M] pass [criteria] — question shifts to [specific]"
+- **Escalation** — confirmed → risk: "The [opportunity] is confirmed at [value]. Binding constraint is [risk]"
+- **Synthesis** — multiple analyses → unified: "[Analysis 1] shows X, [Analysis 2] confirms Y — together they point to [Z]"
+- **Decision Gate** — evaluation → choose: "Analysis narrows to [N] paths — decision turns on [differentiator]"
 
 Rising-stakes progression: Recognition → Clarity → Conviction → Urgency. Each pillar must escalate. Flat stakes = dead deck.
 
