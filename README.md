@@ -86,12 +86,15 @@ presentation/
 ├── deck-design-pdf/        HTML-to-PDF engine, 46 exhibit examples, 7 palettes
 ├── deck-design-ppt/        PPTX engine, 21 patterns, slot budgets
 ├── docs/                   GitHub Pages landing
-└── generate-previews.js    exhibit preview QA bench
+├── generate-previews.js    exhibit preview QA bench
+└── verify.js               behavior journal, 26 executable checks
 ```
 
 ## For agents and maintainers
 
-Root `AGENTS.md` is the single maintainer guide: repository rules, cross-skill contracts, per-skill notes. Skill folders contain only their runtime surface. Per-skill backlogs live in `TODO.md` where present. Regenerate exhibit previews with `node generate-previews.js` after touching examples or vendored chart libraries.
+Root `AGENTS.md` is the single maintainer guide: repository rules, cross-skill contracts, per-skill notes. Skill folders contain only their runtime surface. Per-skill backlogs live in `TODO.md` where present.
+
+`node verify.js` runs the behavior journal: executable checks that lock current behavior, from doc-link integrity and handoff round trips to two real deck builds. Run it before and after changes. Regenerate exhibit previews with `node generate-previews.js` after touching examples or vendored chart libraries.
 
 ## License
 

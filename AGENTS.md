@@ -53,6 +53,7 @@ Defines the vocabulary, not the implementation — downstream skills interpret t
 
 ## Commands
 
+- **Behavior journal: `node verify.js` from the repo root.** 26 checks locking current behavior: doc-link integrity, example/palette/pattern inventories and contracts, router visibility, version-claim-vs-vendor match, identity handoff round trips, and two real deck builds. `--quick` skips the builds. Run it before and after any change to engines, examples, palettes, patterns, or contract-bearing docs. A failing check means the behavior regressed (fix the code) or deliberately changed (update the check in the same commit).
 - Preview QA bench: `node generate-previews.js [--all] [example-id]` from the repo root
 - Per-skill dependencies: `npm install` inside the skill folder
 - PPT thumbnail QA: via the `pptx` skill (Python + Pillow + python-pptx through `uv`)
