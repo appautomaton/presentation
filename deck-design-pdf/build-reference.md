@@ -7,7 +7,7 @@
 For decks with more than 5 slides, define a CSS class system in `headExtra` rather than repeating inline Tailwind on every slide.
 
 ```javascript
-const { createDeck } = require('./skills/deck-design-pdf/engine');
+const { createDeck } = require('<this-skill>/engine');
 
 createDeck({
   palette: 'consulting-mckinsey',
@@ -52,6 +52,8 @@ createDeck({
 ```
 
 Run: `node build-{slug}.js` → produces the PDF directly.
+
+`<this-skill>` = this skill's base directory path (provided in context when the skill loads). Node resolves `playwright` and all assets from the skill's own `node_modules/` and `vendor/` — no install needed in the user's project.
 
 **Why `headExtra` CSS classes over inline Tailwind for the shell:**
 - One change to `.deck-title` fixes all 20+ slides — vs editing each slide's `text-3xl font-semibold leading-snug tracking-tight`
@@ -159,24 +161,25 @@ The reusable production unit is the **atomic exhibit**: graph/table/visual only,
 {
   id,
   title,
-  tier,
-  proves,
-  data,
+  tier,        // 1 = presentation-grade, 2 = document-grade
+  proves,      // the analytical question this pattern answers
+  data,        // what the sample data shows
   sectionLabel,
   actionTitle,
   source,
   exhibitId,
-  responsiveSpec,  // optional: chart ranges or layout QA samples
-  renderExhibit({ checkpoint, width, height, tokens }) { ... }
+  minSize,     // optional: smallest canvas width the pattern supports
+  renderExhibit({ tokens }) { ... }  // tokens = { width, height } — returns an HTML string
 }
 ```
 
-Use the shared helpers in `examples/_shared.js` to render:
+Every example is **self-contained** — there is no shared helper module. Each template marks three edit zones in its source:
 
-- an exhibit-only QA artifact
-- a wrapped slide reference artifact
+1. **Brand variables** — font + colors to swap from the palette config
+2. **Data** — sample categories and values to replace with real data
+3. **Sizing limits** — `[min, max]` ranges that the responsive formulas interpolate between
 
-Treat `examples/_shared.js` as the internal standards layer. Share only reusable typography, text roles, chart chrome, and repeated semantic colors. Keep exhibit geometry, data mapping, label placement, and one-off visual emphasis inside each template.
+Below the edit zones sits a computed sizing block (font size, bar width, wrap thresholds derived from `tokens.width` / `tokens.height`), and the header comment records the ECharts gotchas that pattern already solved. Keep exhibit geometry, data mapping, label placement, and one-off visual emphasis inside each template — do not invent a shared abstraction layer.
 
 ## Layout anti-patterns
 
@@ -219,7 +222,7 @@ Every palette provides these CSS custom properties. Use via Tailwind arbitrary v
 Two systems exist for typography sizing. They serve different contexts — don't mix them.
 
 1. **Slide HTML** — use the Tailwind class table below. Pick a role, use its class. No programmatic tokens.
-2. **ECharts exhibits** — use the responsive tokens from `examples/_shared.js`. ECharts takes `fontSize` as a JS number, so Tailwind classes don't apply inside chart config.
+2. **ECharts exhibits** — compute sizes from the chart's target width and height (see § ECharts exhibit sizing). ECharts takes `fontSize` as a JS number, so Tailwind classes don't apply inside chart config.
 
 ### Tailwind type roles — slide HTML
 
@@ -261,17 +264,26 @@ Every text element in slide HTML must use one of these roles. All roles use nati
 | `text-5xl` | 48px | 36pt |
 | `text-6xl` | 60px | 45pt |
 
-### ECharts exhibit tokens
+### ECharts exhibit sizing
 
-For chart/exhibit JavaScript, use the responsive token system from `examples/_shared.js`:
+Chart config takes JS numbers, so responsiveness is computed, not CSS. Follow the pattern every example uses — declare tunable limits, then interpolate on the actual canvas size:
 
-- `tokens.bodyText` / `tokens.smallText` / `tokens.microText` — text sizes that scale with canvas
-- `tokens.adapt(compact, preferred, wide)` — continuous interpolation for geometry
-- `tokens.textAdapt(compact, preferred, wide)` — slower compression for text legibility
-- `getFigureTypography(tokens)` — axis, legend, label, annotation, metric role presets
-- `getChartChrome(tokens)` — shared axis/gridline/legend config fragments
+```javascript
+const fontSizeRange = [14, 20];                     // [min, max] px — the tunable knob
+const [fontMin, fontMax] = fontSizeRange;
+const fontSize = Math.max(fontMin, Math.min(fontMax,
+  Math.round(fontMin + (width - 300) / (1120 - 300) * (fontMax - fontMin))));
 
-Use token roles wherever the styling is standard. Do not abstract geometry, chart-specific layout, or exhibit-specific emphasis into shared helpers.
+const barWidth = Math.max(12, Math.min(48,          // thickness from the vertical budget
+  Math.round((height - 16) / itemCount * 0.55)));
+
+const wrapLabels = width < 400;                     // structural switch below a threshold
+```
+
+- Interpolate text linearly across the supported width range (300–1120px), clamped to a declared `[min, max]`.
+- Derive bar/row thickness from the vertical budget: height ÷ item count × fill ratio, clamped.
+- Use width thresholds for structural switches (label wrapping, legend position) — never for font sizes.
+- Keep all sizing local to the chart: declared limits at the top, computed values below, nothing shared across exhibits.
 
 ## Spatial constants
 
@@ -321,9 +333,9 @@ Font Awesome 6 Free is vendored locally. Use `<i>` tags inline with text or as s
 
 Icons work best as visual anchors on KPI cards, process steps, and list items. Do not over-decorate.
 
-## Data Visualization — ECharts 5
+## Data Visualization — ECharts 6
 
-ECharts 5 is vendored locally with **SVG renderer** (mandatory — `<canvas>` blanks in Playwright PDF). For exhibit selection, use [chart-taxonomy.md](chart-taxonomy.md).
+ECharts 6 is vendored locally with **SVG renderer** (mandatory — `<canvas>` blanks in Playwright PDF). For exhibit selection, use [chart-taxonomy.md](chart-taxonomy.md).
 
 **Chart container pattern:**
 ```html
@@ -418,42 +430,15 @@ Use CSS-only bars for simple progress/comparison visuals. Use ECharts for anythi
 
 ## Responsive support model
 
-Do not author examples against hardwired `sm/md/lg` buckets. The reference canvas remains `1280×720`, but responsiveness follows the actual target `width` and `height`.
+Do not author examples against hardwired `sm/md/lg` buckets. The reference canvas remains `1280×720`, but responsiveness follows the actual target `width` and `height` passed in `tokens`.
 
-Use one of two contracts:
+Each template declares its own limits inline:
 
-1. **Chart / figure templates**
+- **`minSize`** (optional module export) — the smallest canvas width the pattern supports; the preview bench skips smaller render sizes.
+- **Sizing limits** at the top of `renderExhibit` — `[min, max]` ranges that the computed sizing block interpolates between (see § ECharts exhibit sizing).
+- **Structural switches** — width thresholds where the template changes shape (wrap labels, drop a legend, stack columns).
 
-```javascript
-responsiveSpec: {
-  templateClass: 'chart',
-  exhibitRange: {
-    min: { width: 960, height: 540 },
-    preferred: { width: 1280, height: 720 },
-    max: { width: 1600, height: 900 },
-  },
-  slideRange: {
-    min: { width: 1024, height: 576 },
-    preferred: { width: 1280, height: 720 },
-    max: { width: 1600, height: 900 },
-  },
-  rationale: 'end labels become unreadable below the declared minimum',
-}
-```
-
-2. **Layout / content templates**
-
-```javascript
-responsiveSpec: {
-  templateClass: 'layout',
-  previewSamples: [
-    { label: 'compact', width: 1024, height: 576 },
-    { label: 'preferred', width: 1280, height: 720 },
-    { label: 'wide', width: 1440, height: 810 },
-  ],
-  agentSizingNotes: 'agent should split or simplify if width falls below the compact QA sample',
-}
-```
+Declared ranges are validated visually, not by contract metadata: `generate-previews.js` (repo root) renders every example at 540×540, plus 300×300 and 720×720 with `--all`.
 
 ## Layout primitives
 

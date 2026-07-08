@@ -37,10 +37,47 @@ When the input is a storyboard artifact (from the consultant skill), the brief e
 |---|---|
 | Firm overlay | Style (Phase 1, step 2) |
 | Density level | Density (Phase 1, step 3) |
-| Per-slide data shape | Pattern routing (Phase 1, step 6) |
-| Per-slide structured data | Build script data objects (Phase 2, step 8) |
+| Per-slide content description | Data-shape extraction (Phase 1, step 5) + pattern routing (step 6) |
+| Structured data | Build script data objects (Phase 2, step 8) |
 
-Skip Phase 1 steps 1 and 5. The storyboard provides the content decisions; deck-design-ppt provides the visual execution.
+Skip Phase 1 step 1 — the brief extraction is already done. Steps 5–6 still run here: the storyboard deliberately describes WHAT each slide must prove (the comparison, decomposition, or evaluation), never chart types or data shapes. Deriving the shape from the content description and routing it to a pattern is this skill's job.
+
+### Identity intake (from brand-system skill)
+
+If an `identity.js` produced by the brand-system skill exists in the working directory, the visual identity decisions are already made. Skip [Style Routing](#style-routing) — register the identity as a theme in the build script instead:
+
+```javascript
+const { createDeck } = require('<this-skill>/masters');
+const { THEMES } = require('<this-skill>/masters/theme');
+const brand = require('./identity');
+
+const hex = c => c.replace('#', '');   // themes use bare hex, identity.js uses #-prefixed
+THEMES[brand.palette.name] = {
+  name:      brand.firm?.name || brand.palette.name,
+  accent:    hex(brand.palette.accent),
+  canvas:    hex(brand.palette.surface),
+  mist:      hex(brand.palette.surfaceMuted),
+  midnight:  hex(brand.palette.surfaceDark),
+  text:      hex(brand.palette.text),
+  textSec:   hex(brand.palette.textMuted),
+  textFine:  hex(brand.palette.textFine),
+  border:    hex(brand.palette.accentLight),
+  positive:  hex(brand.palette.positive),
+  caution:   hex(brand.palette.warning),
+  negative:  hex(brand.palette.negative),
+  font:        brand.fonts.body.family,
+  fontDisplay: brand.fonts.heading.family,
+  headerBar: brand.style === 'institutional' || brand.style === 'data-forward',
+  darkMode:  brand.style === 'dark',
+};
+
+createDeck(brand.palette.name, slides, 'deck.pptx');
+```
+
+Two caveats:
+
+- **Fonts** — PPTX embeds no fonts. The theme font renders only if installed on the viewer's machine; for unusual identity fonts, fall back to the stack's system font rather than risking substitution.
+- **Style direction** — `brand.style` shapes composition, not just chrome: `institutional` / `data-forward` lean on C-series density, `modern` / `bento` on card-heavy P-series, `dark` on full-bleed `sequoia`-like treatment, `editorial` on typography-led patterns over charts.
 
 ### Pattern library (21 communication patterns)
 
@@ -83,7 +120,7 @@ Save the outline as `{slug}-outline.md` alongside the build script. It serves as
 8. **Write the build script.** Assemble the slide list with structured data for each pattern:
 
 ```javascript
-const { createDeck } = require('./skills/deck-design-ppt/masters');
+const { createDeck } = require('<this-skill>/masters');
 
 createDeck('consulting-mckinsey', [
   { pattern: 'p01-cover', data: { title: '...', subtitle: '...' } },
@@ -94,6 +131,8 @@ createDeck('consulting-mckinsey', [
   { pattern: 'p08-closer', data: { title: '...', nextSteps: [...] } },
 ], 'strategy-update.pptx');
 ```
+
+`<this-skill>` = this skill's base directory path (provided in context when the skill loads). Node resolves `pptxgenjs` and `sharp` from the skill's own `node_modules/` — no install needed in the user's project.
 
 9. **Run it:** `node build-deck.js` — produces the `.pptx` directly. No HTML, no browser, no rendering step.
 

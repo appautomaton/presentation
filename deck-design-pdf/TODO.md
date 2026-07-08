@@ -18,8 +18,9 @@ Evaluated 2026-03-27. The consulting path is production-ready; the general path 
 
 - [x] **Square-neutral reference canvas** — `REFERENCE_EXHIBIT` 540×540, `DEFAULT_CHART_RANGE.floor` 300×300, layout-context preview samples (three-col, sidebar, split-col, full-width). Updated in `_shared.js`.
 - [x] **JPG preview generation** — `presentation/generate-previews.js` renders {id}.jpg (540×540) and {id}-min.jpg (300×300) for all 46 examples. Previews sit next to .js files.
-- [ ] **ECharts grid: containLabel fix** — Axis-based charts (waterfall, clustered-bars, stacked-bar, pareto, line-chart, heatmap, etc.) clip labels at 540px because `grid` margins use hardwired `tokens.adapt()` pixel offsets. Fix: switch to `grid: { left: 8, right: 8, top: 8, bottom: 8, containLabel: true }` — let ECharts measure labels and allocate space. Validate with regenerated previews before committing.
-- [ ] **Legend and data label collision** — radar legend overlaps, bubble-scatter labels collide, pareto dual-axis labels crowd. Audit after containLabel fix — some may resolve automatically.
+- [x] **ECharts grid: containLabel fix** — Obsolete as written: the self-contained template refactor removed `tokens.adapt()` grid offsets entirely; axis-based templates use tight grids with `containLabel: true` where needed. Validated via full preview regeneration on ECharts 6.1 (2026-07-08).
+- [x] **Legend and data label collision** — Radar legend overlap and bubble-scatter label collisions resolved by the ECharts 6.1 upgrade (axis-label overflow prevention) + template refactor. Confirmed in regenerated previews (2026-07-08).
+- [ ] **Pareto cumulative label** — Residual from the 2026-07-08 preview run: the cumulative-line percentage label sits on a dark bar at 540×540, low contrast. Fix label position/offset in `examples/pareto.js` and regenerate its preview.
 
 ## P3 — Polish
 

@@ -1,8 +1,8 @@
 /**
  * Deck Design — Master Builder
  *
- * Usage:
- *   const { createDeck } = require('./skills/deck-design-ppt/masters');
+ * Usage (from any working directory — resolve via the skill's base path):
+ *   const { createDeck } = require('<skill-base-dir>/masters');
  *
  *   createDeck('consulting-mckinsey', [
  *     { pattern: 'p01-cover', data: { title: '...', subtitle: '...' } },

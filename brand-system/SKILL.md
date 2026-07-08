@@ -201,4 +201,4 @@ brand-system/
 
 Self-contained: `package.json` + `node_modules/` are inside the skill folder. All `require()` calls resolve locally — no workspace-level install needed. Run `npm install` inside this skill folder if `node_modules/` is missing.
 
-The `identity.js` this skill produces is an **input to downstream skills**, not an instruction. Downstream skills interpret the style direction for their own medium — this skill defines the vocabulary, not the implementation.
+The `identity.js` this skill produces is an **input to downstream skills**, not an instruction. Downstream skills interpret the style direction for their own medium — this skill defines the vocabulary, not the implementation. Deck-building skills each define an identity intake step in their own SKILL.md that consumes this file directly (palette CSS for web-based renderers via `toCSS()`, theme-object registration for native PPTX).

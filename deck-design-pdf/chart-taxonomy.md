@@ -362,7 +362,7 @@ These are NOT charts — they are structural layouts that no charting library pr
 - **ECharts:** dumbbell-benchmark (scatter), stakeholder-map (scatter), network-map (graph), cohort-retention (heatmap), economic-value-stack (stacked bar).
 - **Firm affinity:** Facts-vs-Perspectives is Bain's signature. RAPID maps are Bain-originated. Driver trees are McKinsey's signature. Economic value stacks are BCG-originated (EVE). Three horizons is McKinsey-originated. Others are universal.
 - **Density:** All compositions work at L2 and L3. At L1, Facts-vs-Perspectives, Driver Tree, and Three Horizons adapt well; RAPID maps, Swimlanes, Capability matrices, and Decision flows are inherently L2+.
-- **Token-driven:** All use `_shared.js` tokens for responsive text and spacing. No hardcoded font sizes.
+- **Responsive:** All compute text and spacing from the container's width and height with clamped interpolation. No fixed font sizes.
 
 ---
 

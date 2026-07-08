@@ -7,7 +7,7 @@ A modular JS build kit that generates professional slide decks as native editabl
 ## Structure
 
 ```
-skills/deck-design-ppt/
+deck-design-ppt/
 ├── SKILL.md                           ← operational playbook (agent reads this first)
 ├── masters/                           ← JS build kit (the core)
 │   ├── index.js                       ← createDeck(palette, slides, output) orchestrator
@@ -45,7 +45,8 @@ skills/deck-design-ppt/
 ## Quick Start
 
 ```javascript
-const { createDeck } = require('./skills/deck-design-ppt/masters');
+// <this-skill> = the skill's base directory (e.g. ~/.claude/skills/deck-design-ppt)
+const { createDeck } = require('<this-skill>/masters');
 
 createDeck('consulting-mckinsey', [
   { pattern: 'p01-cover', data: { title: 'Deck Title', subtitle: '...' } },

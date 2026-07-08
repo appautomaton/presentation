@@ -3,8 +3,8 @@
  *
  * All assets are vendored locally — no CDN, no network dependency.
  *
- * Usage:
- *   const { createDeck } = require('./skills/deck-design-pdf/engine');
+ * Usage (from any working directory — resolve via the skill's base path):
+ *   const { createDeck } = require('<skill-base-dir>/engine');
  *
  *   createDeck({
  *     palette: 'consulting-mckinsey',

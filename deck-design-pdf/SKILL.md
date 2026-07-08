@@ -27,7 +27,7 @@ description: >
 - Google Fonts with optical sizing and variable weights
 - Font Awesome 6 icons inline with text
 - Gradient backgrounds, box shadows, rounded corners, opacity
-- ECharts 5 (SVG renderer) — 21 chart types: bar, line, pie, scatter, waterfall, gauge, sankey, treemap, radar, funnel, heatmap, and more
+- ECharts 6 (SVG renderer) — 21 chart types: bar, line, pie, scatter, waterfall, gauge, sankey, treemap, radar, funnel, heatmap, and more
 - Tailwind utility classes — rapid, consistent styling
 
 ## Phase 1 — Understand and Route
@@ -60,8 +60,35 @@ This determines how deep the planning phase goes. Two paths:
 | Diagnostic, decision support, facts-vs-perspectives | `consulting-bain` | Light | Source Sans 3 |
 | Startup pitch / product narrative / growth story | `founder` | Light | Plus Jakarta Sans |
 | Crisis / urgency / downturn memo / high-stakes | `sequoia` | Dark | Georgia + Inter |
+| Warm, rigorous-but-human strategy work (Anthropic-adjacent ivory + clay) | `anthropic-consulting` | Light | Manrope (not vendored — load via `headExtra`) |
+| Google-ecosystem client engagement (muted Google Blue) | `meridian-google` | Light | Inter |
 
-The fonts above are vendored locally for the default palettes. The agent is not limited to these — any Google Font can be loaded via a `<link>` tag in `headExtra` when the brief calls for a different typeface.
+The vendored font families are Inter, DM Sans, Plus Jakarta Sans, and Source Sans 3. The agent is not limited to these — any Google Font can be loaded via a `<link>` tag in `headExtra` when the brief calls for a different typeface.
+
+**Brand identity intake (from brand-system skill)** — if an `identity.js` produced by the `brand-system` skill exists in the working directory, the style decision is already made. Do not route through the table above:
+
+1. **Palette** — `identity.js` emits engine-compatible palette CSS. Write it into this skill's palette directory, then pass its name to `createDeck`:
+
+   ```javascript
+   const fs = require('fs');
+   const brand = require('./identity');
+   fs.writeFileSync('<this-skill>/palettes/' + brand.palette.name + '.css', brand.toCSS());
+   // then: createDeck({ palette: brand.palette.name, ... })
+   ```
+
+2. **Fonts** — if `brand.fonts` names a family outside the vendored four, load it via a Google Fonts `<link>` in `headExtra` (network required at build time) or accept the stack's system fallback.
+3. **Style direction** — `brand.style` routes composition treatment, not colors:
+
+   | `identity.js` style | Compose like | Treatment |
+   |---|---|---|
+   | `institutional` | `consulting-mckinsey` | Restrained chrome, sharp corners, rules over boxes |
+   | `modern` | `founder` | Cards, rounded corners, confident accent use |
+   | `dark` | `sequoia` | Dark surfaces as default, high-contrast accents |
+   | `bento` | `founder` | Card-grid compositions dominate, surface-muted tiles |
+   | `editorial` | — | Typography-led: oversized headings, fewer panels, whitespace as structure |
+   | `data-forward` | `consulting-bcg` | Chart-dense, panel mini-headers, minimal decoration |
+
+The identity's colors and fonts are authoritative; layout and composition belong to this skill.
 
 **Density:**
 
@@ -226,16 +253,16 @@ You are composing **custom HTML for each slide** based on the user's actual data
 2. The action title tells you **what to prove**. The exhibit type tells you **how to prove it**. The chart spec tells you the **exact dimensions**.
 3. Read the relevant example file to learn the visual pattern — the ECharts config structure, the CSS layout approach, the annotation placement. Do not copy its data or dimensions.
 4. Compose the slide HTML with the user's real data. Use the slide shell (header → body → footer). Apply palette CSS custom properties — never hardcode brand colors.
-5. Size text and spacing through the token system (`tokens.adapt()`, `getFigureTypography()`, `getChartChrome()`), not hardcoded pixels.
+5. Size slide text through the Tailwind type roles (build-reference.md § Typography scale). Inside ECharts config, compute font sizes and geometry from the chart's actual width and height the way the examples do — declared `[min, max]` ranges with clamped interpolation — not fixed magic numbers.
 
 **What to learn from each example:**
 
 | Look at | To understand |
 |---|---|
 | ECharts `setOption({...})` structure | Which config keys produce this chart type |
-| `tokens.adapt(compact, preferred, wide)` calls | How geometry responds to canvas size |
-| `getFigureTypography(tokens)` roles | Axis labels, data labels, annotations — what size/weight/color |
-| `getChartChrome(tokens)` fragments | Axis lines, gridlines, legends — the shared chrome |
+| The "Brand variables" block | Which colors and fonts are meant to be swapped from the palette |
+| The "Sizing limits" + computed sizing block | How fonts and geometry interpolate with canvas width/height |
+| The "ECharts gotchas" header comment | Library pitfalls this pattern already solved — label colors, wrapping, `containLabel` |
 | Semantic color usage | Accent for focus, gray for context, green/red for deltas |
 | The `proves` field | What analytical question this pattern answers |
 
@@ -324,10 +351,9 @@ Self-contained: `package.json` + `node_modules/` are inside the skill folder. Al
 | `engine/index.js` | Always | `createDeck(options)` — assembles HTML, calls renderer |
 | `engine/render.js` | Always | Playwright Chromium → `page.pdf()` |
 | `palettes/*.css` | Always | CSS custom properties per style (colors, fonts) |
-| `examples/_shared.js` | Build reference | Typography tokens, chart chrome, responsive sizing |
-| `examples/*.js` | Build reference | 46 visual pattern references — read-only, not imported at runtime |
+| `examples/*.js` | Build reference | 46 self-contained visual pattern references — read-only, not imported at runtime |
 
-**How examples relate to deck building:** The agent does NOT import or call example files at runtime. Examples exist as **read-only references** — the agent reads them to learn visual patterns, then writes original HTML in the build script. The build script uses only `engine/index.js` (`createDeck`). The examples use `_shared.js` to demonstrate best practices for token usage, but the agent composes slide HTML directly.
+**How examples relate to deck building:** The agent does NOT import or call example files at runtime. Examples exist as **read-only references** — the agent reads them to learn visual patterns, then writes original HTML in the build script. The build script uses only `engine/index.js` (`createDeck`). Each example is fully self-contained — brand variables, data, sizing limits, and responsive formulas live inline in one file — so reading a single example shows the complete pattern.
 
 The engine handles: HTML document assembly, vendored font loading, Font Awesome injection, ECharts (SVG renderer), Tailwind injection, palette CSS injection, Playwright launch, `page.pdf()` rendering. All assets are local — zero network dependency at build time.
 
