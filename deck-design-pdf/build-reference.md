@@ -17,7 +17,7 @@ createDeck({
   width: 1280,       // optional
   height: 720,       // optional
   headExtra: `<style>
-    /* Slide shell — CSS Grid prevents footer overflow */
+    /* Slide shell: CSS Grid prevents footer overflow */
     .deck-shell { height: 100%; display: grid; grid-template-rows: auto minmax(0,1fr) 48px; }
     .deck-header { padding: 28px 56px 8px 56px; border-top: 4px solid var(--accent); }
     .deck-body { min-height: 0; overflow: hidden; padding: 12px 56px 8px 56px; }
@@ -36,7 +36,7 @@ createDeck({
     `<div class="deck-shell">
        <div class="deck-header">
          <p class="deck-section">Section Label</p>
-         <h2 class="deck-title">Action title — full sentence conclusion</h2>
+         <h2 class="deck-title">Action title (full sentence conclusion)</h2>
          <div class="deck-rule"></div>
        </div>
        <div class="deck-body">
@@ -118,23 +118,23 @@ The shell uses **CSS Grid with fixed row heights** — this structurally prevent
 
 ```html
 <div style="height: 100%; display: grid; grid-template-rows: auto minmax(0, 1fr) 48px;">
-  <!-- HEADER ZONE — action title with accent bar -->
+  <!-- HEADER ZONE: action title with accent bar -->
   <div class="px-14 pt-8 pb-2 border-t-4 border-[var(--accent)]">
     <p class="text-xs font-semibold tracking-widest uppercase text-[var(--accent)] mb-1">
       Section Label
     </p>
     <h2 class="text-3xl font-semibold leading-snug tracking-tight text-[var(--text)]"
         style="font-family: var(--font-heading)">
-      Action title — full sentence conclusion
+      Action title (full sentence conclusion)
     </h2>
   </div>
 
-  <!-- BODY ZONE — all content lives here; overflow is clipped, never pushes footer -->
+  <!-- BODY ZONE: all content lives here, overflow is clipped, never pushes footer -->
   <div class="px-14 py-3" style="min-height: 0; overflow: hidden;">
     <!-- Layout primitives go here (grids, cards, charts, etc.) -->
   </div>
 
-  <!-- FOOTER ZONE — fixed 48px row, cannot be displaced -->
+  <!-- FOOTER ZONE: fixed 48px row, cannot be displaced -->
   <div class="px-14 flex items-center justify-between
               text-xs text-[var(--text-fine)]"
        style="font-family: var(--font-body); border-top: 1px solid var(--accent-light, #ccc)33;">
@@ -169,7 +169,7 @@ The reusable production unit is the **atomic exhibit**: graph/table/visual only,
   source,
   exhibitId,
   minSize,     // optional: smallest canvas width the pattern supports
-  renderExhibit({ tokens }) { ... }  // tokens = { width, height } — returns an HTML string
+  renderExhibit({ tokens }) { ... }  // tokens = { width, height }, returns an HTML string
 }
 ```
 
@@ -269,7 +269,7 @@ Every text element in slide HTML must use one of these roles. All roles use nati
 Chart config takes JS numbers, so responsiveness is computed, not CSS. Follow the pattern every example uses — declare tunable limits, then interpolate on the actual canvas size:
 
 ```javascript
-const fontSizeRange = [14, 20];                     // [min, max] px — the tunable knob
+const fontSizeRange = [14, 20];                     // [min, max] px, the tunable knob
 const [fontMin, fontMax] = fontSizeRange;
 const fontSize = Math.max(fontMin, Math.min(fontMax,
   Math.round(fontMin + (width - 300) / (1120 - 300) * (fontMax - fontMin))));

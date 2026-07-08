@@ -97,7 +97,7 @@ The argument structure changes fundamentally by deliverable type — not just th
 
 ## Ghost Deck Bridge
 
-How to take a governing thought + pillars and produce the slide-level argument for deck handoff (see SKILL.md §10 — Composition with Delivery Skills).
+How to take a governing thought + pillars and produce the slide-level argument for deck handoff (see SKILL.md §10, Composition with Delivery Skills).
 
 **Layer 3 — Slide sequence.** Write an action title for every slide BEFORE selecting any exhibit. Each title is a full-sentence conclusion: "[Segment] [verb] [quantified finding], [implication]." Read all titles in sequence — they must tell the complete recommendation in 2 minutes (helicopter test). If the test fails, fix the pillars (Layer 2), not the titles.
 
