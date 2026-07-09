@@ -306,7 +306,7 @@ Step T4.5 - Capability building
 - Design a knowledge-transfer mechanism (Center of Excellence, internal academy, or embedded coaching program) so the client can sustain execution after the engagement ends. The test: could the client repeat this analysis in 12 months without consultants?
 
 Step T4.6 - Change architecture
-- Apply the Influence Model: change sticks only when four conditions hold simultaneously: (1) a compelling change story people understand and believe, (2) visible role modeling by senior leaders, (3) skill-building so people can perform the new behaviors, (4) reinforcing mechanisms (metrics, incentives, and processes) aligned to the new way. If any one is missing, the other three are insufficient. See [change-management.md](../../domains/change-management.md) for the full adoption and resistance methodology.
+- Apply the Influence Model: change sticks only when four conditions hold simultaneously: (1) a compelling change story people understand and believe, (2) visible role modeling by senior leaders, (3) skill-building so people can perform the new behaviors, (4) reinforcing mechanisms (metrics, incentives, and processes) aligned to the new way. If any one is missing, the other three are insufficient. See [change-management.md](../../domains/change-management.md) for resistance classification, change-load judgment, and the sponsorship calendar test.
 
 Primary artifacts
 - Initiative portfolio overview.

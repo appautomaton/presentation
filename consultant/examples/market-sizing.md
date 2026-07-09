@@ -2,6 +2,8 @@
 
 Practical market sizing examples across three business models with triangulation and sensitivity analysis.
 
+All figures and named sources below are illustrative teaching data from the time of writing. At runtime, web-search current market data: the payload here is the method (top-down vs bottom-up triangulation, delta diagnosis, sensitivity), never the numbers.
+
 ---
 
 **User:** "Size the market for an AI contract management platform targeting US mid-market."

@@ -93,16 +93,12 @@ Entry is attractive with manageable risk. [Governing thought]
 
 ---
 
-## 4. Reusable MECE Structures
+## 4. MECE Decomposition Judgment
 
-Starting scaffolds for recurring decompositions: adapt to the client's specific structure.
+Claude knows the standard decompositions (revenue as price × volume × mix, profitability lines, growth sources, funnel stages). Two rules govern their use:
 
-- **Revenue**: Price × Volume × Mix (each decomposes further: price into list × discount × terms; volume into addressable × penetration × retention)
-- **Profitability**: Revenue − COGS − SG&A − D&A (decompose each as rate × volume or fixed + variable)
-- **Growth**: Market growth + Share gain + New markets + New products
-- **Customer economics**: Acquire → Activate → Retain → Monetize → Refer (each stage has conversion rate + cost)
-
-If the client's business doesn't map cleanly to these, that's a signal: the non-standard structure is often where the insight lives.
+- Decompose along lines of accountability, mirroring how the client actually manages the P&L. A branch nobody owns produces a recommendation nobody executes.
+- If the client's business doesn't map cleanly to a standard structure, that's signal, not friction: the non-standard structure is often where the insight lives.
 
 ---
 

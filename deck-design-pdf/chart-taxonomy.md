@@ -149,16 +149,6 @@ Specific analytical needs. Used when the analysis demands it, not routine.
 
 ## Firm Visual Identity
 
-### Documented: What Each Firm Actually Invented
-
-Historical facts that shape each firm's visual DNA.
-
-**McKinsey:** Barbara Minto developed the Pyramid Principle at McKinsey (1960s–70s): structured communication where the conclusion leads and evidence follows. This is why McKinsey-style slides open with the verdict in the action title. Every slide proves one conclusion stated upfront.
-
-**BCG:** Bruce Henderson created the Growth-Share Matrix in 1970: the original 2×2 matrix (Stars, Cash Cows, Dogs, Question Marks). This established two-dimensional strategic positioning as a fundamental consulting tool. BCG's analytical framework tradition descends from this: process-transparent, framework-anchored arguments.
-
-**Bain:** Fred Reichheld (Bain Fellow) created the Net Promoter Score in 2003. Bain positions around "Results Delivery": every analysis connects to a specific decision and measurable outcome. This action-orientation shapes their visual language: always tie the exhibit to "what should the CEO do?"
-
 ### Observable: What's Visible in Public Materials
 
 From published reports, brand guidelines, and public presentations:

@@ -43,11 +43,8 @@ Every slide/section title is a complete sentence stating the conclusion, not the
 | Topic title (bad) | Action title (good) |
 |---|---|
 | "Revenue by Segment" | "Enterprise segment drove 80% of revenue growth, offsetting SMB decline" |
-| "Customer Satisfaction Results" | "NPS improved from 22 to 38 after service redesign, now above industry median" |
 | "Cost Structure Breakdown" | "Labor costs at 45% of revenue are 8pp above peer median, the largest savings opportunity" |
-| "Competitive Market Share" | "We lost 3pp share to Competitor A, primarily in the mid-market segment" |
 | "Employee Headcount Trend" | "Headcount grew 25% while revenue grew 8%, widening the productivity gap" |
-| "Technology Spend Overview" | "70% of IT budget goes to maintenance, leaving insufficient investment for growth" |
 
 **Flow test**: Read all action titles in sequence. Do they tell a complete story? If not, the argument structure is wrong, fix the structure, not the titles.
 
